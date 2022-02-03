@@ -10,5 +10,14 @@ package models;
  * @author 845593
  */
 public class Bike {
-    
+    private int bikeId;     
+    private long index;     
+    private User owner;     
+    private double price;       
+    private String maker;       
+    private int size;       
+    private String model;       
+    private boolean donate;     
+    private boolean toSell;     
+    private String photoPath; 
 }

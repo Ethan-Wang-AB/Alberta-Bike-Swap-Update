@@ -5,10 +5,15 @@
  */
 package models;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author 845593
  */
 public class Event {
-    
+    private int eventId;        
+    private String description;     
+    private String mediaPath;       
+    private ArrayList<Event_Date> events; 
 }

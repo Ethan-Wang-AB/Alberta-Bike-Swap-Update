@@ -5,10 +5,51 @@
  */
 package dataaccess;
 
+import java.io.File;
+
 /**
  *
  * @author 845593
  */
 public class SystemDB {
+    private final static SystemDB systemDB=new SystemDB();
+   private SystemDB(){
+    super();
+    }
+    public final boolean toggleOpenStatus()
+    {
+		return false;
+        
+    }    
     
+    
+    public final boolean backup(File file)
+    {
+		return false;
+        
+    }    
+    
+    
+    public final boolean restore(File file)
+    {
+		return false;
+        
+    }    
+    
+    
+    public final boolean archiveData()
+    {
+		return false;
+        
+    }    
+    
+    
+    public static SystemDB getInstance()
+    {
+		return systemDB;
+        
+    }    
+    
+    
+ 
 }

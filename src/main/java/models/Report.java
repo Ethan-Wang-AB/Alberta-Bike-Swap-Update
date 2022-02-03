@@ -5,10 +5,12 @@
  */
 package models;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author 845593
  */
 public class Report {
-    
+    private ArrayList<String[]> reports;
 }

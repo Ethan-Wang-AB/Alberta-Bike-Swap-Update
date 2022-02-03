@@ -10,5 +10,9 @@ package models;
  * @author 845593
  */
 public class Address {
+    private int addressId;
+    private City city;      
+    private String address;
+    
     
 }

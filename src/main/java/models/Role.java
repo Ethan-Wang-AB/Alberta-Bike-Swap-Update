@@ -10,5 +10,8 @@ package models;
  * @author 845593
  */
 public class Role {
-    
+    private int roleId;
+    private String roleName;
+    private String roleDesc;
+    private int shift;
 }

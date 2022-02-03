@@ -5,10 +5,17 @@
  */
 package models;
 
+import java.util.Date;
+
 /**
  *
  * @author 845593
  */
 public class Trade {
+    private int tradeId;
+    private Bike bike;
+    private User seller;
+    private User buyer;
+    private Date date;
     
 }

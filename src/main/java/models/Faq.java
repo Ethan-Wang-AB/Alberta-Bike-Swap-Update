@@ -10,5 +10,10 @@ package models;
  * @author 845593
  */
 public class Faq {
-    
+    	private int faqId;      
+    private String faqQuestion;     
+    private String faqAnswer;       
+    private boolean visible;        
+    private String type;        
+    private int position;
 }

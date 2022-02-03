@@ -21,6 +21,20 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+
+            <groupId>com.alberta.dependencies</groupId>
+
+            <artifactId>javax.mail</artifactId>
+
+            <version>1.0</version>
+
+            <scope>system</scope>
+
+            <systemPath>${basedir}/lib/javax.mail.jar</systemPath>
+
+        </dependency>
+        
     </dependencies>
 
     <build>

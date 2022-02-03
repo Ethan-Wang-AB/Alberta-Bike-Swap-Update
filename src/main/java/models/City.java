@@ -10,5 +10,7 @@ package models;
  * @author 845593
  */
 public class City {
-    
+    private int cityId;
+    	private State state;        
+    private String city;
 }

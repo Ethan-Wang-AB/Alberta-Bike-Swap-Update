@@ -5,10 +5,25 @@
  */
 package models;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author 845593
  */
 public class UserCollection {
+    private ArrayList<User> users;
     
+    public void add(User user){
+    users.add(user);
+    }
+ public void edit(User user){
+  
+    }
+ 
+  public void remove(User user){
+    users.remove(user);
+    }
+
+
 }

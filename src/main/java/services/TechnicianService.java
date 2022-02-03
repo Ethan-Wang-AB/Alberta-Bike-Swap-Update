@@ -5,10 +5,37 @@
  */
 package services;
 
+import dataaccess.BikeDB;
+import dataaccess.UserDB;
+import models.Bike;
+import models.User;
+
 /**
  *
  * @author 845593
  */
 public class TechnicianService {
+    	private BikeDB bikeDB;      
+    private UserDB userDB;      
+
     
+    
+    
+    public final boolean checkIndex(long index)
+    {
+		return false;
+        
+    }    
+    
+    
+    public final void setStatus(Bike bike)
+    {
+        
+    }    
+    
+    
+    public final void invalidTicket(User user)
+    {
+        
+    }    
 }
