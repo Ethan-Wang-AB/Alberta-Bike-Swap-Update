@@ -6,7 +6,9 @@
 package dataaccess;
 
 import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import models.Safety;
 
 /**
@@ -23,30 +25,76 @@ public class SafetyDB extends CommonDB<Safety> {
 
     @Override
     public boolean add(Safety a) {
-        EntityManager em = DBUtil.getEmFactory().createEntityManager();
-
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            EntityManager em = DBUtil.getEmFactory().createEntityManager();
+             EntityTransaction trans=em.getTransaction();
+        try {
+         
+             trans.begin();
+             em.persist(a);
+            
+             trans.commit();
+             return true;
+          
+        } catch(Exception ex){
+        trans.rollback();
+        return false;
+        } finally {
+            em.close();
+        } 
     }
 
     @Override
     public boolean update(Safety a) {
-        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+         EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+        try {
+          
+            trans.begin();
+            em.merge(a);
 
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            trans.commit();
+            return true;
+
+        } catch (Exception ex) {
+            trans.rollback();
+            return false;
+        } finally {
+            em.close();
+        }
     }
 
     @Override
     public boolean delete(Safety a) {
-        EntityManager em = DBUtil.getEmFactory().createEntityManager();
-
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+        
+        try {
+       
+            trans.begin();
+            em.remove(em.merge(a));
+          
+            trans.commit();
+            return true;
+        } catch (Exception ex) {
+            trans.rollback();
+            return false;
+        } finally {
+            em.close();
+        
+        }   
     }
 
     @Override
     public ArrayList<Safety> getAll() {
-        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+           EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            List<Safety> lists;
+            lists = em.createNamedQuery("Safety.findAll", Safety.class).getResultList();
+            return (ArrayList<Safety>) lists;
+        } finally {
+            em.close();
+        }
     }
 
     public static SafetyDB getInstance() {

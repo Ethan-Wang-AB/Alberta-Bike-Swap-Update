@@ -57,6 +57,11 @@ public class BikeDB extends CommonDB<Bike> {
 
             Bike bike = em.createNamedQuery("Bike.findById", Bike.class).setParameter("id", id).getSingleResult();
             return bike;
+        }catch(Exception ex){
+        System.out.println("get bike by id sql issue");
+        ex.printStackTrace();
+        return null;
+        
         } finally {
             em.close();
         }
@@ -68,9 +73,7 @@ public class BikeDB extends CommonDB<Bike> {
   EntityManager em = DBUtil.getEmFactory().createEntityManager();
              EntityTransaction trans=em.getTransaction();
         try {
-            //System.out.println("userDB update       "+ email+"   "+status+"     "+role+"     "+email+"     "+firstName);
-            
-             
+                     
             User user = a.getOwner();
             user.getBikes().add(a);
              trans.begin();
@@ -93,8 +96,6 @@ public class BikeDB extends CommonDB<Bike> {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
         try {
-            //System.out.println("userDB update       "+ email+"   "+status+"     "+role+"     "+email+"     "+firstName);
-
             trans.begin();
             em.merge(a);
 
@@ -111,7 +112,7 @@ public class BikeDB extends CommonDB<Bike> {
 
     @Override
     public boolean delete(Bike a) {
-                       EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
         
         try {

@@ -6,7 +6,9 @@
 package dataaccess;
 
 import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import models.Role;
 
 /**
@@ -23,39 +25,110 @@ public class RoleDB extends CommonDB<Role> {
 
     @Override
     public boolean add(Role a) {
-        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+       EntityManager em = DBUtil.getEmFactory().createEntityManager();
+       EntityTransaction trans=em.getTransaction();
+        try {
 
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                   trans.begin();
+             em.persist(a);
+                
+             trans.commit();
+             return true;
+          
+        } catch(Exception ex){
+        trans.rollback();
+        return false;
+        } finally {
+            em.close();
+        } 
     }
 
     @Override
     public boolean update(Role a) {
-        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+      EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+        try {
 
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            trans.begin();
+            em.merge(a);
+
+            trans.commit();
+            return true;
+
+        } catch (Exception ex) {
+            trans.rollback();
+            return false;
+        } finally {
+            em.close();
+        }
     }
 
     @Override
     public boolean delete(Role a) {
-        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+         EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+        
+        try {
+       
+            trans.begin();
+            em.remove(em.merge(a));
 
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            trans.commit();
+            return true;
+        } catch (Exception ex) {
+            trans.rollback();
+            return false;
+        } finally {
+            em.close();
+        
+        }  
     }
 
     @Override
     public ArrayList<Role> getAll() {
-        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+            EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            List<Role> lists;
+            lists = em.createNamedQuery("Role.findAll", Role.class).getResultList();
+            return (ArrayList<Role>) lists;
+        } finally {
+            em.close();
+        }
     }
 
     public final Role getByName(String name) {
+                EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        try {
+
+            Role role = em.createNamedQuery("Role.findByName", Role.class).setParameter("name", name).getSingleResult();
+            return role;
+        } catch(Exception ex){
+        System.out.println("get role by name sql issue");
+        ex.printStackTrace();
         return null;
+        
+        }finally {
+            em.close();
+            
+        }
 
     }
 
-    public final RoleDB getRole(int id) {
+    public final Role getRole(int id) {
+            EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        try {
+
+            Role role = em.createNamedQuery("Role.findById", Role.class).setParameter("id", id).getSingleResult();
+            return role;
+        } catch(Exception ex){
+        System.out.println("get role by id sql issue");
+        ex.printStackTrace();
         return null;
+        
+        }finally {
+            em.close();
+        }
 
     }
 

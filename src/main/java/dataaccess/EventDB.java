@@ -6,8 +6,11 @@
 package dataaccess;
 
 import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import models.Event;
+import models.User;
 
 /**
  *
@@ -23,34 +26,95 @@ public class EventDB extends CommonDB<Event> {
 
     @Override
     public boolean add(Event a) {
-        EntityManager em = DBUtil.getEmFactory().createEntityManager();
-
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+          EntityManager em = DBUtil.getEmFactory().createEntityManager();
+         EntityTransaction trans=em.getTransaction();
+        try {
+                      
+      
+             trans.begin();
+             em.persist(a);
+                       
+             trans.commit();
+             return true;
+          
+        } catch(Exception ex){
+        trans.rollback();
+        return false;
+        } finally {
+            em.close();
+        }    
     }
 
     @Override
     public boolean update(Event a) {
-        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+      EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+        try {
 
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            trans.begin();
+            em.merge(a);
+
+            trans.commit();
+            return true;
+
+        } catch (Exception ex) {
+            trans.rollback();
+            return false;
+        } finally {
+            em.close();
+        }    
     }
 
     @Override
     public boolean delete(Event a) {
-        EntityManager em = DBUtil.getEmFactory().createEntityManager();
-
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                           EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+        
+        try {
+     
+            trans.begin();
+            em.remove(em.merge(a));
+        
+            trans.commit();
+            return true;
+        } catch (Exception ex) {
+            trans.rollback();
+            return false;
+        } finally {
+            em.close();
+        
+        } 
     }
 
     @Override
     public ArrayList<Event> getAll() {
-        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+            EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            List<Event> lists;
+            lists = em.createNamedQuery("Event.findAll", Event.class).getResultList();
+            return (ArrayList<Event>) lists;
+        } finally {
+            em.close();
+        }
+
     }
 
     public final Event getEvent(int eventId) {
+           EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        try {
+            //System.out.println("Category get : "+name);
+
+            Event bike = em.createNamedQuery("Event.findById", Event.class).setParameter("id", eventId).getSingleResult();
+            return bike;
+        } catch(Exception ex){
+        System.out.println("get event by id sql issue");
+        ex.printStackTrace();
         return null;
+        
+        }finally {
+            em.close();
+        }
 
     }
 

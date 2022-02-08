@@ -6,67 +6,150 @@
 package dataaccess;
 
 import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import models.Bike;
+
 import models.Trade;
+import models.User;
 
 /**
  *
  * @author 845593
  */
-public class TradeDB extends CommonDB<Trade>{
-   private final static TradeDB tradeDB=new TradeDB();
-   
-   private TradeDB(){
-   super();
-   }
+public class TradeDB extends CommonDB<Trade> {
+
+    private final static TradeDB tradeDB = new TradeDB();
+
+    private TradeDB() {
+        super();
+    }
+
     @Override
     public boolean add(Trade a) {
-                        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
 
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            User seller = a.getSeller();
+            User buyer = a.getBuyer();
+            seller.getBikes().remove(a.getBike());
+            buyer.getBikes().add(a.getBike());
+            Bike bike = a.getBike();
+            bike.setOwner(buyer);
+            trans.begin();
+
+            em.persist(a);
+
+            em.merge(buyer);
+            em.merge(seller);
+            em.merge(bike);
+
+            trans.commit();
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            trans.rollback();
+            return false;
+
+        } finally {
+            em.close();
+        }
     }
 
     @Override
     public boolean update(Trade a) {
-                        EntityManager em = DBUtil.getEmFactory().createEntityManager();
-
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+        
+        try {
+            trans.begin();
+            em.merge(a);
+            trans.commit();
+            return true;
+        } catch (Exception ex) {
+            
+            trans.rollback();
+            return false;
+        } finally {
+            em.close();
+        }
     }
-
+    /**
+     * Only delete trade record when archive data, otherwise trades records will retain all the time
+     * @param a the trade record to be deleted
+     * @return true deletion successful, otherwise false
+     */
     @Override
     public boolean delete(Trade a) {
-                        EntityManager em = DBUtil.getEmFactory().createEntityManager();
-
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+        
+        try {
+            //User seller = a.getSeller();
+            User buyer=a.getBuyer();
+           // seller.getBikes().add(a.getBike());
+            buyer.getBikes().remove(a.getBike()); // for archive data, remove record
+            
+            trans.begin();
+            em.remove(em.merge(a));
+            em.merge(buyer);
+            trans.commit();
+            return true;
+        } catch (Exception ex) {
+            trans.rollback();
+            return false;
+        } finally {
+            em.close();
+        }
     }
 
     @Override
     public ArrayList<Trade> getAll() {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            List<Trade> lists;
+            lists = em.createNamedQuery("Trade.findAll", Trade.class).getResultList();
+            return (ArrayList<Trade>) lists;
+        } finally {
+            em.close();
+        }
     }
-    
-      
-   
-   
-    public final ArrayList<Trade> getAll(String cat)
-    {
-		return null;
+
+    public final ArrayList<Trade> getAll(String cat) {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+
+        try {
+            List<Trade> lists;
+            lists = em.createNamedQuery("Trade.findByCategory", Trade.class).setParameter("category", cat).getResultList();
+            return (ArrayList<Trade>) lists;
+        } finally {
+            em.close();
+        }
+
+    }
+
+    public final Trade getTrade(int id) {
+       EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        try {
+
+            Trade trade = em.createNamedQuery("Trade.findById", Trade.class).setParameter("id", id).getSingleResult();
+            return trade;
+        }catch(Exception ex){
+        System.out.println("get trade by id sql issue");
+        ex.printStackTrace();
+        return null;
         
-    }    
-    
-    
-    public final Trade getItem(int id)
-    {
-		return null;
-        
-    }    
-    
-    
-      public static TradeDB getInstance()
-    {
-		return tradeDB;
-        
-    } 
+        } finally {
+            em.close();
+        }
+
+    }
+
+    public static TradeDB getInstance() {
+        return tradeDB;
+
+    }
 }
