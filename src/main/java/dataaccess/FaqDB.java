@@ -6,7 +6,9 @@
 package dataaccess;
 
 import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import models.Faq;
 
 /**
@@ -24,29 +26,75 @@ public class FaqDB extends CommonDB<Faq> {
     @Override
     public boolean add(Faq a) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
-
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+             EntityTransaction trans=em.getTransaction();
+        try {
+         
+             trans.begin();
+             em.persist(a);
+            
+             trans.commit();
+             return true;
+          
+        } catch(Exception ex){
+        trans.rollback();
+        return false;
+        } finally {
+            em.close();
+        }    
     }
 
     @Override
     public boolean update(Faq a) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+        try {
+          
+            trans.begin();
+            em.merge(a);
 
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            trans.commit();
+            return true;
+
+        } catch (Exception ex) {
+            trans.rollback();
+            return false;
+        } finally {
+            em.close();
+        }
     }
 
     @Override
     public boolean delete(Faq a) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
-
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EntityTransaction trans = em.getTransaction();
+        
+        try {
+       
+            trans.begin();
+            em.remove(em.merge(a));
+          
+            trans.commit();
+            return true;
+        } catch (Exception ex) {
+            trans.rollback();
+            return false;
+        } finally {
+            em.close();
+        
+        }   
     }
 
     @Override
     public ArrayList<Faq> getAll() {
-        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+      EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            List<Faq> lists;
+            lists = em.createNamedQuery("Faq.findAll", Faq.class).getResultList();
+            return (ArrayList<Faq>) lists;
+        } finally {
+            em.close();
+        }
     }
 
     public static FaqDB getInstance() {
