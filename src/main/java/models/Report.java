@@ -13,4 +13,14 @@ import java.util.ArrayList;
  */
 public class Report {
     private ArrayList<String[]> reports;
+
+    public ArrayList<String[]> getReports() {
+        return reports;
+    }
+
+    public void setReports(ArrayList<String[]> reports) {
+        this.reports = reports;
+    }
+    
+    
 }
