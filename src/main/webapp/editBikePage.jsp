@@ -15,5 +15,8 @@
         <h1>Bike Status Page</h1>
         
         Get Ticket Number!! ${requestScope.ticketnum}
+        The Following showing the Bike content from the Database
+        Create a editable page for technician to edit bike info during event
+        
     </body>
 </html>
