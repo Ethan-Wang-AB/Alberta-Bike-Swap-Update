@@ -85,5 +85,10 @@
       </div>
       <button type="submit">Login</button>
       
+     <br/>
+          
+     ${requestScope.message}
+     <br/>
+      
     </form>
 </html>
