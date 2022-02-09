@@ -73,7 +73,7 @@
         
         
     </head>
-     <form action="/" method="POST">
+     <form action="BikeCheckServlet" method="POST">
       <h1>Bike Check Page</h1>
       <div class="formcontainer">
       <hr/>
