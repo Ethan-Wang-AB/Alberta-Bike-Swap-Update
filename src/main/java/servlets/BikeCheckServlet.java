@@ -28,19 +28,41 @@ public class BikeCheckServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet BikeCheckServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet BikeCheckServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+       
+        
+        
+         String ticketnum = request.getParameter("ticketnum");
+        String phonenum = request.getParameter("phonenum");
+        
+        
+               
+        if(ticketnum == null || phonenum == null ){
+            request.setAttribute("message", "Both fields required");
+            request.getRequestDispatcher("BikeCheckPage.jsp").forward(request, response);
         }
+        
+        else if(ticketnum.equals("") || phonenum.equals("") ){
+            request.setAttribute("message", "Both fields required");
+            request.getRequestDispatcher("BikeCheckPage.jsp").forward(request, response);
+        }
+        
+        else if (ticketnum != null && !ticketnum.equals("") && phonenum!= null && !phonenum.equals("")  ){
+            
+            //Addtional check for the both password and ticket from database is require 
+            //Start checking data here
+            //Method
+            
+            
+            
+            //If correct, forward to the EditBikePage for checking Bike status, ticket number also get forward
+            request.setAttribute("ticketnum", ticketnum);
+            request.getRequestDispatcher("EditBikePage.jsp").forward(request, response);
+            }
+        
+        
+        
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
