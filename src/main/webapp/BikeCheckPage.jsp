@@ -73,6 +73,9 @@
         
         
     </head>
+    <%--
+    //servlet path need to be check
+    --%>
      <form action="BikeCheckServlet" method="POST">
       <h1>Bike Check Page</h1>
       <div class="formcontainer">
