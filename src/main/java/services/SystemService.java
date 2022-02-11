@@ -7,7 +7,11 @@ package services;
 
 import dataaccess.SystemDB;
 import java.io.File;
+import java.util.Date;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
 import models.EventDate;
+import scheduler.QuartzScheduler;
 
 /**
  *
@@ -43,8 +47,12 @@ public class SystemService {
     }    
     
     
-    private final void notify(EventDate event)
+    private final void notify(EventDate event,ServletContext context)
     {
-        systemDB.notifyAll();
+        Date date=event.getStartDate();
+        QuartzScheduler scheduler=new QuartzScheduler(); 
+        scheduler.setStartTime(event);
+        ServletContextEvent ctx=new ServletContextEvent(context);
+        scheduler.contextInitialized(ctx);
     }    
 }

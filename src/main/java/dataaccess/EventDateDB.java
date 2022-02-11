@@ -6,6 +6,7 @@
 package dataaccess;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -120,6 +121,24 @@ public class EventDateDB extends CommonDB<EventDate> {
             return event_date;
         }catch(Exception ex){
         System.out.println("get event_date by id sql issue");
+        ex.printStackTrace();
+        return null;
+        
+        } finally {
+            em.close();
+        }
+
+    }
+    
+      public final EventDate getEvent_Date(Date date) {
+          EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        try {
+            //System.out.println("Category get : "+name);
+
+            EventDate event_date = em.createNamedQuery("EventDate.findByStartDate", EventDate.class).setParameter("startDate", date).getSingleResult();
+            return event_date;
+        }catch(Exception ex){
+        System.out.println("get event_date by date sql issue");
         ex.printStackTrace();
         return null;
         
