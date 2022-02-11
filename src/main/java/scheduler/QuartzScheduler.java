@@ -9,6 +9,7 @@ package scheduler;
  *
  * @author 845593
  */
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import javax.servlet.ServletContextEvent;
@@ -62,6 +63,7 @@ public class QuartzScheduler implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent ctx) {
         // define the job and tie it to our CreateQuartzJob class
+        ctx.getServletContext().setAttribute("events", new ArrayList<EventDate>().add(eventDate));
         JobDetail job = JobBuilder.newJob(CreateQuartzJob.class)
                 .withIdentity("myJob", "group1").build();
 
