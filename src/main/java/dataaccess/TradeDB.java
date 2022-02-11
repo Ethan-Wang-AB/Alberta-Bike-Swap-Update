@@ -32,12 +32,12 @@ public class TradeDB extends CommonDB<Trade> {
         EntityTransaction trans = em.getTransaction();
 
         try {
-            User seller = a.getSeller();
-            User buyer = a.getBuyer();
-            seller.getBikes().remove(a.getBike());
-            buyer.getBikes().add(a.getBike());
-            Bike bike = a.getBike();
-            bike.setOwner(buyer);
+            User seller = a.getSellerId();
+            User buyer = a.getBuyerId();
+            seller.getBikeList().remove(a.getBikeId());
+            buyer.getBikeList().add(a.getBikeId());
+            Bike bike = a.getBikeId();
+            bike.setUserId(buyer);
             trans.begin();
 
             em.persist(a);
@@ -88,9 +88,9 @@ public class TradeDB extends CommonDB<Trade> {
         
         try {
             //User seller = a.getSeller();
-            User buyer=a.getBuyer();
+            User buyer=a.getBuyerId();
            // seller.getBikes().add(a.getBike());
-            buyer.getBikes().remove(a.getBike()); // for archive data, remove record
+            buyer.getBikeList().remove(a.getBikeId()); // for archive data, remove record
             
             trans.begin();
             em.remove(em.merge(a));

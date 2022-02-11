@@ -5,52 +5,123 @@
  */
 package models;
 
+import java.io.Serializable;
+import java.util.List;
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
 /**
  *
  * @author 845593
  */
-public class Bike {
-    private int bikeId;     
-    private long index;     
-    private User owner;     
-    private double price;       
-    private String maker;       
-    private int size;       
-    private String model;       
-    private boolean donate;     
-    private boolean toSell;     
-    private String photoPath; 
+@Entity
+@Table(name = "bike")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "Bike.findAll", query = "SELECT b FROM Bike b")
+    , @NamedQuery(name = "Bike.findByBikeId", query = "SELECT b FROM Bike b WHERE b.bikeId = :bikeId")
+    , @NamedQuery(name = "Bike.findByBikeIndex", query = "SELECT b FROM Bike b WHERE b.bikeIndex = :bikeIndex")
+    , @NamedQuery(name = "Bike.findByPhotoPath", query = "SELECT b FROM Bike b WHERE b.photoPath = :photoPath")
+    , @NamedQuery(name = "Bike.findByMaker", query = "SELECT b FROM Bike b WHERE b.maker = :maker")
+    , @NamedQuery(name = "Bike.findByModel", query = "SELECT b FROM Bike b WHERE b.model = :model")
+    , @NamedQuery(name = "Bike.findBySize", query = "SELECT b FROM Bike b WHERE b.size = :size")
+    , @NamedQuery(name = "Bike.findByPrice", query = "SELECT b FROM Bike b WHERE b.price = :price")
+    , @NamedQuery(name = "Bike.findByToSell", query = "SELECT b FROM Bike b WHERE b.toSell = :toSell")
+    , @NamedQuery(name = "Bike.findByDonate", query = "SELECT b FROM Bike b WHERE b.donate = :donate")})
+public class Bike implements Serializable {
 
-    public int getBikeId() {
-        return bikeId;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "bike_id")
+    private Integer bikeId;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "bike_index")
+    private String bikeIndex;
+    @Size(max = 200)
+    @Column(name = "photo_path")
+    private String photoPath;
+    @Size(max = 20)
+    @Column(name = "maker")
+    private String maker;
+    @Size(max = 20)
+    @Column(name = "model")
+    private String model;
+    @Column(name = "size")
+    private Boolean size;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "price")
+    private double price;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "toSell")
+    private boolean toSell;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "donate")
+    private boolean donate;
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    @ManyToOne(optional = false)
+    private User userId;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "bikeId")
+    private List<Trade> tradeList;
+
+    public Bike() {
     }
 
-    public void setBikeId(int bikeId) {
+    public Bike(Integer bikeId) {
         this.bikeId = bikeId;
     }
 
-    public long getIndex() {
-        return index;
-    }
-
-    public void setIndex(long index) {
-        this.index = index;
-    }
-
-    public User getOwner() {
-        return owner;
-    }
-
-    public void setOwner(User owner) {
-        this.owner = owner;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
+    public Bike(Integer bikeId, String bikeIndex, double price, boolean toSell, boolean donate) {
+        this.bikeId = bikeId;
+        this.bikeIndex = bikeIndex;
         this.price = price;
+        this.toSell = toSell;
+        this.donate = donate;
+    }
+
+    public Integer getBikeId() {
+        return bikeId;
+    }
+
+    public void setBikeId(Integer bikeId) {
+        this.bikeId = bikeId;
+    }
+
+    public String getBikeIndex() {
+        return bikeIndex;
+    }
+
+    public void setBikeIndex(String bikeIndex) {
+        this.bikeIndex = bikeIndex;
+    }
+
+    public String getPhotoPath() {
+        return photoPath;
+    }
+
+    public void setPhotoPath(String photoPath) {
+        this.photoPath = photoPath;
     }
 
     public String getMaker() {
@@ -61,14 +132,6 @@ public class Bike {
         this.maker = maker;
     }
 
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-
     public String getModel() {
         return model;
     }
@@ -77,15 +140,23 @@ public class Bike {
         this.model = model;
     }
 
-    public boolean isDonate() {
-        return donate;
+    public Boolean getSize() {
+        return size;
     }
 
-    public void setDonate(boolean donate) {
-        this.donate = donate;
+    public void setSize(Boolean size) {
+        this.size = size;
     }
 
-    public boolean isToSell() {
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public boolean getToSell() {
         return toSell;
     }
 
@@ -93,14 +164,54 @@ public class Bike {
         this.toSell = toSell;
     }
 
-    public String getPhotoPath() {
-        return photoPath;
+    public boolean getDonate() {
+        return donate;
     }
 
-    public void setPhotoPath(String photoPath) {
-        this.photoPath = photoPath;
+    public void setDonate(boolean donate) {
+        this.donate = donate;
+    }
+
+    public User getUserId() {
+        return userId;
+    }
+
+    public void setUserId(User userId) {
+        this.userId = userId;
+    }
+
+    @XmlTransient
+    public List<Trade> getTradeList() {
+        return tradeList;
+    }
+
+    public void setTradeList(List<Trade> tradeList) {
+        this.tradeList = tradeList;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (bikeId != null ? bikeId.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Bike)) {
+            return false;
+        }
+        Bike other = (Bike) object;
+        if ((this.bikeId == null && other.bikeId != null) || (this.bikeId != null && !this.bikeId.equals(other.bikeId))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "models.Bike[ bikeId=" + bikeId + " ]";
     }
     
-    
-     
 }

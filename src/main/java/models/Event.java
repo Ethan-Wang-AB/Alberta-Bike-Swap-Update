@@ -5,32 +5,81 @@
  */
 package models;
 
-import java.util.ArrayList;
+import java.io.Serializable;
+import java.util.List;
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author 845593
  */
-public class Event {
-    private int eventId;        
-    private String description;     
-    private String mediaPath;       
-    private ArrayList<Event_Date> event_date;
+@Entity
+@Table(name = "event")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "Event.findAll", query = "SELECT e FROM Event e")
+    , @NamedQuery(name = "Event.findByEventId", query = "SELECT e FROM Event e WHERE e.eventId = :eventId")
+    , @NamedQuery(name = "Event.findByEventDesc", query = "SELECT e FROM Event e WHERE e.eventDesc = :eventDesc")
+    , @NamedQuery(name = "Event.findByMediaPath", query = "SELECT e FROM Event e WHERE e.mediaPath = :mediaPath")})
+public class Event implements Serializable {
 
-    public int getEventId() {
-        return eventId;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "event_id")
+    private Integer eventId;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 2000)
+    @Column(name = "event_desc")
+    private String eventDesc;
+    @Size(max = 2000)
+    @Column(name = "media_path")
+    private String mediaPath;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "eventId")
+    private List<EventDate> eventDateList;
+
+    public Event() {
     }
 
-    public void setEventId(int eventId) {
+    public Event(Integer eventId) {
         this.eventId = eventId;
     }
 
-    public String getDescription() {
-        return description;
+    public Event(Integer eventId, String eventDesc) {
+        this.eventId = eventId;
+        this.eventDesc = eventDesc;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public Integer getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(Integer eventId) {
+        this.eventId = eventId;
+    }
+
+    public String getEventDesc() {
+        return eventDesc;
+    }
+
+    public void setEventDesc(String eventDesc) {
+        this.eventDesc = eventDesc;
     }
 
     public String getMediaPath() {
@@ -41,15 +90,38 @@ public class Event {
         this.mediaPath = mediaPath;
     }
 
-    public ArrayList<Event_Date> getEvent_date() {
-        return event_date;
+    @XmlTransient
+    public List<EventDate> getEventDateList() {
+        return eventDateList;
     }
 
-    public void setEvent_date(ArrayList<Event_Date> event_date) {
-        this.event_date = event_date;
+    public void setEventDateList(List<EventDate> eventDateList) {
+        this.eventDateList = eventDateList;
     }
-    
-    
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (eventId != null ? eventId.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Event)) {
+            return false;
+        }
+        Event other = (Event) object;
+        if ((this.eventId == null && other.eventId != null) || (this.eventId != null && !this.eventId.equals(other.eventId))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "models.Event[ eventId=" + eventId + " ]";
+    }
     
 }

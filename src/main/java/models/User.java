@@ -5,38 +5,131 @@
  */
 package models;
 
-import java.util.ArrayList;
+import java.io.Serializable;
+import java.util.List;
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author 845593
  */
-public class User {
-    private int userId;     
-    private String userName;        
-    private String email;       
-    private Address address;        
-    private String password;        
-    private String salt;        
-    private boolean active;     
-    private Role role;     
-    private ArrayList<Bike> bikes;      
-    private long ticket;
+@Entity
+@Table(name = "user")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
+    , @NamedQuery(name = "User.findByUserId", query = "SELECT u FROM User u WHERE u.userId = :userId")
+    , @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email")
+    , @NamedQuery(name = "User.findByName", query = "SELECT u FROM User u WHERE u.name = :name")
+    , @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password")
+    , @NamedQuery(name = "User.findBySalt", query = "SELECT u FROM User u WHERE u.salt = :salt")
+    , @NamedQuery(name = "User.findByResetPasswordUuid", query = "SELECT u FROM User u WHERE u.resetPasswordUuid = :resetPasswordUuid")
+    , @NamedQuery(name = "User.findByPhotoPath", query = "SELECT u FROM User u WHERE u.photoPath = :photoPath")
+    , @NamedQuery(name = "User.findByCellNumber", query = "SELECT u FROM User u WHERE u.cellNumber = :cellNumber")
+    , @NamedQuery(name = "User.findByShirtSize", query = "SELECT u FROM User u WHERE u.shirtSize = :shirtSize")
+    , @NamedQuery(name = "User.findByTicket", query = "SELECT u FROM User u WHERE u.ticket = :ticket")})
+public class User implements Serializable {
 
-    public int getUserId() {
-        return userId;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "user_id")
+    private Integer userId;
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "email")
+    private String email;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "name")
+    private String name;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 500)
+    @Column(name = "password")
+    private String password;
+    @Size(max = 100)
+    @Column(name = "salt")
+    private String salt;
+    @Size(max = 50)
+    @Column(name = "reset_password_uuid")
+    private String resetPasswordUuid;
+    @Size(max = 300)
+    @Column(name = "photoPath")
+    private String photoPath;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "cell_number")
+    private long cellNumber;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "shirt_size")
+    private boolean shirtSize;
+    @Column(name = "ticket")
+    private Integer ticket;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
+    private List<EventDateUser> eventDateUserList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
+    private List<Bike> bikeList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "buyerId")
+    private List<Trade> tradeList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sellerId")
+    private List<Trade> tradeList1;
+    @JoinColumn(name = "address_id", referencedColumnName = "address_id")
+    @ManyToOne
+    private Address addressId;
+    @JoinColumn(name = "affiliation_id", referencedColumnName = "affiliation_id")
+    @ManyToOne
+    private Affiliation affiliationId;
+    @JoinColumn(name = "diet_id", referencedColumnName = "diet_id")
+    @ManyToOne
+    private Diet dietId;
+    @JoinColumn(name = "role_id", referencedColumnName = "role_id")
+    @ManyToOne(optional = false)
+    private Role roleId;
+
+    public User() {
     }
 
-    public void setUserId(int userId) {
+    public User(Integer userId) {
         this.userId = userId;
     }
 
-    public String getUserName() {
-        return userName;
+    public User(Integer userId, String email, String name, String password, long cellNumber, boolean shirtSize) {
+        this.userId = userId;
+        this.email = email;
+        this.name = name;
+        this.password = password;
+        this.cellNumber = cellNumber;
+        this.shirtSize = shirtSize;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getEmail() {
@@ -47,12 +140,12 @@ public class User {
         this.email = email;
     }
 
-    public Address getAddress() {
-        return address;
+    public String getName() {
+        return name;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPassword() {
@@ -71,38 +164,137 @@ public class User {
         this.salt = salt;
     }
 
-    public boolean isActive() {
-        return active;
+    public String getResetPasswordUuid() {
+        return resetPasswordUuid;
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
+    public void setResetPasswordUuid(String resetPasswordUuid) {
+        this.resetPasswordUuid = resetPasswordUuid;
     }
 
-    public Role getRole() {
-        return role;
+    public String getPhotoPath() {
+        return photoPath;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setPhotoPath(String photoPath) {
+        this.photoPath = photoPath;
     }
 
-    public ArrayList<Bike> getBikes() {
-        return bikes;
+    public long getCellNumber() {
+        return cellNumber;
     }
 
-    public void setBikes(ArrayList<Bike> bikes) {
-        this.bikes = bikes;
+    public void setCellNumber(long cellNumber) {
+        this.cellNumber = cellNumber;
     }
 
-    public long getTicket() {
+    public boolean getShirtSize() {
+        return shirtSize;
+    }
+
+    public void setShirtSize(boolean shirtSize) {
+        this.shirtSize = shirtSize;
+    }
+
+    public Integer getTicket() {
         return ticket;
     }
 
-    public void setTicket(long ticket) {
+    public void setTicket(Integer ticket) {
         this.ticket = ticket;
     }
-    
-    
+
+    @XmlTransient
+    public List<EventDateUser> getEventDateUserList() {
+        return eventDateUserList;
+    }
+
+    public void setEventDateUserList(List<EventDateUser> eventDateUserList) {
+        this.eventDateUserList = eventDateUserList;
+    }
+
+    @XmlTransient
+    public List<Bike> getBikeList() {
+        return bikeList;
+    }
+
+    public void setBikeList(List<Bike> bikeList) {
+        this.bikeList = bikeList;
+    }
+
+    @XmlTransient
+    public List<Trade> getTradeList() {
+        return tradeList;
+    }
+
+    public void setTradeList(List<Trade> tradeList) {
+        this.tradeList = tradeList;
+    }
+
+    @XmlTransient
+    public List<Trade> getTradeList1() {
+        return tradeList1;
+    }
+
+    public void setTradeList1(List<Trade> tradeList1) {
+        this.tradeList1 = tradeList1;
+    }
+
+    public Address getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(Address addressId) {
+        this.addressId = addressId;
+    }
+
+    public Affiliation getAffiliationId() {
+        return affiliationId;
+    }
+
+    public void setAffiliationId(Affiliation affiliationId) {
+        this.affiliationId = affiliationId;
+    }
+
+    public Diet getDietId() {
+        return dietId;
+    }
+
+    public void setDietId(Diet dietId) {
+        this.dietId = dietId;
+    }
+
+    public Role getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Role roleId) {
+        this.roleId = roleId;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (userId != null ? userId.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof User)) {
+            return false;
+        }
+        User other = (User) object;
+        if ((this.userId == null && other.userId != null) || (this.userId != null && !this.userId.equals(other.userId))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "models.User[ userId=" + userId + " ]";
+    }
     
 }

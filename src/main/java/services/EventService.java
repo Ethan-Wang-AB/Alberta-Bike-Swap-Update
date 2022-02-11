@@ -8,7 +8,7 @@ package services;
 import dataaccess.EventDB;
 import dataaccess.EventDateDB;
 import models.Event;
-import models.Event_Date;
+import models.EventDate;
 
 /**
  *
@@ -24,7 +24,7 @@ public class EventService {
 
     }
 
-    public final Event_Date getEventDate(int id) {
+    public final EventDate getEventDate(int id) {
         return null;
 
     }
@@ -34,7 +34,7 @@ public class EventService {
 
     }
 
-    public final boolean editEventDate(Event_Date e) {
+    public final boolean editEventDate(EventDate e) {
         return false;
     }
 
@@ -43,11 +43,11 @@ public class EventService {
 
     }
 
-    public final boolean delEventDate(Event_Date e) {
+    public final boolean delEventDate(EventDate e) {
         return false;
     }
 
-    public final void scheduleNotify(Event_Date event) {
+    public final void scheduleNotify(EventDate event) {
 
     }
 }

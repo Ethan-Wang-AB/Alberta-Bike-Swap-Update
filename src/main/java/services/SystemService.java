@@ -5,7 +5,7 @@
  */
 package services;
 
-import models.Event_Date;
+import models.EventDate;
 
 /**
  *
@@ -40,7 +40,7 @@ public class SystemService {
     }    
     
     
-    private final void notify(Event_Date event)
+    private final void notify(EventDate event)
     {
         
     }    

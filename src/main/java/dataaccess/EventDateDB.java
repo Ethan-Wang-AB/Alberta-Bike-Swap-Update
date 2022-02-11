@@ -10,14 +10,14 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import models.Event;
-import models.Event_Date;
-import models.Event_Date_User;
+import models.EventDate;
+import models.EventDateUser;
 
 /**
  *
  * @author 845593
  */
-public class EventDateDB extends CommonDB<Event_Date> {
+public class EventDateDB extends CommonDB<EventDate> {
 
     private final static EventDateDB eventdateDB = new EventDateDB();
 
@@ -26,13 +26,13 @@ public class EventDateDB extends CommonDB<Event_Date> {
     }
 
     @Override
-    public boolean add(Event_Date a) {
+    public boolean add(EventDate a) {
       EntityManager em = DBUtil.getEmFactory().createEntityManager();
      EntityTransaction trans=em.getTransaction();
         try {
                      
-            Event event = a.getEvent();
-            event.getEvent_date().add(a);
+            Event event = a.getEventId();
+            event.getEventDateList().add(a);
              trans.begin();
              em.persist(a);
              em.merge(event);
@@ -49,7 +49,7 @@ public class EventDateDB extends CommonDB<Event_Date> {
     }
 
     @Override
-    public boolean update(Event_Date a) {
+    public boolean update(EventDate a) {
               EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
         try {
@@ -68,16 +68,16 @@ public class EventDateDB extends CommonDB<Event_Date> {
     }
 
     @Override
-    public boolean delete(Event_Date a) {
+    public boolean delete(EventDate a) {
      EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
         
         try {
-            Event event = a.getEvent();
-            event.getEvent_date().remove(a);
+            Event event = a.getEventId();
+            event.getEventDateList().remove(a);
            
             
-            for(Event_Date_User u: a.getUsers()){
+            for(EventDateUser u: a.getEventDateUserList()){
             
             em.remove(em.merge(u));
             }
@@ -99,24 +99,24 @@ public class EventDateDB extends CommonDB<Event_Date> {
     }
 
     @Override
-    public ArrayList<Event_Date> getAll() {
+    public ArrayList<EventDate> getAll() {
        EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
         try {
-            List<Event_Date> lists;
-            lists = em.createNamedQuery("Event_Date.findAll", Event_Date.class).getResultList();
-            return (ArrayList<Event_Date>) lists;
+            List<EventDate> lists;
+            lists = em.createNamedQuery("Event_Date.findAll", EventDate.class).getResultList();
+            return (ArrayList<EventDate>) lists;
         } finally {
             em.close();
         }
     }
 
-    public final Event_Date getEvent_Date(int eventDateId) {
+    public final EventDate getEvent_Date(int eventDateId) {
           EntityManager em = DBUtil.getEmFactory().createEntityManager();
         try {
             //System.out.println("Category get : "+name);
 
-            Event_Date event_date = em.createNamedQuery("Event_Date.findById", Event_Date.class).setParameter("id", eventDateId).getSingleResult();
+            EventDate event_date = em.createNamedQuery("Event_Date.findById", EventDate.class).setParameter("id", eventDateId).getSingleResult();
             return event_date;
         }catch(Exception ex){
         System.out.println("get event_date by id sql issue");

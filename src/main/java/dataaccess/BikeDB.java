@@ -74,8 +74,8 @@ public class BikeDB extends CommonDB<Bike> {
              EntityTransaction trans=em.getTransaction();
         try {
                      
-            User user = a.getOwner();
-            user.getBikes().add(a);
+            User user = a.getUserId();
+            user.getBikeList().add(a);
              trans.begin();
              em.persist(a);
              em.merge(user);
@@ -116,8 +116,8 @@ public class BikeDB extends CommonDB<Bike> {
         EntityTransaction trans = em.getTransaction();
         
         try {
-            User user = a.getOwner();
-            user.getBikes().remove(a);
+            User user = a.getUserId();
+            user.getBikeList().remove(a);
             trans.begin();
             em.remove(em.merge(a));
             em.merge(user);

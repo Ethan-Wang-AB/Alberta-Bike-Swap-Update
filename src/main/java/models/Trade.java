@@ -5,59 +5,133 @@
  */
 package models;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author 845593
  */
-public class Trade {
-    private int tradeId;
-    private Bike bike;
-    private User seller;
-    private User buyer;
-    private Date date;
+@Entity
+@Table(name = "trade")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "Trade.findAll", query = "SELECT t FROM Trade t")
+    , @NamedQuery(name = "Trade.findByTradeId", query = "SELECT t FROM Trade t WHERE t.tradeId = :tradeId")
+    , @NamedQuery(name = "Trade.findByTransDate", query = "SELECT t FROM Trade t WHERE t.transDate = :transDate")})
+public class Trade implements Serializable {
 
-    public int getTradeId() {
-        return tradeId;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "trade_id")
+    private Integer tradeId;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "trans_date")
+    @Temporal(TemporalType.DATE)
+    private Date transDate;
+    @JoinColumn(name = "bike_id", referencedColumnName = "bike_id")
+    @ManyToOne(optional = false)
+    private Bike bikeId;
+    @JoinColumn(name = "buyer_id", referencedColumnName = "user_id")
+    @ManyToOne(optional = false)
+    private User buyerId;
+    @JoinColumn(name = "seller_id", referencedColumnName = "user_id")
+    @ManyToOne(optional = false)
+    private User sellerId;
+
+    public Trade() {
     }
 
-    public void setTradeId(int tradeId) {
+    public Trade(Integer tradeId) {
         this.tradeId = tradeId;
     }
 
-    public Bike getBike() {
-        return bike;
+    public Trade(Integer tradeId, Date transDate) {
+        this.tradeId = tradeId;
+        this.transDate = transDate;
     }
 
-    public void setBike(Bike bike) {
-        this.bike = bike;
+    public Integer getTradeId() {
+        return tradeId;
     }
 
-    public User getSeller() {
-        return seller;
+    public void setTradeId(Integer tradeId) {
+        this.tradeId = tradeId;
     }
 
-    public void setSeller(User seller) {
-        this.seller = seller;
+    public Date getTransDate() {
+        return transDate;
     }
 
-    public User getBuyer() {
-        return buyer;
+    public void setTransDate(Date transDate) {
+        this.transDate = transDate;
     }
 
-    public void setBuyer(User buyer) {
-        this.buyer = buyer;
+    public Bike getBikeId() {
+        return bikeId;
     }
 
-    public Date getDate() {
-        return date;
+    public void setBikeId(Bike bikeId) {
+        this.bikeId = bikeId;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public User getBuyerId() {
+        return buyerId;
     }
-    
-    
+
+    public void setBuyerId(User buyerId) {
+        this.buyerId = buyerId;
+    }
+
+    public User getSellerId() {
+        return sellerId;
+    }
+
+    public void setSellerId(User sellerId) {
+        this.sellerId = sellerId;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (tradeId != null ? tradeId.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Trade)) {
+            return false;
+        }
+        Trade other = (Trade) object;
+        if ((this.tradeId == null && other.tradeId != null) || (this.tradeId != null && !this.tradeId.equals(other.tradeId))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "models.Trade[ tradeId=" + tradeId + " ]";
+    }
     
 }
