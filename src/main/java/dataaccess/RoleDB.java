@@ -101,7 +101,7 @@ public class RoleDB extends CommonDB<Role> {
                 EntityManager em = DBUtil.getEmFactory().createEntityManager();
         try {
 
-            Role role = em.createNamedQuery("Role.findByName", Role.class).setParameter("name", name).getSingleResult();
+            Role role = em.createNamedQuery("Role.findByRoleName", Role.class).setParameter("roleName", name).getSingleResult();
             return role;
         } catch(Exception ex){
         System.out.println("get role by name sql issue");
@@ -119,7 +119,7 @@ public class RoleDB extends CommonDB<Role> {
             EntityManager em = DBUtil.getEmFactory().createEntityManager();
         try {
 
-            Role role = em.createNamedQuery("Role.findById", Role.class).setParameter("id", id).getSingleResult();
+            Role role = em.createNamedQuery("Role.findByRoleId", Role.class).setParameter("roleId", id).getSingleResult();
             return role;
         } catch(Exception ex){
         System.out.println("get role by id sql issue");

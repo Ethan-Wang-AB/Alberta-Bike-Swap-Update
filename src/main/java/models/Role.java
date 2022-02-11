@@ -57,7 +57,7 @@ public class Role implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "shift")
-    private boolean shift;
+    private short shift;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "roleId")
     private List<User> userList;
 
@@ -68,7 +68,7 @@ public class Role implements Serializable {
         this.roleId = roleId;
     }
 
-    public Role(Integer roleId, String roleName, String roleDescription, boolean shift) {
+    public Role(Integer roleId, String roleName, String roleDescription, short shift) {
         this.roleId = roleId;
         this.roleName = roleName;
         this.roleDescription = roleDescription;
@@ -99,11 +99,11 @@ public class Role implements Serializable {
         this.roleDescription = roleDescription;
     }
 
-    public boolean getShift() {
+    public short getShift() {
         return shift;
     }
 
-    public void setShift(boolean shift) {
+    public void setShift(short shift) {
         this.shift = shift;
     }
 

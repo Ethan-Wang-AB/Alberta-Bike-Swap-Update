@@ -24,56 +24,56 @@ public class FaqSafetyService {
     
     public final boolean add(Faq fa)
     {
-		return false;
+          return faqDB.add(fa);
         
     }    
     
     
     public final boolean add(Safety sa)
     {
-		return false;
+		return safetyDB.add(sa);
         
     }    
     
     
     public final boolean update(Faq fa)
     {
-		return false;
+		return faqDB.update(fa);
         
     }    
     
     
     public final boolean update(Safety sa)
     {
-		return false;
+		return safetyDB.update(sa);
         
     }    
     
     
     public final boolean delete(Faq fa)
     {
-		return false;
+		return faqDB.delete(fa);
         
     }    
     
     
     public final boolean delete(Safety sa)
     {
-		return false;
+		return safetyDB.delete(sa);
         
     }    
     
     
     public final ArrayList<Faq> getAllFaq()
     {
-		return null;
+		return faqDB.getAll();
         
     }    
     
     
     public final ArrayList<Safety> getAllSaf()
     {
-		return null;
+		return safetyDB.getAll();
         
     }   
 }

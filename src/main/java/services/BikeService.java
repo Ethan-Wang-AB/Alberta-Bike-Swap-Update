@@ -5,6 +5,7 @@
  */
 package services;
 
+import dataaccess.BikeDB;
 import models.Bike;
 
 /**
@@ -12,21 +13,25 @@ import models.Bike;
  * @author 845593
  */
 public class BikeService {
+    BikeDB bikeDB=BikeDB.getInstance();
+    
      public final Bike getBike(int id)
     {
-		return null;
+	Bike bike=bikeDB.getBike(id);
+        return bike;
         
     }    
     
     
     public final void updateBike(Bike bike)
     {
+        bikeDB.update(bike);
         
     }    
     
     
     public final void deleteBike(Bike bike)
     {
-        
+        bikeDB.delete(bike);
     }    
 }

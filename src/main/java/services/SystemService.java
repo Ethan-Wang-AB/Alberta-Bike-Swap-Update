@@ -5,6 +5,8 @@
  */
 package services;
 
+import dataaccess.SystemDB;
+import java.io.File;
 import models.EventDate;
 
 /**
@@ -12,36 +14,37 @@ import models.EventDate;
  * @author 845593
  */
 public class SystemService {
-     public final boolean toggleOpenStatus()
+    private SystemDB systemDB=SystemDB.getInstance();
+//     public final boolean toggleOpenStatus()
+//    {
+//		return false;
+//        
+//    }    
+    
+    
+    public final boolean backup(File file)
     {
-		return false;
+		return systemDB.backup(file);
         
     }    
     
     
-    public final boolean backup()
+    public final boolean restore(File file)
     {
-		return false;
-        
-    }    
-    
-    
-    public final boolean restore()
-    {
-		return false;
+		return systemDB.restore(file);
         
     }    
     
     
     public final boolean archiveData()
     {
-		return false;
+		return systemDB.archiveData();
         
     }    
     
     
     private final void notify(EventDate event)
     {
-        
+        systemDB.notifyAll();
     }    
 }

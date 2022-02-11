@@ -118,12 +118,12 @@ public class TradeDB extends CommonDB<Trade> {
         }
     }
 
-    public final ArrayList<Trade> getAll(String cat) {
+    public final ArrayList<Trade> getAll(String date) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
         try {
             List<Trade> lists;
-            lists = em.createNamedQuery("Trade.findByCategory", Trade.class).setParameter("category", cat).getResultList();
+            lists = em.createNamedQuery("Trade.findByTransDate", Trade.class).setParameter("transDate", date).getResultList();
             return (ArrayList<Trade>) lists;
         } finally {
             em.close();
@@ -135,7 +135,7 @@ public class TradeDB extends CommonDB<Trade> {
        EntityManager em = DBUtil.getEmFactory().createEntityManager();
         try {
 
-            Trade trade = em.createNamedQuery("Trade.findById", Trade.class).setParameter("id", id).getSingleResult();
+            Trade trade = em.createNamedQuery("Trade.findByTradeId", Trade.class).setParameter("tradeId", id).getSingleResult();
             return trade;
         }catch(Exception ex){
         System.out.println("get trade by id sql issue");

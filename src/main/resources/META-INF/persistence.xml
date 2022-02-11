@@ -2,7 +2,7 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="abs_albertaBikeSwap_war_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-     <non-jta-data-source>java:/comp/env/jdbc/absdb</non-jta-data-source>
+    <non-jta-data-source>java:/comp/env/jdbc/absdb</non-jta-data-source>
     <class>models.Address</class>
     <class>models.Affiliation</class>
     <class>models.Bike</class>
@@ -17,6 +17,8 @@
     <class>models.State</class>
     <class>models.Trade</class>
     <class>models.User</class>
+    <class>models.TradeDesc</class>
+    <class>models.TradeOthers</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
   </persistence-unit>
 </persistence>

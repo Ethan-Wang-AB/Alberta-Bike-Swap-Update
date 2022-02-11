@@ -152,7 +152,20 @@ public class UserDB extends CommonDB<User> {
         }
 
     }
-
+public User getByUUID(String uuid){
+         EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        
+        try {
+   
+            User user = em.createNamedQuery("User.findByResetPasswordUuid",User.class).setParameter("resetPasswordUuid",uuid).getSingleResult();
+              //System.out.println("uuid in userDB after"+user.getResetPasswordUuid());
+            return user;
+        } finally {
+            em.close();
+        }
+   
+   }
+    
     public static UserDB getInstance() {
         return userDB;
 

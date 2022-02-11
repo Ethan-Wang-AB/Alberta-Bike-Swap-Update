@@ -104,7 +104,7 @@ public class EventDateDB extends CommonDB<EventDate> {
 
         try {
             List<EventDate> lists;
-            lists = em.createNamedQuery("Event_Date.findAll", EventDate.class).getResultList();
+            lists = em.createNamedQuery("EventDate.findAll", EventDate.class).getResultList();
             return (ArrayList<EventDate>) lists;
         } finally {
             em.close();
@@ -116,7 +116,7 @@ public class EventDateDB extends CommonDB<EventDate> {
         try {
             //System.out.println("Category get : "+name);
 
-            EventDate event_date = em.createNamedQuery("Event_Date.findById", EventDate.class).setParameter("id", eventDateId).getSingleResult();
+            EventDate event_date = em.createNamedQuery("EventDate.findByEventDateId", EventDate.class).setParameter("eventDateid", eventDateId).getSingleResult();
             return event_date;
         }catch(Exception ex){
         System.out.println("get event_date by id sql issue");

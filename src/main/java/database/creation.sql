@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `absdb`.`role` (
   `role_id` INT(11) NOT NULL AUTO_INCREMENT,
   `role_name` VARCHAR(25) NOT NULL,
   `role_description` VARCHAR(2000) NOT NULL,
-  `shift` TINYINT(1) NOT NULL default 1,
+  `shift` TINYINT(11) NOT NULL default 1,
    PRIMARY KEY (`role_id`));
 
 -- -----------------------------------------------------
@@ -124,6 +124,32 @@ CREATE TABLE IF NOT EXISTS `absdb`.`user` (
     REFERENCES `absdb`.`diet`( `diet_id`),
   CONSTRAINT email_unique UNIQUE (`email`)
 );
+
+    -- -----------------------------------------------------
+-- Table `absdb`.`trade_desc`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `absdb`.`trade_desc` (
+  `desc_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `desc` VARCHAR(30) NOT NULL,
+  `price` DOUBLE NOT NULL,
+  PRIMARY KEY (`desc_id`)
+  );
+
+    -- -----------------------------------------------------
+-- Table `absdb`.`trade_others`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `absdb`.`trade_others` (
+  `trade_others_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `desc_id` INT(11) NOT NULL,
+  `userId`  INT(11) NOT NULL,
+  PRIMARY KEY (`trade_others_id`),
+CONSTRAINT `fk_user_trade_other`
+  FOREIGN KEY (`userId`)
+  REFERENCES `absdb`.`user` (`user_id`),
+CONSTRAINT `fk_user_trade_desc`
+  FOREIGN KEY (`desc_id`)
+  REFERENCES `absdb`.`trade_desc` (`desc_id`)
+  );
 
 -- -----------------------------------------------------
 -- Table `absdb`.`bike`

@@ -20,33 +20,37 @@ public class EventService {
     private EventDateDB eventDateDB = EventDateDB.getInstance();
 
     public final Event getEvent(int id) {
-        return null;
-
+        Event event=eventDB.getEvent(id);
+        return event;
     }
 
     public final EventDate getEventDate(int id) {
-        return null;
-
+        EventDate eventDate=eventDateDB.getEvent_Date(id);
+        return eventDate;
     }
 
     public final boolean editEvent(Event e) {
-        return false;
+        return eventDB.update(e);
 
     }
 
     public final boolean editEventDate(EventDate e) {
-        return false;
+        return eventDateDB.update(e);
     }
 
     public final boolean delEvent(Event e) {
-        return false;
+        return eventDB.delete(e);
 
     }
 
     public final boolean delEventDate(EventDate e) {
-        return false;
+      return eventDateDB.delete(e);
     }
 
+    /**
+     * Need to fixed someday. very complex
+     * @param event 
+     */
     public final void scheduleNotify(EventDate event) {
 
     }

@@ -95,6 +95,8 @@ public class User implements Serializable {
     private List<Trade> tradeList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "sellerId")
     private List<Trade> tradeList1;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
+    private List<TradeOthers> tradeOthersList;
     @JoinColumn(name = "address_id", referencedColumnName = "address_id")
     @ManyToOne
     private Address addressId;
@@ -238,6 +240,15 @@ public class User implements Serializable {
 
     public void setTradeList1(List<Trade> tradeList1) {
         this.tradeList1 = tradeList1;
+    }
+
+    @XmlTransient
+    public List<TradeOthers> getTradeOthersList() {
+        return tradeOthersList;
+    }
+
+    public void setTradeOthersList(List<TradeOthers> tradeOthersList) {
+        this.tradeOthersList = tradeOthersList;
     }
 
     public Address getAddressId() {

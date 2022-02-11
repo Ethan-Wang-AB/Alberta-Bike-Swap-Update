@@ -9,56 +9,56 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import models.Bike;
-import models.User;
+import models.TradeDesc;
+
+import models.TradeOthers;
 
 /**
  *
  * @author 845593
  */
-public class BikeDB extends CommonDB<Bike> {
+public class Trade_OthersDB extends CommonDB<TradeOthers> {
+   private final static Trade_OthersDB tradeOthersDB = new Trade_OthersDB();
 
-    private final static BikeDB bikeDB = new BikeDB();
-
-    private BikeDB() {
+    private Trade_OthersDB() {
         super();
     }
 
-    public ArrayList<Bike> getAll() {
+    public ArrayList<TradeOthers> getAll() {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
         try {
-            List<Bike> lists;
-            lists = em.createNamedQuery("Bike.findAll", Bike.class).getResultList();
-            return (ArrayList<Bike>) lists;
+            List<TradeOthers> lists;
+            lists = em.createNamedQuery("TradeOthers.findAll", TradeOthers.class).getResultList();
+            return (ArrayList<TradeOthers>) lists;
         } finally {
             em.close();
         }
 
     }
 
-    public final ArrayList<Bike> getAll(String maker) {
+    public final ArrayList<TradeOthers> getAll(TradeDesc cat) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
         try {
-            List<Bike> lists;
-            lists = em.createNamedQuery("Bike.findByMaker", Bike.class).setParameter("maker", maker).getResultList();
-            return (ArrayList<Bike>) lists;
+            List<TradeOthers> lists;
+            lists = em.createNamedQuery("TradeOthers.findAllByDesc", TradeOthers.class).setParameter("descId", cat.getDescId()).getResultList();
+            return (ArrayList<TradeOthers>) lists;
         } finally {
             em.close();
         }
 
     }
 
-    public final Bike getBike(int id) {
+    public final TradeOthers getTradeOthers(int id) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         try {
             //System.out.println("Category get : "+name);
 
-            Bike bike = em.createNamedQuery("Bike.findByBikeId", Bike.class).setParameter("bikeId", id).getSingleResult();
-            return bike;
+            TradeOthers tradeOthers = em.createNamedQuery("TradeOthers.findByTradeOthersId", TradeOthers.class).setParameter("tradeOthersId", id).getSingleResult();
+            return tradeOthers;
         }catch(Exception ex){
-        System.out.println("get bike by id sql issue");
+        System.out.println("get tradeOthers by id sql issue");
         ex.printStackTrace();
         return null;
         
@@ -69,16 +69,16 @@ public class BikeDB extends CommonDB<Bike> {
     }
 
     @Override
-    public boolean add(Bike a) {
+    public boolean add(TradeOthers a) {
   EntityManager em = DBUtil.getEmFactory().createEntityManager();
              EntityTransaction trans=em.getTransaction();
         try {
                      
-            User user = a.getUserId();
-            user.getBikeList().add(a);
+            TradeDesc desc = a.getDescId();
+            desc.getTradeOthersList().add(a);
              trans.begin();
              em.persist(a);
-             em.merge(user);
+             em.merge(desc);
            
              trans.commit();
              return true;
@@ -92,7 +92,7 @@ public class BikeDB extends CommonDB<Bike> {
     }
 
     @Override
-    public boolean update(Bike a) {
+    public boolean update(TradeOthers a) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
         try {
@@ -111,16 +111,16 @@ public class BikeDB extends CommonDB<Bike> {
     }
 
     @Override
-    public boolean delete(Bike a) {
+    public boolean delete(TradeOthers a) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
         
         try {
-            User user = a.getUserId();
-            user.getBikeList().remove(a);
+            TradeDesc desc = a.getDescId();
+           desc.getTradeOthersList().remove(a);
             trans.begin();
             em.remove(em.merge(a));
-            em.merge(user);
+            em.merge(desc);
             trans.commit();
             return true;
         } catch (Exception ex) {
@@ -131,10 +131,7 @@ public class BikeDB extends CommonDB<Bike> {
         
         }   
     }
-
-    public static BikeDB getInstance() {
-        return bikeDB;
-
-    }
-
+ public static Trade_OthersDB getInstance(){
+         return tradeOthersDB;
+ }
 }

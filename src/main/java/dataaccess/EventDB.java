@@ -105,7 +105,7 @@ public class EventDB extends CommonDB<Event> {
         try {
             //System.out.println("Category get : "+name);
 
-            Event bike = em.createNamedQuery("Event.findById", Event.class).setParameter("id", eventId).getSingleResult();
+            Event bike = em.createNamedQuery("Event.findByEventId", Event.class).setParameter("eventId", eventId).getSingleResult();
             return bike;
         } catch(Exception ex){
         System.out.println("get event by id sql issue");

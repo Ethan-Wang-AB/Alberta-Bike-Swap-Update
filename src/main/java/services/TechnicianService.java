@@ -15,8 +15,8 @@ import models.User;
  * @author 845593
  */
 public class TechnicianService {
-    	private BikeDB bikeDB;      
-    private UserDB userDB;      
+    	private BikeDB bikeDB=BikeDB.getInstance();      
+    private UserDB userDB=UserDB.getInstance();      
 
     
     
@@ -28,14 +28,29 @@ public class TechnicianService {
     }    
     
     
-    public final void setStatus(Bike bike)
+    public final boolean setStatusToSell(Bike bike)
     {
-        
+      bike.setToSell(true);
+      bike.setDonate(false);
+      return   bikeDB.update(bike);
     }    
     
+    public final boolean setStatusToDonate(Bike bike){
+      bike.setToSell(false);
+      bike.setDonate(true);
+      return   bikeDB.update(bike);
+    }
+    
+    public final boolean setStatusToRepair(Bike bike){
+     bike.setToSell(false);
+      bike.setDonate(false);
+       return   bikeDB.update(bike);
+    }
     
     public final void invalidTicket(User user)
     {
+        user.setTicket(-99);//set invalid ticket to be -99
+        userDB.update(user);
         
     }    
 }

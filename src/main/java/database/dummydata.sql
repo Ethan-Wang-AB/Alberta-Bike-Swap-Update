@@ -89,3 +89,15 @@ INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`)
    VALUES('B123456789',3,610.2,1,0);
    
 INSERT INTO `trade` VALUES(1,2,3,'2022-5-30',2);
+
+INSERT INTO `trade_desc` VALUES(1,'Ticket-Seller',3);
+
+INSERT INTO `trade_desc` VALUES(2,'Storage-Seller',5);
+
+INSERT INTO `trade_desc` VALUES(3,'Ticket-Buyer',3);
+
+INSERT INTO `trade_others` VALUES(1,1,2);
+
+INSERT INTO `trade_others` VALUES(2,2,2);
+
+INSERT INTO `trade_others` VALUES(3,3,3);
