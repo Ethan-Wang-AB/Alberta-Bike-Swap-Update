@@ -1,6 +1,6 @@
 <%-- 
-    Document   : SafetyPage
-    Created on : Feb 3, 2022, 4:07:14 PM
+    Document   : EditEventPage
+    Created on : Feb 3, 2022, 4:06:28 PM
     Author     : 845593
 --%>
 
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Hello World! event edit</h1>
     </body>
 </html>

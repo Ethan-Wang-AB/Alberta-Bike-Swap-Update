@@ -1,6 +1,6 @@
 <%-- 
-    Document   : backupPage
-    Created on : Feb 3, 2022, 4:06:58 PM
+    Document   : eventPage
+    Created on : Feb 3, 2022, 4:08:07 PM
     Author     : 845593
 --%>
 
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Hello World event page!</h1>
     </body>
 </html>

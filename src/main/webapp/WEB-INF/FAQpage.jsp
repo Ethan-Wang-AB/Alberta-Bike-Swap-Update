@@ -1,6 +1,6 @@
 <%-- 
-    Document   : PaymentPage
-    Created on : Feb 3, 2022, 4:07:49 PM
+    Document   : FAQpage
+    Created on : Feb 3, 2022, 4:05:28 PM
     Author     : 845593
 --%>
 
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Hello World! faq</h1>
     </body>
 </html>

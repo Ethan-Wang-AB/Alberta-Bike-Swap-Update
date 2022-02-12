@@ -1,6 +1,6 @@
 <%-- 
-    Document   : AdminPage
-    Created on : Feb 3, 2022, 4:07:22 PM
+    Document   : ResetPasswordPage
+    Created on : Feb 3, 2022, 4:07:31 PM
     Author     : 845593
 --%>
 
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Hello World! reset password</h1>
     </body>
 </html>

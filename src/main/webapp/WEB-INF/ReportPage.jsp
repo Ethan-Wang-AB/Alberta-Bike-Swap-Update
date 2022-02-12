@@ -1,6 +1,6 @@
 <%-- 
-    Document   : welcomepage
-    Created on : Feb 3, 2022, 4:03:58 PM
+    Document   : ReportPage
+    Created on : Feb 3, 2022, 4:07:40 PM
     Author     : 845593
 --%>
 
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-    </body>
+        <h1>Hello World! report</h1>
+    </body> 
 </html>

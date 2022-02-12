@@ -1,6 +1,6 @@
 <%-- 
-    Document   : eventPage
-    Created on : Feb 3, 2022, 4:08:07 PM
+    Document   : AdminPage
+    Created on : Feb 3, 2022, 4:07:22 PM
     Author     : 845593
 --%>
 
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Hello World! admin</h1>
     </body>
 </html>

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : ProfilePage
-    Created on : Feb 3, 2022, 4:05:16 PM
+    Document   : restorePage
+    Created on : Feb 3, 2022, 4:07:06 PM
     Author     : 845593
 --%>
 
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Hello World! restore</h1>
     </body>
 </html>

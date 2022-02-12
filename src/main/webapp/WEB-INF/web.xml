@@ -108,7 +108,7 @@
         <servlet-name>AboutUsServlet</servlet-name>
         <servlet-class>servlets.AboutUsServlet</servlet-class>
     </servlet>
-<!--     <servlet>
+    <!--     <servlet>
         <servlet-name>QuartzInitializer</servlet-name>
         <servlet-class>servlets.QuartzInitializerServlet</servlet-class>
         <init-param>
@@ -209,7 +209,7 @@
         <servlet-name>AboutUsServlet</servlet-name>
         <url-pattern>/AboutUs</url-pattern>
     </servlet-mapping>
-<!--    <servlet-mapping>
+    <!--    <servlet-mapping>
         <servlet-name>QuartzInitializerServlet</servlet-name>
         <url-pattern>/QuartzInitializerServlet</url-pattern>
     </servlet-mapping>-->
@@ -218,6 +218,9 @@
             30
         </session-timeout>
     </session-config>
+    <welcome-file-list>
+        <welcome-file>Welcome</welcome-file>
+    </welcome-file-list>
     <env-entry>
         <env-entry-name>webmail-username</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
@@ -228,7 +231,7 @@
         <env-entry-type>java.lang.String</env-entry-type>
         <env-entry-value>sait12345.</env-entry-value>
     </env-entry>
-    <context-param>
+    <!--    <context-param>
         <param-name>quartz:shutdown-on-unload</param-name>
         <param-value>true</param-value>
     </context-param>
@@ -239,5 +242,5 @@
     <context-param>
         <param-name>quartz:start-on-load</param-name>
         <param-value>true</param-value>
-    </context-param>
+    </context-param>-->
 </web-app>
