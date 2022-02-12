@@ -108,7 +108,7 @@
         <servlet-name>AboutUsServlet</servlet-name>
         <servlet-class>servlets.AboutUsServlet</servlet-class>
     </servlet>
-    <!--     <servlet>
+    <servlet>
         <servlet-name>QuartzInitializer</servlet-name>
         <servlet-class>servlets.QuartzInitializerServlet</servlet-class>
         <init-param>
@@ -124,7 +124,7 @@
             <param-value>servletContext</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
-    </servlet>-->
+    </servlet>
     <servlet-mapping>
         <servlet-name>WelcomeServlet</servlet-name>
         <url-pattern>/Welcome</url-pattern>
@@ -242,5 +242,22 @@
     <context-param>
         <param-name>quartz:start-on-load</param-name>
         <param-value>true</param-value>
-    </context-param>-->
+    </context-param>
+    <listener>
+        <listener-class>org.quartz.ee.servlet.QuartzInitializerListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>scheduler.QuartzScheduler</listener-class>
+    </listener>-->
+    <!--    
+    <resource-env-ref>
+  <description>DataSource
+  </description>
+  <resource-env-ref-name>
+    dbc/irb_prod
+  </resource-env-ref-name>
+  <resource-env-ref-type>
+    javax.sql.DataSource
+  </resource-env-ref-type>
+</resource-env-ref>-->
 </web-app>
