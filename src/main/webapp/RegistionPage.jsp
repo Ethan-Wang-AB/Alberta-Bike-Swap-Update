@@ -13,70 +13,7 @@
         
          <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <style>
-      html, body {
-      min-height: 100%;
-      }
-      body, div, form, input, select, p { 
-      padding: 0;
-      margin: 0;
-      outline: none;
-      font-family: Roboto, Arial, sans-serif;
-      font-size: 14px;
-      color: #666;
-      }
-      h1 {
-      margin: 0;
-      font-weight: 400;
-      }
-      h3 {
-      margin: 12px 0;
-      color: #8ebf42;
-      }
-      .main-block {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #fff;
-      }
-      form {
-      width: 100%;
-      padding: 20px;
-      }
-      
-      fieldset {
-      border: none;
-      border-top: 1px solid #8ebf42;
-      }
-      .account-details, .personal-details {
-      
-      }
-      
-      .account-details >div, .personal-details >div >div {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-      }
-      
-      .account-details >div, .personal-details >div, input, label {
-     
-      }
-      label {
-      padding: 0 5px;
-      text-align: left;
-      vertical-align: middle;
-      }
-      input {
-      padding: 5px;
-      vertical-align: middle;
-      }
-      .checkbox {
-      margin-bottom: 10px;
-      }
-      
-      
-      
-    </style>
+     <link rel="stylesheet" type="text/css" href="assets/css/regisrationPageStyle.css">
         
     </head>
     <body>
