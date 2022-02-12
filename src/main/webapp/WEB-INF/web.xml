@@ -108,7 +108,7 @@
         <servlet-name>AboutUsServlet</servlet-name>
         <servlet-class>servlets.AboutUsServlet</servlet-class>
     </servlet>
-     <servlet>
+<!--     <servlet>
         <servlet-name>QuartzInitializer</servlet-name>
         <servlet-class>servlets.QuartzInitializerServlet</servlet-class>
         <init-param>
@@ -124,7 +124,7 @@
             <param-value>servletContext</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
-    </servlet>
+    </servlet>-->
     <servlet-mapping>
         <servlet-name>WelcomeServlet</servlet-name>
         <url-pattern>/Welcome</url-pattern>
@@ -209,10 +209,10 @@
         <servlet-name>AboutUsServlet</servlet-name>
         <url-pattern>/AboutUs</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
+<!--    <servlet-mapping>
         <servlet-name>QuartzInitializerServlet</servlet-name>
         <url-pattern>/QuartzInitializerServlet</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
     <session-config>
         <session-timeout>
             30
@@ -240,10 +240,4 @@
         <param-name>quartz:start-on-load</param-name>
         <param-value>true</param-value>
     </context-param>
-    <listener>
-        <listener-class>org.quartz.ee.servlet.QuartzInitializerListener</listener-class>
-    </listener>
-    <listener>
-        <listener-class>scheduler.QuartzScheduler</listener-class>
-    </listener>
 </web-app>
