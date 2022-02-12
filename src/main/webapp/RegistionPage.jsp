@@ -32,7 +32,7 @@
           <br/>
           <p><b>Are you a bike seller or / and volunteer?</b></p><br>
         
-        <input type = "checkbox" id="Seller" name = "bikeSeller"/>
+        Checkbox: <input type = "checkbox" id="Seller" name = "bikeSeller"/>
         <label for="bikeSeller" class="account-type">Bike Seller</label>
                
          <input type = "checkbox" id="volunteer" name = "volunteer" />
