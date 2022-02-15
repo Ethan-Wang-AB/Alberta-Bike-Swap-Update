@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Alberta Bike Swap | Profile Page</title>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -112,40 +112,35 @@
 
 
                             <div class="tab-pane" id="tab_default_2">
+                                <p>
+                                    Volunteering
+                                </p>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="email">Highest Education:</label>
-                                            <p> MBA/PGDM</p>
+                                            <label for="tshirtSize">T-Shirt size:</label>
+                                            <p> M ${tshirtSize}</p>
                                         </div>
                                         <div class="form-group">
-                                            <label for="email">Place of Birth:</label>
-                                            <p> pune, maharashtra</p>
+                                            <label for="email">Dietary Restrictions:</label>
+                                            <p> No ${diet}</p>
                                         </div>
                                         <div class="form-group">
-                                            <label for="email">Place of Birth:</label>
-                                            <p> pune, maharashtra</p>
+                                            <label for="firstposition">First Position Choice:</label>
+                                            <p> Volunteer / Admin Desk - Supports volunteers and is central point for emergency services (AM/PM)${firstposition}</p>
                                         </div>
                                         <div class="form-group">
-                                            <label for="email">Place of Birth:</label>
-                                            <p> pune, maharashtra</p>
+                                            <label for="email">Second Position Choice:</label>
+                                            <p> Floater - Gets to do a little of everything (AM/PM) ${secondposition}</p>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="email">Place of Birth:</label>
-                                            <p> pune, maharashtra</p>
+                                            <label for="vShift">City & Shift:</label>
+                                            <p> Calgary / 12 PM - 6 PM ${vShift} </p>
                                         </div>
                                         <div class="form-group">
-                                            <label for="email">Place of Birth:</label>
-                                            <p> pune, maharashtra</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email">Place of Birth:</label>
-                                            <p> pune, maharashtra</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email">Place of Birth:</label>
+                                            <label for="email">Space for other information if needed:</label>
                                             <p> pune, maharashtra</p>
                                         </div>
 
@@ -165,37 +160,37 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="email">Highest Education:</label>
-                                            <p> MBA/PGDM</p>
+                                            <label for="Location">Location:</label>
+                                            <p> Calgary ${Location}</p>
                                         </div>
                                         <div class="form-group">
-                                            <label for="email">Place of Birth:</label>
-                                            <p> pune, maharashtra</p>
+                                            <label for="Date">Date 1:</label>
+                                            <p> 25 August 2022 ${eventDate}</p>
                                         </div>
                                         <div class="form-group">
-                                            <label for="email">Place of Birth:</label>
-                                            <p> pune, maharashtra</p>
+                                            <label for="Date">Date 2:</label>
+                                            <p> 26 August 2022 ${eventDate}</p>
                                         </div>
                                         <div class="form-group">
-                                            <label for="email">Place of Birth:</label>
+                                            <label for="email">Other information section:</label>
                                             <p> pune, maharashtra</p>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="email">Place of Birth:</label>
+                                            <label for="email">Other information section::</label>
                                             <p> pune, maharashtra</p>
                                         </div>
                                         <div class="form-group">
-                                            <label for="email">Place of Birth:</label>
+                                            <label for="email">Other information section::</label>
                                             <p> pune, maharashtra</p>
                                         </div>
                                         <div class="form-group">
-                                            <label for="email">Place of Birth:</label>
+                                            <label for="email">Other information section::</label>
                                             <p> pune, maharashtra</p>
                                         </div>
                                         <div class="form-group">
-                                            <label for="email">Place of Birth:</label>
+                                            <label for="email">Other information section::</label>
                                             <p> pune, maharashtra</p>
                                         </div>
 
@@ -219,7 +214,7 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label for="ticket"> Ticket:</label>
-                                    <p>1234567890 ${ticket}</p>
+                                    <p>CAL-10015-1 ${ticket}</p>
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">Phone Number:</label>
@@ -227,7 +222,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email:</label>
-                                    <p>ABCD@example.com</p>
+                                    <p>ABCD@example.com ${email}</p>
                                 </div>
 
                                 <button type="submit" class="btn btn-danger btn-block">Edit</button>

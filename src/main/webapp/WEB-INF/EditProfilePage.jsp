@@ -1,19 +1,18 @@
 <%-- 
-    Document   : newjsp
-    Created on : Feb 8, 2022, 5:53:39 PM
+    Document   : EditProfilePage
+    Created on : Feb 15, 2022, 12:10:04 AM
     Author     : aphks
 --%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
+<head>
         <!-- Required meta tags-->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         
         <!-- Title Page-->
-        <title>Alberta Bike Swap | Registration Page</title>
+        <title>Alberta Bike Swap | Edit Profile Page</title>
 
         <!-- Icons font CSS-->
         <link href="assets/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
@@ -37,7 +36,7 @@
             <div class="wrapper wrapper--w790">
                 <div class="card card-5">
                     <div class="card-heading">
-                        <h2 class="title">Event Registration Form</h2>
+                        <h2 class="title">Edit Your Profile</h2>
                     </div>
                     <div class="card-body">
                         <form method="POST">
@@ -104,7 +103,7 @@
                                 </div>
                             </div>
                             <div class="form-row p-t-20">
-                                <label class="label label--block">Do you want to register as a bike seller or / and volunteer?</label>
+                                <label class="label label--block">Do you want to change your status as a bike seller or / and volunteer?</label>
                                 <div class="p-t-15">
                                     <label class="radio-container m-r-55">Bike Seller
                                         <input type="checkbox" id="Seller" name = "bikeSeller" onclick="myBfunction()">
@@ -133,11 +132,11 @@
                                                 <select name="location"  onchange="displayDivDemo('hideValuesOnSelect', this)" >
                                                     <option disabled="disabled" selected="selected" >Choose the amount of bike</option>
                                                     <option value=""></option>
-                                                    <option value="01">1</option>
-                                                    <option value="02">2</option>
-                                                    <option value="03">3</option>
-                                                    <option value="04">4</option>
-                                                    <option value="05">5</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
                                                 </select>
                                                 <div class="select-dropdown"></div>
                                             </div>
@@ -179,9 +178,9 @@
                                                                 <select name="bikesize" >
                                                                     <option disabled="disabled" selected="selected" >Choose the bike size</option>
                                                                     <option value=""></option>
-                                                                    <option value="01">S</option>
-                                                                    <option value="02">M</option>
-                                                                    <option value="03">L</option>
+                                                                    <option value="1">S</option>
+                                                                    <option value="2">M</option>
+                                                                    <option value="3">L</option>
 
                                                                 </select>
                                                                 <div class="select-dropdown"></div>
@@ -338,7 +337,7 @@
 
                             <!-- submit box section -->
                             <div>
-                                <button class="btn btn--radius-2 btn--red" type="submit">Register</button>
+                                <button class="btn btn--radius-2 btn--red" type="submit">Change</button>
                             </div>
                         </form>
                     </div>
