@@ -4,6 +4,18 @@ CREATE SCHEMA IF NOT EXISTS `absdb` DEFAULT CHARACTER SET latin1;
 USE `absdb`;
 
 -- -----------------------------------------------------
+-- Table absdb.announcement
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `absdb`.`announcement` (
+  `announcement_id` INT(11) NOT NULL AUTO_INCREMENT,
+   title VARCHAR(100) NOT NULL,
+   body VARCHAR(1000) NOT NULL,
+   picture VARCHAR(300),
+   link    VARCHAR(300),
+   date DATE NOT NULL DEFAULT (CURRENT_DATE),
+   PRIMARY KEY (announcement_id));
+
+-- -----------------------------------------------------
 -- Table `absdb`.`faq`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `absdb`.`faq` (
