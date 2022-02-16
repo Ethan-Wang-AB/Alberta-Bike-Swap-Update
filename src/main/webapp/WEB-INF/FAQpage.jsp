@@ -10,7 +10,7 @@
 
 <head>
     <title>Event Page for Alberta Bike Swap</title>
-    <link rel="stylesheet" href="faq.css">
+    <link rel="stylesheet" href="assets/css/FAQPageStyle.css">
 
     <script>
         function toggleFAQCard(cardNumber) {
