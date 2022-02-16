@@ -10,7 +10,7 @@
 
 <head>
     <title>Event Page for Alberta Bike Swap</title>
-    <link rel="stylesheet" href="event.css">
+    <link rel="stylesheet" href="assets/css/EventPageStyle.css">
 </head>
 
 <body>
