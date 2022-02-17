@@ -11,6 +11,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import models.User;
+import services.AccountService;
 
 /**
  *
@@ -32,6 +35,17 @@ public class ProfileServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+            AccountService accountService=AccountService.getInstance();
+            HttpSession session=request.getSession();
+            User user=accountService.getByEmail((String) session.getAttribute("email"));
+            session.setAttribute("roleId",user.getRoleId().getRoleId());
+            request.setAttribute("bikes", user.getBikeList());
+            request.setAttribute("email", user.getEmail());
+            request.setAttribute("phone", user.getCellNumber());
+            request.setAttribute("Address", user.getAddressId());
+            request.setAttribute("photo", user.getPhotoPath());
+            request.setAttribute("ticket", user.getTicket());
             getServletContext().getRequestDispatcher("/WEB-INF/ProfilePage.jsp").forward(request, response);
     }
 
