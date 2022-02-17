@@ -4,6 +4,7 @@
     Author     : aphks
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -231,6 +232,65 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </body>
+            <c:if test="${roleId==2}">
+                <div id="bikesection" style="display:none">
+                    <h2> Bike Information Section</h2>
+                    <br/> <br/>
+
+
+
+                    <div id="hideValuesOnSelect">
+                        <div class="form-row p-t-20">
+                            <div id="value">
+                                <div class="form-row">
+                                    <div class="name">Bike Index</div>
+                                    <div class="value">
+                                        <div class="input-group">
+                                            <input class="input--style-5" type="text" name="bikeindex">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Bike Make</div>
+                                    <div class="value">
+                                        <div class="input-group">
+                                            <input class="input--style-5" type="email" name="bikemake">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Bike Type</div>
+                                    <div class="value">
+                                        <div class="input-group">
+                                            <input class="input--style-5" type="email" name="biketype">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">What is the bike's size?</div>
+                                    <div class="value">
+                                        <div class="input-group">
+                                            <div class="rs-select2 js-select-simple select--no-search">
+                                                <select name="bikesize" >
+                                                    <option disabled="disabled" selected="selected" >Choose the bike size</option>
+                                                    <option value=""></option>
+                                                    <option value="01">S</option>
+                                                    <option value="02">M</option>
+                                                    <option value="03">L</option>
+
+                                                </select>
+                                                <div class="select-dropdown"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </c:if>
+
+    </div>
+</body>
 </html>
