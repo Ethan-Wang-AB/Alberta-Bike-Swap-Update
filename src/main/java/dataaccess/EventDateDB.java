@@ -111,6 +111,21 @@ public class EventDateDB extends CommonDB<EventDate> {
             em.close();
         }
     }
+    
+       public ArrayList<EventDate> getAllByEvent(Event e) {
+       EntityManager em = DBUtil.getEmFactory().createEntityManager();
+
+        try {
+            List<EventDate> lists;
+            lists = em.createNamedQuery("EventDate.findAllByEvent", EventDate.class).setParameter("eventId", e.getEventId()).getResultList();
+                
+            
+            
+            return (ArrayList<EventDate>) lists;
+        } finally {
+            em.close();
+        }
+    }
 
     public final EventDate getEvent_Date(int eventDateId) {
           EntityManager em = DBUtil.getEmFactory().createEntityManager();
