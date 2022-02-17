@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import models.User;
 import services.AccountService;
 
@@ -34,6 +35,15 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        HttpSession session=request.getSession();
+        if(request.getParameterMap().containsKey("logout") || request.getParameterMap().containsValue("logout")){
+          session.invalidate();
+                              getServletContext().getRequestDispatcher("/WEB-INF/Welcome.jsp").forward(request, response);
+
+          }
+        
+               
                     getServletContext().getRequestDispatcher("/WEB-INF/loginpage.jsp").forward(request, response);
     }
 
@@ -50,16 +60,19 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         String email=request.getParameter("email");
         String password=request.getParameter("password");
+        HttpSession session=request.getSession();
         
         AccountService accountService=AccountService.getInstance();
         
         User user=accountService.login(email,password);
+        System.out.print("servlet  :"+email+" "+password);
         
         if(user==null){
             request.setAttribute("errorMessage", "Your email and password are not matched with our system");
              getServletContext().getRequestDispatcher("/WEB-INF/loginpage.jsp").forward(request, response);
         }
         else{
+         session.setAttribute("email",email);
         response.sendRedirect("Profile");
         }
         

@@ -139,7 +139,7 @@ public class UserDB extends CommonDB<User> {
     public final User getUserByEmail(String email) {
           EntityManager em = DBUtil.getEmFactory().createEntityManager();
         try {
-
+            System.out.println(email);
             User user = em.createNamedQuery("User.findByEmail", User.class).setParameter("email", email).getSingleResult();
             return user;
         } catch (Exception ex) {

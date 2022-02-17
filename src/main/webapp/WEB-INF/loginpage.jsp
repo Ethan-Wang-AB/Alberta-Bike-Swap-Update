@@ -37,7 +37,7 @@
                 <li><a href="#@">option</a></li>
                 <li>a</li>
               </ul-->
-            <a href="bikemaster?action=logout">
+            <a href="/">
                 <i class="fas fa-sign-out-alt"></i>
                 Logout
             </a>

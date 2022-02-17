@@ -66,15 +66,21 @@ public class AccountService {
 
     public final User login(String email, String password) {
 
-        //System.out.println(email+" "+password);
+        System.out.println("accountservice "+ email+" "+password);
         try {
             User user = userDB.getUserByEmail(email);
             // System.out.println(user.getEmail());
             //System.out.println(user.getSalt());
-            if (user.getSalt() == null && password.equals(user.getPassword())) {
+            
+            if(user==null){
+            return null;
+            }
+            if ((user.getSalt() == null || user.getSalt().equals(""))  && password.equals(user.getPassword())) {
 
                 user.setSalt(PasswordUtil.getSalt());
                 String newPassword = PasswordUtil.hashAndSaltPassword(password, user.getSalt());
+                System.out.println(newPassword);
+                
                 user.setPassword(newPassword);
                 update(user);
                 return user;
