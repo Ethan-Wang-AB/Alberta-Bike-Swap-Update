@@ -117,7 +117,7 @@ public class EventDateDB extends CommonDB<EventDate> {
 
         try {
             List<EventDate> lists;
-            lists = em.createNamedQuery("EventDate.findAllByEvent", EventDate.class).setParameter("eventId", e.getEventId()).getResultList();
+            lists = em.createNamedQuery("EventDate.findAllByEvent", EventDate.class).setParameter("eventId", e).getResultList();
                 
             
             

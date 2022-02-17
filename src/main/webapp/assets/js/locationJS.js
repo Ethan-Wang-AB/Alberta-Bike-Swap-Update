@@ -41,19 +41,18 @@ locationsApp.getCities = async () => {
             return response.text();
         }).then(data => {
           
-            console.log("DATA:0"+data)
-            cities = JSON.parse(JSON.stringify(data));
-              console.log("cities"+ cities);
+            console.log(data)
             
-        })
-     cities=cities.json()
-    // Creates the dropdown to select the city. The default city will be the one with the ID we got above
+            cities = JSON.parse(data);
+              console.log("cityname: "+cities[0].cityName);
+
+    })
     let collapseDiv = $("#collapseOpen")
     let dropdown = $("<button></button>")
     dropdown.prop("type", "button")
     dropdown.prop("class", "btn btn-link city-drop shadow-none mb-0 selectedCity")
     dropdown.prop("id", "selectedCity")
-  
+    console.log("cityID: "+cityId)
     dropdown.text(cities[cityId - 1].cityName)
     dropdown.click(() => { // When clicked, display the the cities under the #collapseOpen div
         collapseDiv.collapse('show')
@@ -80,13 +79,13 @@ locationsApp.getCities = async () => {
         option.click(() => { // When the user clicks the option, it will change some stuff
             $('#selectedCity').text(city.cityName) // Changes the text in the dropdown to the selected option
             dropdown.append(caret)
-            locationsApp.setBackground(city.background) // Change the background using the function at the beginning of the script
+         //   locationsApp.setBackground(city.background) // Change the background using the function at the beginning of the script
             locationsApp.getEvent(city.cityId) // Get list of events for the clicked option
         })
         collapseDiv.append(option) // Add the option to the list
     }
     // Sets the background to the city we selected at the landing page
-    locationsApp.setBackground(cities[cityId - 1].background)
+  //  locationsApp.setBackground(cities[cityId - 1].background)
     // If you click anything other than one of the options, it will close the dropdown
     $(document).click(() => {
         $('#collapseOpen').collapse('hide')
@@ -113,7 +112,7 @@ locationsApp.getEvent = async cityId => {
     // This is the same as "fetch then", but since it is just one step we do not need "then". Getting the event from DB
     const response = await fetch('?action=getEvent')
     const event = await response.json()
-    console.log(event)
+    console.log("event: "+event.address)
 
     // Get the latest event from the list and populate the divs with data
     $("#address").text(event.address)
@@ -132,6 +131,7 @@ locationsApp.getEvent = async cityId => {
     // Hide loading spinner and show event information
     $(".loading-event").hide()
     $(".city-info").show()
+   $("#announcementBody").text(event.schedule)
 }
 
 /**
@@ -146,20 +146,20 @@ locationsApp.getAnnouncement = async () => {
         .then(response => { //After promise is fulfilled
             return response.json() //Return its response as json
         }).then(data => { // And then log and stores its data into announcement
-            console.log(data)   
+            console.log("Announcement"+data)   
         announcement = data
-            console.log(announcement);
-            /* But before finishing, if there are announcements available, makes another promise and get a blob (object)
-            result. Then, converts the object to an URL we can use as image */
-            if (announcement.title !== "No Announcements") {
-                return fetch("/images/announcements/" + announcement.picture)
-            }
-            return fetch("")
-        }).then(response => {
-            return response.blob()
-        }).then(data => {
-            picture = URL.createObjectURL(data)
-        })
+            console.log("announcement"+announcement);})
+//            /* But before finishing, if there are announcements available, makes another promise and get a blob (object)
+//            result. Then, converts the object to an URL we can use as image */
+//            if (announcement.title !== "No Announcements") {
+//                return fetch("/images/announcements/" + announcement.picture)
+//            }
+//            return fetch("")
+//        }).then(response => {
+//            return response.blob()
+//        }).then(data => {
+//            picture = URL.createObjectURL(data)
+//        })
 
     $("#announcementTitle").text(announcement.title)
 

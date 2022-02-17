@@ -30,7 +30,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" type="text/css" href="../assets/css/locations.css">
 </head>
-<body>
+<body >
     <%@include file="header.jsp"%>
     <script type="text/javascript">$('#home').addClass('active')</script>
     <script type="text/javascript" src="../assets/js/locationJS.js"></script>
@@ -74,15 +74,15 @@
         <h4 class="header">Announcements</h4>
         <div class="card mb-3 post shadow">
 
-            <div class="row justify-content-center loading-announcement">
+<!--            <div class="row justify-content-center loading-announcement">
                 <div class="col-sm-auto spinner-border m-5" style="width: 3rem; height: 3rem;" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
-            </div>
+            </div>-->
 
             <div class="row g-3" id="announcement">
-                <div class="col-md-4 post-pic-div hidden text-center" id="announcementPicture"></div>
-                <div class="col-md-8 post-body hidden">
+<!--                <div class="col-md-4 post-pic-div hidden text-center" id="announcementPicture"></div>-->
+                <div class="col-md-8 post-body ">
                     <div class="card-body">
                         <h5 class="card-title" id="announcementTitle"></h5>
                         <p class="card-text postedon"><small class="text-muted">Posted on </small><small id="announcementDate"></small></p>

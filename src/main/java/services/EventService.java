@@ -7,6 +7,7 @@ package services;
 
 import dataaccess.EventDB;
 import dataaccess.EventDateDB;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -15,9 +16,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
+import javax.json.Json;
 import models.City;
 import models.Event;
 import models.EventDate;
+import javax.json.Json;
+import javax.json.JsonReader;
 
 /**
  *
@@ -133,12 +137,18 @@ public class EventService {
      * @return a JSON formatted list of city attributes
      */
     private String getEventJson(Event event) {
-        String json = "{\n";
-        json += "\"cityId\" : " + event.getEventId() + ", \n";
-        json += "\"cityName\" : \"" + event.getEventDesc() + "\", \n";
-        json += "\"background\" : \"" + event.getMediaPath() + "\"\n";
-        json += "}";
-        return json;
+        return Json.createObjectBuilder().add("cityId", event.getEventId())
+                .add("cityName", event.getEventDesc()).add("background", event.getMediaPath()).build().toString();
+//        JSONObject obj= new JSONObject();
+//        obj.put("cityId",event.getEventId());
+//        
+//        
+//        String json = "{\n";
+//        json += "\"cityId\" : " + event.getEventId() + ", \n";
+//        json += "\"cityName\" : \"" + event.getEventDesc() + "\", \n";
+//        json += "\"background\" : \"" + event.getMediaPath() + "\"\n";
+//        json += "}";
+//        return json;
     }
 
     public List<Event> getAllEvents() {
@@ -151,7 +161,7 @@ public class EventService {
         // If there are events available
         if (event != null) {
             json += "\"eventId\" : " + event.getEventDateId() + ", \n";
-            json += "\"address\" : \"" + event.getAddressId() + "\", \n";
+            json += "\"address\" : \"" + event.getAddressId().getAddressDetail() + "\", \n";
             json += "\"date\" : \"" + event.getStartDate() + "\", \n";
             json += "\"consign\" : \"" + event.getStartDate() + "\", \n";
             json += "\"buy\" : \"" + event.getEndDate() + "\", \n";

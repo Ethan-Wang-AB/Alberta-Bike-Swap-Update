@@ -68,7 +68,7 @@ public class LocationServlet extends HttpServlet {
                 /* If the action is getCity, it will use the methods at the end of this servlet to generate the JSON
                 with the city information based on its ID */
                 case "getCity":
-                    response.getWriter().write(eventService.getEvent(cityId).getEventDesc());
+                    response.getWriter().write(eventService.getEvent(cityId).getEventId().intValue()+"");
                     break;
                 case "getCityName":
                     response.getWriter().write(city.getEventDesc());
@@ -93,7 +93,7 @@ public class LocationServlet extends HttpServlet {
                 case "getAnnouncement": // Get soonest announcement
                     AnnouncementService announcementService = new AnnouncementService();
                     Announcement announcement = announcementService.getSoonestAnnouncement();
-                    System.out.println(announcementService.getAnnouncementJson(announcement));
+                    //System.out.println(announcementService.getAnnouncementJson(announcement));
                     response.getWriter().write(announcementService.getAnnouncementJson(announcement));
                     break;
 //                case "getPosterBackground": //Get current poster

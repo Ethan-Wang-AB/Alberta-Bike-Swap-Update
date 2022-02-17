@@ -27,6 +27,12 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>net.minidev</groupId>
+            <artifactId>json-smart</artifactId>
+            <version>2.4.7</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
@@ -49,6 +55,26 @@
             <artifactId> log4j </artifactId>  
             <version> 1.2.16 </version>  
         </dependency>  
+        <dependency>
+    <groupId>javax.json</groupId>
+    <artifactId>javax.json-api</artifactId>
+    <version>1.0</version>
+</dependency>
+<dependency>
+    <groupId>org.glassfish</groupId>
+    <artifactId>javax.json</artifactId>
+    <version>1.1</version>
+</dependency>
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-api</artifactId>
+    <version>1.7.36</version>
+</dependency>
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-simple</artifactId>
+    <version>1.7.36</version>
+</dependency>
 <!--        <dependency>
 
             <groupId>com.alberta.dependencies</groupId>
@@ -62,7 +88,7 @@
             <systemPath>${basedir}./lib/javax.mail.jar</systemPath>
 
         </dependency>-->
-           <dependency>  
+        <dependency>  
             <groupId> javax.mail </groupId>  
             <artifactId> mail </artifactId>  
             <version> 1.4</version>  
