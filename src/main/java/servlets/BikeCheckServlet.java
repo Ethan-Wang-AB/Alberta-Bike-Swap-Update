@@ -41,12 +41,12 @@ public class BikeCheckServlet extends HttpServlet {
                
         if(ticketnum == null || phonenum == null ){
             request.setAttribute("message", "Both fields required");
-            request.getRequestDispatcher("BikeCheckPage.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/WEB-INF/BikeCheckPage.jsp").forward(request, response);
         }
         
         else if(ticketnum.equals("") || phonenum.equals("") ){
             request.setAttribute("message", "Both fields required");
-            request.getRequestDispatcher("BikeCheckPage.jsp").forward(request, response);
+            request.getServletContext().getRequestDispatcher("/WEB-INF/BikeCheckPage.jsp").forward(request, response);
         }
         
         else if (ticketnum != null && !ticketnum.equals("") && phonenum!= null && !phonenum.equals("")  ){
@@ -59,7 +59,7 @@ public class BikeCheckServlet extends HttpServlet {
             
             //If correct, forward to the EditBikePage for checking Bike status, ticket number also get forward
             request.setAttribute("ticketnum", ticketnum);
-            request.getRequestDispatcher("EditBikePage.jsp").forward(request, response);
+           getServletContext().getRequestDispatcher("/WEB-INF/EditBikePage.jsp").forward(request, response);
             }
                    
        // getServletContext().getRequestDispatcher("/WEB-INF/BikeCheckPage.jsp").forward(request, response);
