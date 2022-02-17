@@ -33,7 +33,7 @@ public class ResetPasswordServlet extends HttpServlet {
         if (request.getParameterMap().containsKey("uuid") && !request.getParameter("uuid").trim().equals("")) {
             uuid = request.getParameter("uuid");
             request.setAttribute("uuid", uuid);
-            getServletContext().getRequestDispatcher("/WEB-INF/ResetPassword.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/WEB-INF/ResetPasswordPage.jsp").forward(request, response);
         } else {
             getServletContext().getRequestDispatcher("/WEB-INF/reset.jsp").forward(request, response);
 
@@ -54,13 +54,14 @@ public class ResetPasswordServlet extends HttpServlet {
                 String email = request.getParameter("email");
                 User user = accountService.getByEmail(email);
                 System.out.println("reset email: "+email);
+               if (user != null) {
                 HashMap<String, String> tags = new HashMap<>();
-                String firstname = user.getName().split(",")[1];
-                String lastname = user.getName().split(",")[0];
+                String firstname = user.getName();
+               // String lastname = user.getName().split(",")[0];
                 tags.put("firstname", firstname);
-                tags.put("lastname", lastname);
+               // tags.put("lastname", lastname);
                 tags.put("link", link);
-                if (user != null) {
+                
                     try {
                         String path = getServletContext().getRealPath("/WEB-INF");
                         String template = path + "/emailtemplates/resetpassword.html";

@@ -77,6 +77,7 @@ public class GmailService {
 
         // send the message
         Transport transport = session.getTransport();
+        System.out.println(username+"   "+password);
         transport.connect(username, password);
         transport.sendMessage(message, message.getAllRecipients());
         transport.close();

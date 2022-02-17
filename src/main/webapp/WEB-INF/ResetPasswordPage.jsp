@@ -42,8 +42,7 @@
                                                     <h1>Enter a new password</h1>
                                                                                  
                                                     <input type="hidden" name="uuid" value="${uuid}">
-                                                    <input type="password" name="password" >
-                                                    <button class="registerbtn" type="submit" name="submit" value="submit"> Reset Password</button>>
+                                                  
                                              
                                         </div>
                                     </div>  
