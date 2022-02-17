@@ -60,6 +60,7 @@ public class AccountService {
         user.setSalt(salt);
         user.setCellNumber(phone);
         user.setAddressId(add);
+        user.setRoleId(role);
         userDB.add(user);
     }
 
@@ -157,7 +158,46 @@ public class AccountService {
 //    {
 //        
 //    }   
-    public Role getRole(int number){
-    return RoleDB.getInstance().getRole(number);
+
+    public Role getRole(int number) {
+        return RoleDB.getInstance().getRole(number);
+    }
+
+    public void insert(String email, String fistname, String lastname, String password, Long phone, Role role, Role role0, String address, String city, short shirtSize) throws NoSuchAlgorithmException {
+        Address add = new Address();
+        add.setAddressDetail(address);
+
+        City thecity = new City();
+        thecity.setCityName(city);
+        if (city.equalsIgnoreCase("calgary")) {
+            thecity.setCityId(1);
+            State state = new State();
+            state.setStateId(1);
+            state.setStateName("AB");
+            thecity.setStateid(state);
+        } else if (city.equalsIgnoreCase("edmonton")) {
+            thecity.setCityId(3);
+        } else if (city.equalsIgnoreCase("lethbridge")) {
+            thecity.setCityId(2);
+        } else {
+            add = null;
+        }
+
+        if (add != null) {
+            add.setCityId(thecity);
+        }
+        String salt = PasswordUtil.getSalt();
+        String newPassword = PasswordUtil.hashAndSaltPassword(password, salt);
+        User user = new User();
+        user.setEmail(email);
+        user.setName(lastname + ", " + fistname);
+        user.setPassword(password);
+        user.setSalt(salt);
+        user.setCellNumber(phone);
+        user.setAddressId(add);
+        user.setRoleIdFirst(role);
+        user.setRoleIdSecond(role0);
+        user.setShirtSize(shirtSize);
+        userDB.add(user);
     }
 }
