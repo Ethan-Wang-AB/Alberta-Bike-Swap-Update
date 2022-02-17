@@ -129,6 +129,10 @@
         <servlet-name>RegistrationServlet</servlet-name>
         <servlet-class>servlets.RegistrationServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LocationServlet</servlet-name>
+        <servlet-class>servlets.LocationServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>WelcomeServlet</servlet-name>
         <url-pattern>/Welcome</url-pattern>
@@ -220,6 +224,10 @@
     <servlet-mapping>
         <servlet-name>RegistrationServlet</servlet-name>
         <url-pattern>/registration</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LocationServlet</servlet-name>
+        <url-pattern>/locations</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
