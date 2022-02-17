@@ -12,7 +12,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="stylesheet" href="./assets/css/FAQPageStyle.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
@@ -21,7 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     
     <title>Event Page for Alberta Bike Swap</title>
-    <link rel="stylesheet" href="assets/css/FAQPageStyle.css">
+    
     <script>
         function toggleFAQCard(cardNumber) {
             var x = document.getElementById(cardNumber);
@@ -40,11 +40,12 @@
     <div id="contentWrapper">
         <h4 id="announcementH1">What do you want to do today?</h4>
         <div id="faqWrapper">
-            <h2 id="faqTitle"> I want to. . .</h2>
+            <h4 id="faqTitle"> I want to. . .</h4>
             <input type="button" value="Borrow bike racks" class="faqQuestion" onclick='toggleFAQCard("Card1")'>
             <div class="faqAnswerCard" id="Card1">
-                <pre>
-            *** NOTES FOR 2018 ***
+                <pre style="font-family: sans-serif; text-align: left;">
+
+           <strong>*** NOTES FOR 2018 *** </strong>
 
         Yup, all caps, bold and italics – this information is that important. Read ALL of this page. Well, I
         broke my back (Laura) so we’re going away and that means that the racks are going away too. We asked
@@ -55,7 +56,7 @@
         Since we donate half the profit from the bike swaps back to the community, we built bike racks from
         the profits in 2012 to keep events green throughout the province.
 
-        What you need to know:
+        <strong>What you need to know: </strong>
 
         Each bike rack holds ~10-12 bikes. We ask that you determine the number of bikes racks that you need
         – # of bikes you expect, divided by 10 (the number of bikes per rack) equals the number of racks
@@ -70,13 +71,13 @@
         12’, and the side pieces can be placed in the bed of the truck. Make sure to bring your work gloves,
         tie downs and red flag.
 
-        What we expect:
+        <strong>What we expect: </strong>
 
         We ask that you display our “Racks supplied by” banner; give us a mention in your social media
         programme for the event; and it would be deluxe to have our logo displayed in your posters and
         website.
 
-        What we need to know:
+        <strong>What we need to know: </strong> 
 
         How many racks you need.
 
@@ -223,64 +224,66 @@
             <input type="button" value="Donate bike(s) - THANK YOU!" class="faqQuestion"
                 onclick='toggleFAQCard("Card3")'>
             <div class="faqAnswerCard" id="Card3">
-                <pre>
-                    Thank you.
+                <br>
+                <pre style="font-family: sans-serif; text-align: left;">
+        Thank you.
 
-                    We have a need in our back yard. Your bike will stay in the city or its surrounding area to help 
-                    those in need. The $2.00 entrance fee we collect goes to the group fixing these donated bikes.  
-                    We also have a bin for collection of parts to stock the shelves for great local non-profits that 
-                    re-build bikes within your community. 
+        We have a need in our back yard. Your bike will stay in the city or its surrounding area to help 
+        those in need. The $2.00 entrance fee we collect goes to the group fixing these donated bikes.  
+        We also have a bin for collection of parts to stock the shelves for great local non-profits that 
+        re-build bikes within your community. 
                     
-                    We’re not just local, we help international causes too.  Many of the bikes at the Calgary Swap 
-                    are from Bicycles for Humanity; the sale of these bikes will fund the container costs for bikes 
-                    sent abroad.  We volunteer and appreciate this great group too.
+        We’re not just local, we help international causes too.  Many of the bikes at the Calgary Swap 
+        are from Bicycles for Humanity; the sale of these bikes will fund the container costs for bikes 
+        sent abroad.  We volunteer and appreciate this great group too.
                 </pre>
             </div>
             <input type="button" value="Buy a bike" class="faqQuestion" onclick='toggleFAQCard("Card4")'>
             <div class="faqAnswerCard" id="Card4">
-                <pre>
-                    There is a $2.00 admission for adults, while kids 12 and under are free.  This money is 
-                    donated to a local non-profit bike group to fix the donated bikes, we don’t keep anything.  
-                    All bikes on the floor have undergone a basic tech check to make sure you don’t end up 
-                    with an unsafe ride, but it is still up to you to get a full technical checkup with a 
-                    participating bike shop. Please contact us if something is drastically wrong.
+                <br>
+                <pre style="font-family: sans-serif; text-align: left;">
+        There is a $2.00 admission for adults, while kids 12 and under are free.  This money is 
+        donated to a local non-profit bike group to fix the donated bikes, we don’t keep anything.  
+        All bikes on the floor have undergone a basic tech check to make sure you don’t end up 
+        with an unsafe ride, but it is still up to you to get a full technical checkup with a 
+        participating bike shop. Please contact us if something is drastically wrong.
 
-                    There is usually a rack of AS-IS bikes that didn’t pass the inspection, but would be a good 
-                    ride for the person ready to put a bit of TLC into a new ride. This money is donated to a local 
-                    non-profit bike group.
+        There is usually a rack of AS-IS bikes that didn’t pass the inspection, but would be a good 
+        ride for the person ready to put a bit of TLC into a new ride. This money is donated to a local 
+        non-profit bike group.
                     
-                    The line-ups can be long.  The line-up to buy starts when we’re setting up racks at 0600 in the 
-                    morning in Calgary and Edmonton.  If you want first dibs on a bike, please consider volunteering 
-                    rather than lining up.  Lining up from 0730-1430 when the sale begins is a long time to stand still.  
-                    Even if you are 3129 in line, you will still likely get a bike, but likely not the one you want.
+        The line-ups can be long.  The line-up to buy starts when we’re setting up racks at 0600 in the 
+        morning in Calgary and Edmonton.  If you want first dibs on a bike, please consider volunteering 
+        rather than lining up.  Lining up from 0730-1430 when the sale begins is a long time to stand still.  
+        Even if you are 3129 in line, you will still likely get a bike, but likely not the one you want.
                     
-                    We only accept debit or cash.  Visa or MasterCard or American Express are NOT accepted.
+        We only accept debit or cash.  Visa or MasterCard or American Express are NOT accepted.
                 </pre>
             </div>
             <input type="button" value="Sell my bike" class="faqQuestion" onclick='toggleFAQCard("Card5")'>
             <div class="faqAnswerCard" id="Card5">
-                <pre>
-                    Bring your clean, ready to ride bike to the swap during the bike intake time.
+                <pre style="font-family: sans-serif; text-align: left;">
+        Bring your clean, ready to ride bike to the swap during the bike intake time.
 
-                    You will set the selling price, we can guide you on this.
+        You will set the selling price, we can guide you on this.
                     
-                    We will tech-check your bike and record its serial number; the bike has to be immediately 
-                    rideable. We have participating bike shops in Calgary and Edmonton that can fix your bike 
-                    the day of the swap on your dime, our volunteer techs cannot do that for you.
+        We will tech-check your bike and record its serial number; the bike has to be immediately 
+        rideable. We have participating bike shops in Calgary and Edmonton that can fix your bike 
+        the day of the swap on your dime, our volunteer techs cannot do that for you.
                     
-                    You will sign an agreement to sell, which tells us where to send the e-transfer or write you
-                    a cheque and what to do with your bike in the slim chance that it doesn’t sell (>92% sell).
+        You will sign an agreement to sell, which tells us where to send the e-transfer or write you
+         a cheque and what to do with your bike in the slim chance that it doesn’t sell (>92% sell).
                     
-                    You will pay us a $15 rack fee per bike to put them into the sale, unless you are an AMA 
-                    member. AMA members get $5.00 off, so they pay $10 per bike to get their bike into the swap.
+        You will pay us a $15 rack fee per bike to put them into the sale, unless you are an AMA 
+        member. AMA members get $5.00 off, so they pay $10 per bike to get their bike into the swap.
                     
-                    You go away (but don’t leave town), we will sell your bike for you and we will send you the 
-                    cheque or e-transfer the money, less 13%. You can expect your cheque 1-2 weeks after the swap.
-                    It is still a manual process that Laura and Chris complete between swaps, nothing is automagic.
+        You go away (but don’t leave town), we will sell your bike for you and we will send you the 
+        cheque or e-transfer the money, less 13%. You can expect your cheque 1-2 weeks after the swap.
+        It is still a manual process that Laura and Chris complete between swaps, nothing is automagic.
                     
-                    In the rare chance your bike doesn’t find a new home, we’ll contact you (cell phone is best) 
-                    and let you know to pick your bike up.  It is rather inconvenient if you are out of town and 
-                    your bike needs to be picked-up. We only have the space until the end of the swap.
+        In the rare chance your bike doesn’t find a new home, we’ll contact you (cell phone is best) 
+        and let you know to pick your bike up.  It is rather inconvenient if you are out of town and 
+        your bike needs to be picked-up. We only have the space until the end of the swap.
                 </pre>
             </div>
         </div>
