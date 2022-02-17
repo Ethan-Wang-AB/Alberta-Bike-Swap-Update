@@ -101,3 +101,7 @@ INSERT INTO `trade_others` VALUES(1,1,2);
 INSERT INTO `trade_others` VALUES(2,2,2);
 
 INSERT INTO `trade_others` VALUES(3,3,3);
+
+INSERT INTO `announcement` VALUES(1,'1st announcement','This is a test',null,null,DEFAULT);
+
+INSERT INTO `announcement` VALUES(2,'2st announcement','This is for testing',null,null,DEFAULT);

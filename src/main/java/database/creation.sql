@@ -111,19 +111,27 @@ CREATE TABLE IF NOT EXISTS `absdb`.`user` (
   `name` VARCHAR(50) NOT NULL,
   `password` VARCHAR(500) NOT NULL,
  `salt` VARCHAR(100) ,
-  `role_id` INT(11) NOT NULL,
+  `role_id` INT(11),
+  `role_id_first` INT(11),
+ `role_id_second` INT(11),
   `reset_password_uuid` VARCHAR(50),
    `photoPath` varchar(300),
    `cell_number` BIGINT(11) NOT NULL,
 	`address_id` INT(11),
 	`diet_id` INT(11) ,
-	`shirt_size` TINYINT(1) NOT NULL,
+	`shirt_size` TINYINT(11) ,
 	`affiliation_id` INT(11),
 	`ticket` INT(11),
 	 
   PRIMARY KEY (`user_id`),
   CONSTRAINT `fk_user_role`
     FOREIGN KEY (`role_id`)
+    REFERENCES `absdb`.`role`(`role_id`),
+  CONSTRAINT `fk_user_role1`
+    FOREIGN KEY (`role_id_first`)
+    REFERENCES `absdb`.`role`(`role_id`),
+  CONSTRAINT `fk_user_role2`
+    FOREIGN KEY (`role_id_second`)
     REFERENCES `absdb`.`role`(`role_id`),
  CONSTRAINT `fk_user_address`
     FOREIGN KEY (`address_id`)
