@@ -11,7 +11,7 @@
         <!-- Required meta tags-->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
+
         <!-- Title Page-->
         <title>Alberta Bike Swap | Registration Page</title>
 
@@ -40,7 +40,7 @@
                         <h2 class="title">Event Registration Form</h2>
                     </div>
                     <div class="card-body">
-                        <form method="POST">
+                        <form method="POST" action="registration">
                             <div class="form-row m-b-55">
                                 <div class="name">Name</div>
                                 <div class="value">
@@ -68,6 +68,14 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-row">
+                                <div class="name">Password</div>
+                                <div class="value">
+                                    <div class="input-group">
+                                        <input class="input--style-5" type="password" name="password">
+                                    </div>
+                                </div>
+                            </div>
                             <div class="form-row m-b-55">
                                 <div class="name">Phone</div>
                                 <div class="value">
@@ -88,7 +96,7 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="name">Event Location</div>
+                                <div class="name">City</div>
                                 <div class="value">
                                     <div class="input-group">
                                         <div class="rs-select2 js-select-simple select--no-search">
@@ -103,27 +111,50 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-row">
+                                <div class="name">Address</div>
+                                <div class="value">
+                                    <div class="input-group">
+                                        <input class="input--style-5" type="text" name="address">
+                                    </div>
+                                </div>
+                            </div>
                             <div class="form-row p-t-20">
                                 <label class="label label--block">Do you want to register as a bike seller or / and volunteer?</label>
                                 <div class="p-t-15">
                                     <label class="radio-container m-r-55">Bike Seller
-                                        <input type="checkbox" id="Seller" name = "bikeSeller" onclick="myBfunction()">
+                                        <input type="radio" id="Seller" name = "roleId" value="2" >
+                                               <!--onclick="myBfunction()">-->
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="radio-container">volunteer
-                                        <input type="checkbox" id="volunteer" name = "volunteer" onclick="myVfunction()">
+                                        <input type="radio" id="volunteer" name = "roleId" value="3" onclick="myVfunction()">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
                             </div>
                             <br/>
                             <br/>
+                            <c:if test="${errorMessage != null}">
+                                <div
+                                    class="alert alert-danger alert-dismissible fade show pb-2 pt-2 mt-3"
+                                    role="alert"
+                                    >
+                                    <i class="bi bi-x-circle me-2"></i>
+                                    ${errorMessage}
+                                    <button
+                                        type="button"
+                                        class="btn-close btn-sm pb-1"
+                                        data-bs-dismiss="alert"
+                                        aria-label="Close"
+                                        ></button>
+                                </div>
+                            </c:if>
 
-
-                            <!-- bike section-->  
+                            <!-- bike section 
                             <div id="bikesection" style="display:none">
-                            <h2> Bike Information Section</h2>
-                            <br/> <br/>
+                                <h2> Bike Information Section</h2>
+                                <br/> <br/>
 
                                 <div class="form-row">
                                     <div class="name">How many bike you want to sell?</div>
@@ -131,7 +162,7 @@
                                         <div class="input-group">
                                             <div class="rs-select2 js-select-simple select--no-search">
                                                 <select name="location"  onchange="displayDivDemo('hideValuesOnSelect', this)" >
-                                                    <option disabled="disabled" selected="selected" >Choose the amount of bike</option>
+                                                    <option disabled="disabled" selected="selected" name="amount" >Choose the amount of bike</option>
                                                     <option value=""></option>
                                                     <option value="01">1</option>
                                                     <option value="02">2</option>
@@ -194,11 +225,11 @@
                                     </div>
                                 </div>
                             </div>
-
+--> 
                             <!-- volunteer section -->
                             <div id="volunteersection" style="display:none">
-                             <h2> Volunteer Section</h2>
-                            <br/> <br/>
+                                <h2> Volunteer Section</h2>
+                                <br/> <br/>
 
                                 <div class="form-row">
                                     <div class="name">Choose T-shirt size</div>
@@ -306,8 +337,8 @@
                                 </div>
 
 
-                                
-                                 <div class="form-row">
+
+<!--                                <div class="form-row">
                                     <div class="name">City & Shift</div>
                                     <div class="value">
                                         <div class="input-group">
@@ -324,8 +355,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                
+                                </div>-->
+
 
 
 
