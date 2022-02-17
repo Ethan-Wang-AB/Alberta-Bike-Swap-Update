@@ -19,6 +19,7 @@
     <class>models.User</class>
     <class>models.TradeDesc</class>
     <class>models.TradeOthers</class>
+    <class>models.Announcement</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
   </persistence-unit>
 </persistence>
