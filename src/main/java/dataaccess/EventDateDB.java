@@ -100,19 +100,19 @@ public class EventDateDB extends CommonDB<EventDate> {
     }
 
     @Override
-    public ArrayList<EventDate> getAll() {
+    public List<EventDate> getAll() {
        EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
         try {
             List<EventDate> lists;
             lists = em.createNamedQuery("EventDate.findAll", EventDate.class).getResultList();
-            return (ArrayList<EventDate>) lists;
+            return  lists;
         } finally {
             em.close();
         }
     }
     
-       public ArrayList<EventDate> getAllByEvent(Event e) {
+       public List<EventDate> getAllByEvent(Event e) {
        EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
         try {
@@ -121,7 +121,7 @@ public class EventDateDB extends CommonDB<EventDate> {
                 
             
             
-            return (ArrayList<EventDate>) lists;
+            return lists;
         } finally {
             em.close();
         }

@@ -85,13 +85,13 @@ public class SafetyDB extends CommonDB<Safety> {
     }
 
     @Override
-    public ArrayList<Safety> getAll() {
+    public List<Safety> getAll() {
            EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
         try {
             List<Safety> lists;
             lists = em.createNamedQuery("Safety.findAll", Safety.class).getResultList();
-            return (ArrayList<Safety>) lists;
+            return lists;
         } finally {
             em.close();
         }

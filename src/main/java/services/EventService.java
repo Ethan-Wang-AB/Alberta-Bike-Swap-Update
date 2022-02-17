@@ -58,7 +58,7 @@ public class EventService {
 
     public EventDate getSoonestEvent(Event e) {
 
-        ArrayList<EventDate> cityEvents = eventDateDB.getAllByEvent(e);
+        List<EventDate> cityEvents = eventDateDB.getAllByEvent(e);
         Calendar cal = Calendar.getInstance(Locale.CANADA);
 
         EventDate earliestEvent = null;

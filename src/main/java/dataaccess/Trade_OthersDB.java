@@ -24,26 +24,26 @@ public class Trade_OthersDB extends CommonDB<TradeOthers> {
         super();
     }
 
-    public ArrayList<TradeOthers> getAll() {
+    public List<TradeOthers> getAll() {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
         try {
             List<TradeOthers> lists;
             lists = em.createNamedQuery("TradeOthers.findAll", TradeOthers.class).getResultList();
-            return (ArrayList<TradeOthers>) lists;
+            return  lists;
         } finally {
             em.close();
         }
 
     }
 
-    public final ArrayList<TradeOthers> getAll(TradeDesc cat) {
+    public final List<TradeOthers> getAll(TradeDesc cat) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
         try {
             List<TradeOthers> lists;
             lists = em.createNamedQuery("TradeOthers.findAllByDesc", TradeOthers.class).setParameter("descId", cat.getDescId()).getResultList();
-            return (ArrayList<TradeOthers>) lists;
+            return  lists;
         } finally {
             em.close();
         }

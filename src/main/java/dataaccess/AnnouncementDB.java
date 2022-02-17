@@ -100,13 +100,13 @@ EntityManager em = DBUtil.getEmFactory().createEntityManager();
         }       }
 
     @Override
-    public ArrayList getAll() {
+    public List getAll() {
       EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
         try {
             List<Announcement> lists;
             lists = em.createNamedQuery("Announcement.findAll", Announcement.class).getResultList();
-            return (ArrayList<Announcement>) lists;
+            return lists;
         } finally {
             em.close();
         }    }

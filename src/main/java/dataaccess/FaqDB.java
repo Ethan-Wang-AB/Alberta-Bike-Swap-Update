@@ -85,13 +85,13 @@ public class FaqDB extends CommonDB<Faq> {
     }
 
     @Override
-    public ArrayList<Faq> getAll() {
+    public List<Faq> getAll() {
       EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
         try {
             List<Faq> lists;
             lists = em.createNamedQuery("Faq.findAll", Faq.class).getResultList();
-            return (ArrayList<Faq>) lists;
+            return  lists;
         } finally {
             em.close();
         }

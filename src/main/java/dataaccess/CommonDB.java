@@ -6,6 +6,7 @@
 package dataaccess;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -41,7 +42,7 @@ public abstract class CommonDB<T> {
      * @param certain type of the domain
      * @return an arraylist of the domain
      */
-    public abstract ArrayList<T> getAll();
+    public abstract List<T> getAll();
     
 
   

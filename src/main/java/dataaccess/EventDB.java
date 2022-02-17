@@ -87,13 +87,13 @@ public class EventDB extends CommonDB<Event> {
     }
 
     @Override
-    public ArrayList<Event> getAll() {
+    public List<Event> getAll() {
             EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
         try {
             List<Event> lists;
             lists = em.createNamedQuery("Event.findAll", Event.class).getResultList();
-            return (ArrayList<Event>) lists;
+            return lists;
         } finally {
             em.close();
         }

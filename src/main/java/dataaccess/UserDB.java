@@ -85,13 +85,13 @@ public class UserDB extends CommonDB<User> {
     }
 
     @Override
-    public ArrayList<User> getAll() {
+    public List<User> getAll() {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
         try {
             List<User> lists;
             lists = em.createNamedQuery("User.findAll", User.class).getResultList();
-            return (ArrayList<User>) lists;
+            return  lists;
         } catch (Exception ex) {
             System.out.println("get all users sql issue");
             ex.printStackTrace();
@@ -101,13 +101,13 @@ public class UserDB extends CommonDB<User> {
         }
     }
 
-    public final ArrayList<User> getAll(String role) {
+    public final List<User> getAll(String role) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
         try {
             List<User> lists;
             lists = em.createNamedQuery("User.findByRole", User.class).setParameter("roleName", role).getResultList();
-            return (ArrayList<User>) lists;
+            return  lists;
         } catch (Exception ex) {
             System.out.println("get users by role sql issue");
             ex.printStackTrace();

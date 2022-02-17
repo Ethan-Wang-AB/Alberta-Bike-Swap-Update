@@ -58,7 +58,7 @@ public class LocationServlet extends HttpServlet {
         page, which will load the Javascript and loads the actions */
         String action = request.getParameter("action");
         if (action == null) {
-            getServletContext().getRequestDispatcher("/locations.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/WEB-INF/locations.jsp").forward(request, response);
             return;
         }
 
@@ -68,7 +68,7 @@ public class LocationServlet extends HttpServlet {
                 /* If the action is getCity, it will use the methods at the end of this servlet to generate the JSON
                 with the city information based on its ID */
                 case "getCity":
-                    response.getWriter().write(String.valueOf(cityId));
+                    response.getWriter().write(eventService.getEvent(cityId).getEventDesc());
                     break;
                 case "getCityName":
                     response.getWriter().write(city.getEventDesc());
@@ -92,6 +92,7 @@ public class LocationServlet extends HttpServlet {
                 case "getAnnouncement": // Get soonest announcement
                     AnnouncementService announcementService = new AnnouncementService();
                     Announcement announcement = announcementService.getSoonestAnnouncement();
+                    System.out.println(announcementService.getAnnouncementJson(announcement));
                     response.getWriter().write(announcementService.getAnnouncementJson(announcement));
                     break;
 //                case "getPosterBackground": //Get current poster
@@ -119,7 +120,7 @@ public class LocationServlet extends HttpServlet {
     // Since we are only using get requests, nothing here
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/locations.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/WEB-INF/locations.jsp").forward(request, response);
     }
 
 }

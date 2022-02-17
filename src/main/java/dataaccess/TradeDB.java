@@ -106,25 +106,25 @@ public class TradeDB extends CommonDB<Trade> {
     }
 
     @Override
-    public ArrayList<Trade> getAll() {
+    public List<Trade> getAll() {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
         try {
             List<Trade> lists;
             lists = em.createNamedQuery("Trade.findAll", Trade.class).getResultList();
-            return (ArrayList<Trade>) lists;
+            return lists;
         } finally {
             em.close();
         }
     }
 
-    public final ArrayList<Trade> getAll(String date) {
+    public final List<Trade> getAll(String date) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
         try {
             List<Trade> lists;
             lists = em.createNamedQuery("Trade.findByTransDate", Trade.class).setParameter("transDate", date).getResultList();
-            return (ArrayList<Trade>) lists;
+            return  lists;
         } finally {
             em.close();
         }

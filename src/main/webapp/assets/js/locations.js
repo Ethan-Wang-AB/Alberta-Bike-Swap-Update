@@ -141,7 +141,9 @@ locationsApp.getAnnouncement = async () => {
         .then(response => { //After promise is fulfilled
             return response.json() //Return its response as json
         }).then(data => { // And then log and stores its data into announcement
-            announcement = data
+            console.log(data)   
+        announcement = data
+            console.log(announcement);
             /* But before finishing, if there are announcements available, makes another promise and get a blob (object)
             result. Then, converts the object to an URL we can use as image */
             if (announcement.title !== "No Announcements") {

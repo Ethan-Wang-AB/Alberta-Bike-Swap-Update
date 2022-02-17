@@ -8,6 +8,7 @@ package services;
 import dataaccess.FaqDB;
 import dataaccess.SafetyDB;
 import java.util.ArrayList;
+import java.util.List;
 import models.Faq;
 import models.Safety;
 
@@ -64,14 +65,14 @@ public class FaqSafetyService {
     }    
     
     
-    public final ArrayList<Faq> getAllFaq()
+    public final List<Faq> getAllFaq()
     {
 		return faqDB.getAll();
         
     }    
     
     
-    public final ArrayList<Safety> getAllSaf()
+    public final List<Safety> getAllSaf()
     {
 		return safetyDB.getAll();
         

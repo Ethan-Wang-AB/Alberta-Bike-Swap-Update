@@ -71,13 +71,13 @@ public class Trade_DescDB extends CommonDB<TradeDesc> {
     }
 
     @Override
-    public ArrayList<TradeDesc> getAll() {
+    public List<TradeDesc> getAll() {
  EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
         try {
             List<TradeDesc> lists;
             lists = em.createNamedQuery("TradeDesc.findAll", TradeDesc.class).getResultList();
-            return (ArrayList<TradeDesc>) lists;
+            return lists;
         } finally {
             em.close();
         }

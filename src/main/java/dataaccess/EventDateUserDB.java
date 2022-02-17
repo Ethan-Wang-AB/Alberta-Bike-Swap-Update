@@ -77,13 +77,13 @@ public class EventDateUserDB extends CommonDB<EventDateUser> {
     }
 
     @Override
-    public ArrayList<EventDateUser> getAll() {
+    public List<EventDateUser> getAll() {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
         try {
             List<EventDateUser> lists;
             lists = em.createNamedQuery("EventDateUser.findAll", EventDateUser.class).getResultList();
-            return (ArrayList<EventDateUser>) lists;
+            return lists;
         } finally {
             em.close();
         }

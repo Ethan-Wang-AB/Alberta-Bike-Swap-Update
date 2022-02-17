@@ -85,13 +85,13 @@ public class RoleDB extends CommonDB<Role> {
     }
 
     @Override
-    public ArrayList<Role> getAll() {
+    public List<Role> getAll() {
             EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
         try {
             List<Role> lists;
             lists = em.createNamedQuery("Role.findAll", Role.class).getResultList();
-            return (ArrayList<Role>) lists;
+            return  lists;
         } finally {
             em.close();
         }

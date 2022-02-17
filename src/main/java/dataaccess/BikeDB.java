@@ -24,26 +24,26 @@ public class BikeDB extends CommonDB<Bike> {
         super();
     }
 
-    public ArrayList<Bike> getAll() {
+    public List<Bike> getAll() {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
         try {
             List<Bike> lists;
             lists = em.createNamedQuery("Bike.findAll", Bike.class).getResultList();
-            return (ArrayList<Bike>) lists;
+            return  lists;
         } finally {
             em.close();
         }
 
     }
 
-    public final ArrayList<Bike> getAll(String maker) {
+    public final List<Bike> getAll(String maker) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
         try {
             List<Bike> lists;
             lists = em.createNamedQuery("Bike.findByMaker", Bike.class).setParameter("maker", maker).getResultList();
-            return (ArrayList<Bike>) lists;
+            return lists;
         } finally {
             em.close();
         }
