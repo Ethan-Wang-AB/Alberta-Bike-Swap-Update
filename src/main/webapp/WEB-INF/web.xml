@@ -133,6 +133,14 @@
         <servlet-name>LocationServlet</servlet-name>
         <servlet-class>servlets.LocationServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VolunteerServlet</servlet-name>
+        <servlet-class>servlets.VolunteerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SupporterServlet</servlet-name>
+        <servlet-class>servlets.SupporterServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>WelcomeServlet</servlet-name>
         <url-pattern>/Welcome</url-pattern>
@@ -228,6 +236,14 @@
     <servlet-mapping>
         <servlet-name>LocationServlet</servlet-name>
         <url-pattern>/locations</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VolunteerServlet</servlet-name>
+        <url-pattern>/Volunteer</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SupporterServlet</servlet-name>
+        <url-pattern>/Supporter</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

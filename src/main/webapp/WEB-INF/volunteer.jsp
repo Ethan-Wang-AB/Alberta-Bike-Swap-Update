@@ -1,6 +1,6 @@
 <%-- 
-    Document   : SafetyPage
-    Created on : Feb 3, 2022, 4:07:14 PM
+    Document   : volunteer.jst
+    Created on : Feb 17, 2022, 1:30:54 PM
     Author     : 845593
 --%>
 
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>safety Hello World!</h1>
+        <h1>Volunteer jsp Hello World!</h1>
     </body>
 </html>

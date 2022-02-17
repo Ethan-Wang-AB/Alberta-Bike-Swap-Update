@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="col col-sm-2 nav-header-item">
-                        <a href="${path}/info">
+                        <a href="${path}/Faq">
                             <div class="nav-item-inline">
                                 <img src="assets/img/header_footer/info.svg" alt="info" />
                                 <label>INFO</label>
@@ -67,7 +67,7 @@
                     </div>
 
                     <div class="col col-sm-2 nav-header-item">
-                        <a href="${path}/supporters">
+                        <a href="${path}/Supporter">
                             <div class="nav-item-inline">
                                 <img src="assets/img/header_footer/supporters.svg" alt="supporters" />
                                 <label>STRATEGIC ALLIANCES</label>
@@ -77,7 +77,7 @@
                     </div>
 
                     <div class="col col-sm-2 nav-header-item">
-                        <a href="${path}/volunteer">
+                        <a href="${path}/Volunteer">
                             <div class="nav-item-inline">
                                 <img src="assets/img/header_footer/volunteer.svg" alt="volunteer" />
                                 <label>VOLUNTEER</label>
@@ -87,7 +87,7 @@
                     </div>
 
                     <div class="col col-sm-2 nav-header-item">
-                        <a href="${path}/safety">
+                        <a href="${path}/Safety">
                             <div class="nav-item-inline">
                                 <img src="assets/img/header_footer/safety.svg" alt="safety" />
                                 <label>SAFETY</label>
@@ -97,7 +97,7 @@
                     </div>
 
                     <div class="col col-sm-2 nav-header-item">
-                        <a href="${path}/about">
+                        <a href="${path}/AboutUs">
                             <div class="nav-item-inline">
                                 <img src="assets/img/header_footer/about.svg" alt="about" />
                                 <label>ABOUT</label>
