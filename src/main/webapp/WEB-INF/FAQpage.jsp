@@ -5,13 +5,23 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    
     <title>Event Page for Alberta Bike Swap</title>
     <link rel="stylesheet" href="assets/css/FAQPageStyle.css">
-
     <script>
         function toggleFAQCard(cardNumber) {
             var x = document.getElementById(cardNumber);
@@ -26,9 +36,9 @@
 </head>
 
 <body>
-    <Navbar> Shared Navbar component among all pages goes here </Navbar>
+    <%@include file="header.jsp"%>
     <div id="contentWrapper">
-        <h1 id="announcementH1">What do you want to do today?</h1>
+        <h4 id="announcementH1">What do you want to do today?</h4>
         <div id="faqWrapper">
             <h2 id="faqTitle"> I want to. . .</h2>
             <input type="button" value="Borrow bike racks" class="faqQuestion" onclick='toggleFAQCard("Card1")'>
@@ -275,5 +285,5 @@
             </div>
         </div>
     </div>
-    <footer> Shared Footer component goes here.</footer>
+    <%@include file="footer.jsp"%>
 </body>

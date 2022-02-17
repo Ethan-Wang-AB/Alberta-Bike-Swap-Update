@@ -1,17 +1,12 @@
-body{
-    margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@font-face {
+    font-family: typo;
+    src: url(../font/Typo_Round_Regular_Demo.otf);
 }
 
-Navbar{
-    position: fixed;
-    overflow: hidden;
-    height: 110px;
-    top: 0;
-    left:0;
-    width: 100%;
-    background-color: rgb(153, 205, 50, 0.95);
-    color: #fff;
-    z-index: 3;
+body{
+    margin: 0;
 }
 
 #contentWrapper{
@@ -31,9 +26,13 @@ Navbar{
 }
 
 #announcementH1{
+    color:#1570B0;
+    font-weight: 200;
     text-align: center;
-    color: skyblue;
-    margin-bottom: 80px;
+    padding-bottom: 30px;
+    background: url(./img/header-bike-01.svg) no-repeat bottom center;
+    background-size: 200px;
+    margin: 30px 0 30px 0;
 }
 
 #faqWrapper{
@@ -43,7 +42,7 @@ Navbar{
 }
 
 #faqTitle{
-    color: grey
+    color: grey;
 }
 
 .faqQuestion{
@@ -70,13 +69,15 @@ Navbar{
     display: none;
     align-items: center;
     height: auto;
-    width: 900px;
+    font-family: typo;
+    width: 920px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.33);
     padding: 10px;
     left: 0;
     text-align: left;
 }
 
-pre{
+#Card1{
     width: auto;
+    font-family: sans-serif;
 }
