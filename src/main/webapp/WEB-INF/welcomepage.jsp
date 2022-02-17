@@ -52,13 +52,13 @@
 
                     <form method="post" action="Welcome">
                     <button class="circle" type="submit"><span>Edmonton</span></button>
-                    <input type="hidden" name="cityId" value="2">
+                    <input type="hidden" name="cityId" value="3">
                 </form>
                 </div>
                 <div class="col col-lg-2 col-md-6 col-12 menu-option option2">
                     <form action="Welcome"  method="post">
                         <button class="circle" type="submit"><span>Lethbridge</span></button>
-                        <input type="hidden" name="cityId" value="3">
+                        <input type="hidden" name="cityId" value="2">
                     </form>
                 </div>
                 <div class="col col-lg-2 col-md-6 col-12 menu-option option3">
