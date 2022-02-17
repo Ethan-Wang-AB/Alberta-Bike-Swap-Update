@@ -81,10 +81,8 @@ public class User implements Serializable {
     @NotNull
     @Column(name = "cell_number")
     private long cellNumber;
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "shirt_size")
-    private boolean shirtSize;
+    private Short shirtSize;
     @Column(name = "ticket")
     private Integer ticket;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
@@ -107,8 +105,14 @@ public class User implements Serializable {
     @ManyToOne
     private Diet dietId;
     @JoinColumn(name = "role_id", referencedColumnName = "role_id")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Role roleId;
+    @JoinColumn(name = "role_id_first", referencedColumnName = "role_id")
+    @ManyToOne
+    private Role roleIdFirst;
+    @JoinColumn(name = "role_id_second", referencedColumnName = "role_id")
+    @ManyToOne
+    private Role roleIdSecond;
 
     public User() {
     }
@@ -117,13 +121,12 @@ public class User implements Serializable {
         this.userId = userId;
     }
 
-    public User(Integer userId, String email, String name, String password, long cellNumber, boolean shirtSize) {
+    public User(Integer userId, String email, String name, String password, long cellNumber) {
         this.userId = userId;
         this.email = email;
         this.name = name;
         this.password = password;
         this.cellNumber = cellNumber;
-        this.shirtSize = shirtSize;
     }
 
     public Integer getUserId() {
@@ -190,11 +193,11 @@ public class User implements Serializable {
         this.cellNumber = cellNumber;
     }
 
-    public boolean getShirtSize() {
+    public Short getShirtSize() {
         return shirtSize;
     }
 
-    public void setShirtSize(boolean shirtSize) {
+    public void setShirtSize(Short shirtSize) {
         this.shirtSize = shirtSize;
     }
 
@@ -281,6 +284,22 @@ public class User implements Serializable {
 
     public void setRoleId(Role roleId) {
         this.roleId = roleId;
+    }
+
+    public Role getRoleIdFirst() {
+        return roleIdFirst;
+    }
+
+    public void setRoleIdFirst(Role roleIdFirst) {
+        this.roleIdFirst = roleIdFirst;
+    }
+
+    public Role getRoleIdSecond() {
+        return roleIdSecond;
+    }
+
+    public void setRoleIdSecond(Role roleIdSecond) {
+        this.roleIdSecond = roleIdSecond;
     }
 
     @Override

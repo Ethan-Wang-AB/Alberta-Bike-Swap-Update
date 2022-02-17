@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package models;
 
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -58,8 +58,12 @@ public class Role implements Serializable {
     @NotNull
     @Column(name = "shift")
     private short shift;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "roleId")
+    @OneToMany(mappedBy = "roleId")
     private List<User> userList;
+    @OneToMany(mappedBy = "roleIdFirst")
+    private List<User> userList1;
+    @OneToMany(mappedBy = "roleIdSecond")
+    private List<User> userList2;
 
     public Role() {
     }
@@ -116,6 +120,24 @@ public class Role implements Serializable {
         this.userList = userList;
     }
 
+    @XmlTransient
+    public List<User> getUserList1() {
+        return userList1;
+    }
+
+    public void setUserList1(List<User> userList1) {
+        this.userList1 = userList1;
+    }
+
+    @XmlTransient
+    public List<User> getUserList2() {
+        return userList2;
+    }
+
+    public void setUserList2(List<User> userList2) {
+        this.userList2 = userList2;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -140,5 +162,5 @@ public class Role implements Serializable {
     public String toString() {
         return "models.Role[ roleId=" + roleId + " ]";
     }
-    
+
 }
