@@ -138,17 +138,24 @@ locationsApp.getEvent = async cityId => {
  * Similar to our getCities method, this time for an announcement
  * @returns {Promise<void>}  A response with the most recent announcement
  */
+
+ let picture
+ let convert
 locationsApp.getAnnouncement = async () => {
-    let announcement
-    let picture
+   
 
     await fetch('?action=getAnnouncement')
         .then(response => { //After promise is fulfilled
-            return response.json() //Return its response as json
+            return response.text() //Return its response as json
         }).then(data => { // And then log and stores its data into announcement
-            console.log("Announcement"+data)   
-        announcement = data
-            console.log("announcement"+announcement);})
+          //  console.log("Announcement"+data)   
+        convert = data
+        
+         console.log(convert);
+         
+     })
+        let elements=convert.split(",");
+        console.log(elements[0].split(":")[1])
 //            /* But before finishing, if there are announcements available, makes another promise and get a blob (object)
 //            result. Then, converts the object to an URL we can use as image */
 //            if (announcement.title !== "No Announcements") {
@@ -161,7 +168,7 @@ locationsApp.getAnnouncement = async () => {
 //            picture = URL.createObjectURL(data)
 //        })
 
-    $("#announcementTitle").text(announcement.title)
+    $("#announcementTitle").text(elements[1].split(":")[1])
 
     if (announcement.title !== "No Announcements") {
         // Gets the picture from the path for the announcement and insert it do the #announcementPicture div
@@ -186,7 +193,7 @@ locationsApp.getAnnouncement = async () => {
             let link = body.substring(matchStart.index + 3, matchEnd.index)
             body = body.replace(replace, "<a href=" + link + ">" + link + "</a>")
         }
-        $("#announcementBody").append(body)
+        $("#announcementBody").append(elements[2].split(":")[1])
 
         // Hide loading spinner and shows the announcement picture and body
         $(".loading-announcement").hide()
