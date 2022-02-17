@@ -1,3 +1,10 @@
+<%-- 
+    Document   : WelcomePage
+    Created on : Feb. 10, 2022, 1:07:18 p.m.
+    Author     : Administrator
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
