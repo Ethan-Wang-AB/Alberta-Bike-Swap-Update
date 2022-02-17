@@ -75,6 +75,10 @@ public class ResetPasswordServlet extends HttpServlet {
                         Logger.getLogger(ResetPasswordServlet.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
+                else{
+                  response.sendRedirect("Login");
+                        return;
+                }
             } catch (Exception ex) {
                 Logger.getLogger(ResetPasswordServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
