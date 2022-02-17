@@ -35,7 +35,7 @@ public class PictureServlet extends HttpServlet {
         // Get the absolute path of the image
         HttpSession session = request.getSession();
         String email = (String) session.getAttribute("email");
-        AccountService accountService = new AccountService();
+        AccountService accountService = AccountService.getInstance();
         User user = accountService.getByEmail(email);
         
         String filename = user.getPhotoPath();

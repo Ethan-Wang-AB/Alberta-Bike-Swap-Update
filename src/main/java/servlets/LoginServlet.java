@@ -11,6 +11,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.User;
+import services.AccountService;
 
 /**
  *
@@ -46,6 +48,21 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String email=request.getParameter("email");
+        String password=request.getParameter("password");
+        
+        AccountService accountService=AccountService.getInstance();
+        
+        User user=accountService.login(email,password);
+        
+        if(user==null){
+            request.setAttribute("errorMessage", "Your email and password are not matched with our system");
+             getServletContext().getRequestDispatcher("/WEB-INF/loginpage.jsp").forward(request, response);
+        }
+        else{
+        response.sendRedirect("Profile");
+        }
+        
     }
 
     /**
