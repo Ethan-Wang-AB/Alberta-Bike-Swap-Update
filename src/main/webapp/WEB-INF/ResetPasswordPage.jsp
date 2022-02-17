@@ -26,15 +26,25 @@
                                 <img src="https://usa.afsglobal.org/SSO/SelfPasswordRecovery/images/send_reset_password.svg?v=3" alt="car-key" border="0">
                                 <h2 class="text-center">Forgot Password?</h2>
                                 <p>You can reset your password here.</p>
-                                <form id="register-form" role="form" autocomplete="off" class="form" method="post">
+                                <form id="register-form" role="form" autocomplete="off" class="form" method="post" action="ResetPassword">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <select class="form-control" id="accountType" onchange="showDiv(this)">
-                                                <option selected="true" disabled="disabled">Please Select Your Account Type: </option>
-                                                <option value="0">Bike Seller</option>
-                                                <option value="1">Volunteer</option>
-                                                <option value="2">User</option>
-                                            </select>
+                                           <%--        <select class="form-control" id="accountType" onchange="showDiv(this)">
+                                                        <option selected="true" disabled="disabled">Please Select Your Account Type: </option>
+                                                        <option value="0">Bike Seller</option>
+                                                          <option value="1">Volunteer</option>
+                                                            <option value="2">User</option>
+                                                           </select>
+                                            --%>
+                                   
+                                    
+
+                                                    <h1>Enter a new password</h1>
+                                                                                 
+                                                    <input type="hidden" name="uuid" value="${uuid}">
+                                                    <input type="password" name="password" >
+                                                    <button class="registerbtn" type="submit" name="submit" value="submit"> Reset Password</button>>
+                                             
                                         </div>
                                     </div>  
 
