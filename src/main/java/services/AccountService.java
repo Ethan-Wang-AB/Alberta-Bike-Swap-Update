@@ -200,4 +200,19 @@ public class AccountService {
         user.setShirtSize(shirtSize);
         userDB.add(user);
     }
+    
+      public boolean changePassword(String uuid, String password) {
+  
+        try {
+            User user = userDB.getByUUID(uuid);
+            //System.out.println(user.getEmail());
+            user.setPassword(password);
+            user.setResetPasswordUuid(null);
+            //System.out.println("set new password "+ user.getPassword()+user.getResetPasswordUuid());
+            userDB.update(user);
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
+    }
 }
