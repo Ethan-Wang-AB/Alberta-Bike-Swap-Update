@@ -53,7 +53,7 @@ public class ResetPasswordServlet extends HttpServlet {
                 String link = url + "?uuid=" + uuid;
                 String email = request.getParameter("email");
                 User user = accountService.getByEmail(email);
-               // System.out.println("reset email: "+email);
+                System.out.println("reset email: "+email);
                 HashMap<String, String> tags = new HashMap<>();
                 String firstname = user.getName().split(",")[1];
                 String lastname = user.getName().split(",")[0];
@@ -68,7 +68,7 @@ public class ResetPasswordServlet extends HttpServlet {
                         accountService.update(user);
                         
                         GmailService.sendMail(email, "Reset Your Password", template, tags);
-                        response.sendRedirect("login");
+                        response.sendRedirect("Login");
                         return;
                         
                     } catch (Exception ex) {
@@ -85,7 +85,7 @@ public class ResetPasswordServlet extends HttpServlet {
             System.out.println(password);
             Boolean success=accountService.changePassword(uuid, password);
             System.out.println("change password "+success);
-            response.sendRedirect("login");
+            response.sendRedirect("Login");
             return;
         }
     }
