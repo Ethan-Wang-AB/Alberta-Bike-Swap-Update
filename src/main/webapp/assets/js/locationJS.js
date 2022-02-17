@@ -37,18 +37,23 @@ locationsApp.getCities = async () => {
             cities we have in the database */
             return fetch('?action=getCities')
         }).then(response => {
-            return response.json()
+        
+            return response.text();
         }).then(data => {
-            console.log(data)
-            cities = data
+          
+            console.log("DATA:0"+data)
+            cities = JSON.parse(JSON.stringify(data));
+              console.log("cities"+ cities);
+            
         })
-
+     cities=cities.json()
     // Creates the dropdown to select the city. The default city will be the one with the ID we got above
     let collapseDiv = $("#collapseOpen")
     let dropdown = $("<button></button>")
     dropdown.prop("type", "button")
     dropdown.prop("class", "btn btn-link city-drop shadow-none mb-0 selectedCity")
     dropdown.prop("id", "selectedCity")
+  
     dropdown.text(cities[cityId - 1].cityName)
     dropdown.click(() => { // When clicked, display the the cities under the #collapseOpen div
         collapseDiv.collapse('show')

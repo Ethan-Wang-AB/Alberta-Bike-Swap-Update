@@ -33,8 +33,8 @@
 <body>
     <%@include file="header.jsp"%>
     <script type="text/javascript">$('#home').addClass('active')</script>
-    <script type="text/javascript" src="../assets/script/locations.js"></script>
-  <script type="text/javascript" src="../assets/script/locationsPoster.js"></script>
+    <script type="text/javascript" src="../assets/js/locationJS.js"></script>
+  <script type="text/javascript" src="../assets/js/locationsPoster.js"></script>
     <div class="container-fluid parallax" id="cityPage">
         <div class="row city" >
             <div class="row justify-content-center">

@@ -77,6 +77,7 @@ public class LocationServlet extends HttpServlet {
                     List<Event> cities = eventService.getAllEvents();
                     String citiesJson = eventService.getEventsJson(cities);
                     response.getWriter().write(citiesJson);
+                            //.write(citiesJson);
                     break;
                 case "getEvent": // List of events based on the cityId
                     EventDate eventdate = eventService.getSoonestEvent(city);
