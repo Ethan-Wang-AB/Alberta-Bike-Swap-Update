@@ -5,7 +5,13 @@
  */
 package services;
 
+import dataaccess.RoleDB;
 import dataaccess.UserDB;
+import java.security.NoSuchAlgorithmException;
+import models.Address;
+import models.City;
+import models.Role;
+import models.State;
 import models.User;
 
 /**
@@ -14,25 +20,86 @@ import models.User;
  */
 public class AccountService {
 
+    private static AccountService accountService = new AccountService();
+
     private UserDB userDB = UserDB.getInstance();
 
-    public final User login(String username, String password) {
-        User user = userDB.getUser(username);
-        if (user.getPassword().equals(password)) {
-            return user;
+    private AccountService() {
+
+    }
+
+    public void insert(String email, String firstname, String lastname, String password, Long phone, Role role, String address, String city) throws Exception {
+        Address add = new Address();
+        add.setAddressDetail(address);
+
+        City thecity = new City();
+        thecity.setCityName(city);
+        if (city.equalsIgnoreCase("calgary")) {
+            thecity.setCityId(1);
+            State state = new State();
+            state.setStateId(1);
+            state.setStateName("AB");
+            thecity.setStateid(state);
+        } else if (city.equalsIgnoreCase("edmonton")) {
+            thecity.setCityId(3);
+        } else if (city.equalsIgnoreCase("lethbridge")) {
+            thecity.setCityId(2);
         } else {
-            return null;
+            add = null;
         }
+
+        if (add != null) {
+            add.setCityId(thecity);
+        }
+        String salt = PasswordUtil.getSalt();
+        String newPassword = PasswordUtil.hashAndSaltPassword(password, salt);
+        User user = new User();
+        user.setEmail(email);
+        user.setName(lastname + ", " + firstname);
+        user.setPassword(password);
+        user.setSalt(salt);
+        user.setCellNumber(phone);
+        user.setAddressId(add);
+        userDB.add(user);
+    }
+
+    public final User login(String email, String password) {
+
+        //System.out.println(email+" "+password);
+        try {
+            User user = userDB.getUserByEmail(email);
+            // System.out.println(user.getEmail());
+            //System.out.println(user.getSalt());
+            if (user.getSalt() == null && password.equals(user.getPassword())) {
+
+                user.setSalt(PasswordUtil.getSalt());
+                String newPassword = PasswordUtil.hashAndSaltPassword(password, user.getSalt());
+                user.setPassword(newPassword);
+                update(user);
+                return user;
+            } else {
+                String code = PasswordUtil.hashAndSaltPassword(password, user.getSalt());
+                System.out.println(user.getPassword());
+                System.out.println(code);
+                if (user.getPassword().equals(code)) {
+                    return user;
+                }
+
+            }
+        } catch (Exception e) {
+        }
+
+        return null;
     }
 
     /*
      * logout function will be implemented in servlet side, no need to call method here to talk with database
      * @param user 
      */
-//    public final void logout(User user)
-//    {
-//       
-//    }    
+    //    public final void logout(User user)
+    //    {
+    //       
+    //    }    
     /**
      * use uuid to reset password. when user reset password, system will generate a uuid and send by email, client will use uuid uri to open the reset password page, if uuid matches, reset password, if not, resetting fails.
      *
@@ -67,9 +134,9 @@ public class AccountService {
 
     }
 
-    
     /**
      * used for resetting password credential validation
+     *
      * @param uuid
      * @return the user with matched uuid or null if no match found
      */
@@ -83,8 +150,14 @@ public class AccountService {
         userDB.update(user);
     }
 
+    public static AccountService getInstance() {
+        return accountService;
+    }
 //    public final void deactive(User user)
 //    {
 //        
-//    }    
+//    }   
+    public Role getRole(int number){
+    return RoleDB.getInstance().getRole(number);
+    }
 }
