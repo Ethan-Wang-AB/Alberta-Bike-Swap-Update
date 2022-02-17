@@ -207,7 +207,7 @@
             <div class="col-sm-4">
                 <div class="panel panel-default">
                     <div class="menu_title">
-                        <h2>username ${Username}</h2>
+                        <h2>name ${name}</h2>
 
                     </div>
                     <div class="panel-body">
