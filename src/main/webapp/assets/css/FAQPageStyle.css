@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 @font-face {
-    font-family: typo;
+    font-family: Roboto;
     src: url(../font/Typo_Round_Regular_Demo.otf);
 }
 
@@ -39,7 +39,7 @@ body{
 #faqWrapper{
     align-items: center;
     justify-content: center;
-    margin-left: 275px;
+    margin-left: 320px;
 }
 
 #faqTitle{
@@ -71,7 +71,6 @@ body{
     display: none;
     align-items: center;
     height: auto;
-    font-family: typo;
     width: 900px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.33);
     padding: 25px;
