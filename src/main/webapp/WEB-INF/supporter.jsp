@@ -12,6 +12,9 @@
         <title>JSP Page</title>
     </head>
     <body>
+         <%@include file="header.jsp"%>
         <h1>supporter Hello World!</h1>
+        
+         <%@include file="footer.jsp"%>
     </body>
 </html>
