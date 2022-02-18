@@ -57,6 +57,10 @@
         <servlet-class>servlets.EditUserServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>EditProfileServlet</servlet-name>
+        <servlet-class>servlets.EditProfileServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>EditFaqServlet</servlet-name>
         <servlet-class>servlets.EditFaqServlet</servlet-class>
     </servlet>
@@ -172,6 +176,10 @@
     <servlet-mapping>
         <servlet-name>EditUserServlet</servlet-name>
         <url-pattern>/EditUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditProfileServlet</servlet-name>
+        <url-pattern>/EditProfile</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EditFaqServlet</servlet-name>

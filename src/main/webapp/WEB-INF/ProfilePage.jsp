@@ -215,18 +215,19 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label for="ticket"> Ticket:</label>
-                                    <p>CAL-10015-1 ${ticket}</p>
+                                    <p>${ticket}</p>
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">Phone Number:</label>
-                                    <p> 403-2123-1234 ${phone}</p>
+                                    <p>${phone}</p>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email:</label>
-                                    <p>ABCD@example.com ${email}</p>
+                                    <p>${email}</p>
                                 </div>
-
-                                <button type="submit" class="btn btn-danger btn-block">Edit</button>
+                                <form action="EditProfile"  method="get">
+                                    <button type="submit" class="btn btn-danger btn-block">Edit</button>
+                                </form>
                             </div>
                         </div>
                     </div>
