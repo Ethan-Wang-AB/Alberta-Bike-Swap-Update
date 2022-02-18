@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import models.Role;
 import services.AccountService;
 
@@ -46,6 +47,7 @@ public class RegistrationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session=request.getSession();
         try {
             String fistname = request.getParameter("first_name");
             String lastname = request.getParameter("last_name");
@@ -54,16 +56,20 @@ public class RegistrationServlet extends HttpServlet {
             Long phone = Long.parseLong(request.getParameter("phone"));
             String password = request.getParameter("password");
             String address = request.getParameter("address");
-            int roleId = Integer.parseInt(request.getParameter("roldId"));
+            System.out.println(request.getParameter("roldId"));
+            int roleId = Integer.parseInt(request.getParameter("roleId"));
               AccountService accountService = AccountService.getInstance();
+              
             if(roleId==2){
           
 
             accountService.insert(email, fistname, lastname, password, phone, accountService.getRole(roleId), address, city);
-            
+            session.setAttribute("email",email);
             response.sendRedirect("Profile");
             }
             if(roleId==3){
+            session.setAttribute("email",email);
+
             short shirtSize=Short.parseShort(request.getParameter("tshirtsize"));
             int firstPosition=Integer.parseInt(request.getParameter("firstposition"))+2;
             int secondPosition=Integer.parseInt(request.getParameter("secondposition"))+2;

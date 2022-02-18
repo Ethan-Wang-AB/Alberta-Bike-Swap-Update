@@ -82,13 +82,13 @@
                                     <div class="row row-refine">
                                         <div class="col-3">
                                             <div class="input-group-desc">
-                                                <input class="input--style-5" type="text" name="area_code">
+                                                <input class="input--style-5" type="number" name="area_code">
                                                 <label class="label--desc">Area Code</label>
                                             </div>
                                         </div>
                                         <div class="col-9">
                                             <div class="input-group-desc">
-                                                <input class="input--style-5" type="text" name="phone">
+                                                <input class="input--style-5" type="phone" name="phone">
                                                 <label class="label--desc">Phone Number</label>
                                             </div>
                                         </div>
@@ -123,12 +123,12 @@
                                 <label class="label label--block">Do you want to register as a bike seller or / and volunteer?</label>
                                 <div class="p-t-15">
                                     <label class="radio-container m-r-55">Bike Seller
-                                        <input type="radio" id="Seller" name = "roleId" value="2" >
+                                        <input type="radio" id="Seller" name = "roleId" value=2 >
                                                <!--onclick="myBfunction()">-->
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="radio-container">volunteer
-                                        <input type="radio" id="volunteer" name = "roleId" value="3" onclick="myVfunction()">
+                                        <input type="radio" id="volunteer" name = "roleId" value=3 onclick="myVfunction()">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
