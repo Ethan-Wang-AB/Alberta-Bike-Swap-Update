@@ -1,0 +1,91 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css");
+@import url("https://use.fontawesome.com/releases/v5.0.13/css/all.css");
+
+@media screen and (max-width: 993px) {
+    .main {
+        padding-top: 100px;
+    }
+
+
+}
+.first_container{
+    padding-top: 150px;
+}
+
+.secondBorder {
+    background-color: #F5F8D7;
+}
+
+
+.main {
+    padding-top: 150px;
+}
+
+
+.headerbike {
+    color:#1570B0;
+    font-weight: lighter;
+    text-align: center;
+    padding-bottom: 30px;
+    background: url(../img/header-bike-01.svg) no-repeat bottom center;
+    background-size: 200px;
+    margin: 30px 0 30px 0;
+    font-size: 2.28rem;
+}
+
+.first_border {
+    margin-top: 48px;
+}
+
+.tile
+{
+    width: 100%;
+}
+
+#tile-1 .testnav2
+{
+    position:relative;
+    border:none!important;
+    background-color:#fff;
+    border-radius:6px;
+}
+#tile-1 .testnav2 li
+{
+    margin:0px!important;
+}
+#tile-1 .testnav2 li a
+{
+    position:relative;
+    margin-right:0px!important;
+    padding: 20px 8px!important;
+    font-size:16px;
+    border:none!important;
+    color:#CBC723;
+}
+#tile-1 .testnav2 a:hover
+{
+    background-color:#fff!important;
+    color: #8DBBC5;
+    border:none;
+}
+
+#tile-1 .slider
+{
+    display:inline-block;
+    width:30px;
+    height:4px;
+    border-radius:3px;
+    background-color:#8DBBC5;
+    position:absolute;
+    z-index:1200;
+    bottom:0;
+    transition:all .4s linear;
+
+}
+#tile-1 .testnav2 .active
+{
+    background-color:transparent!important;
+    border:none!important;
+    color:#8DBBC5!important;
+}
+

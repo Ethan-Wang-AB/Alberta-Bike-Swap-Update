@@ -34,7 +34,7 @@
     <%@include file="header.jsp"%>
     <script type="text/javascript">$('#home').addClass('active')</script>
     <script type="text/javascript" src="../assets/js/locationJS.js"></script>
-  <script type="text/javascript" src="../assets/js/locationsPoster.js"></script>
+    <script type="text/javascript" src="../assets/js/locationsPoster.js"></script>
     <div class="container-fluid parallax" id="cityPage">
         <div class="row city" >
             <div class="row justify-content-center">
@@ -64,6 +64,8 @@
                 <div class="w-100"></div>
                 <div class="col-sm-1 offset-md-3 city-info hidden"><h5>Donate:</h5></div>
                 <div class="col-sm"><h4 id="donate"></h4></div>
+                <div class="col-sm"> <button type="button" class="btn btn-info city-info hidden" id="goFqa" onclick="locationsApp.genPDF()">FAQ</button>
+                </div>
                 <div class="col-sm"> <button type="button" class="btn btn-info city-info hidden" id="download" onclick="locationsApp.genPDF()">Download Poster</button>
                 </div>
             </div>
