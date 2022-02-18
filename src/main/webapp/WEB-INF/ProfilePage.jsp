@@ -81,6 +81,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <c:forEach var="bike" items="${bikes}">
+                                        <td>${bike.getBikeIndex()}</td>
+                                        <td>${bike.getMaker()}</td>
+                                        <td>${bike.getModel()}</td>
+                                        <td>${bike.getSize()}</td>
+                                        </c:forEach>>
                                         <tr>
                                             <td><a href="#">CR1215066H ${Bikeindex}</a></td>
                                             <td>montague</td>
