@@ -5,7 +5,6 @@
     <non-jta-data-source>java:/comp/env/jdbc/absdb</non-jta-data-source>
     <class>models.Address</class>
     <class>models.Affiliation</class>
-    <class>models.Bike</class>
     <class>models.City</class>
     <class>models.Diet</class>
     <class>models.Event</class>
@@ -20,6 +19,7 @@
     <class>models.TradeDesc</class>
     <class>models.TradeOthers</class>
     <class>models.Announcement</class>
+    <class>models.Bike</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
   </persistence-unit>
 </persistence>

@@ -21,8 +21,11 @@ public class TechnicianService {
     
     
     
-    public final boolean checkIndex(long index)
+    public final boolean checkIndex(Bike bike)
     {
+        if(bike.getBikeIndex().startsWith("sa")){
+        return true;
+        }
 		return false;
         
     }    

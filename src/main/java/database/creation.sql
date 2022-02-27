@@ -185,6 +185,7 @@ CREATE TABLE IF NOT EXISTS `absdb`.`bike` (
    `price` DOUBLE NOT NULL,
    toSell  TINYINT(1) NOT NULL,
    donate  TINYINT(1) NOT NULL,
+   `bike_event_tickets` VARCHAR(30),
   PRIMARY KEY (`bike_id`),
   CONSTRAINT `fk_bike_user`
     FOREIGN KEY (`user_id`)

@@ -8,8 +8,11 @@ package services;
 import dataaccess.RoleDB;
 import dataaccess.UserDB;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import models.Address;
+import models.Bike;
 import models.City;
+import models.EventDate;
 import models.Role;
 import models.State;
 import models.User;
@@ -23,6 +26,7 @@ public class AccountService {
     private static AccountService accountService = new AccountService();
 
     private UserDB userDB = UserDB.getInstance();
+    private BikeService bikeService = BikeService.getInstance();
 
     private AccountService() {
 
@@ -66,21 +70,21 @@ public class AccountService {
 
     public final User login(String email, String password) {
 
-        System.out.println("accountservice "+ email+" "+password);
+        System.out.println("accountservice " + email + " " + password);
         try {
             User user = userDB.getUserByEmail(email);
             // System.out.println(user.getEmail());
             //System.out.println(user.getSalt());
-            
-            if(user==null){
-            return null;
+
+            if (user == null) {
+                return null;
             }
-            if ((user.getSalt() == null || user.getSalt().equals(""))  && password.equals(user.getPassword())) {
+            if ((user.getSalt() == null || user.getSalt().equals("")) && password.equals(user.getPassword())) {
 
                 user.setSalt(PasswordUtil.getSalt());
                 String newPassword = PasswordUtil.hashAndSaltPassword(password, user.getSalt());
                 System.out.println(newPassword);
-                
+
                 user.setPassword(newPassword);
                 update(user);
                 return user;
@@ -206,9 +210,9 @@ public class AccountService {
         user.setShirtSize(shirtSize);
         userDB.add(user);
     }
-    
-      public boolean changePassword(String uuid, String password) {
-  
+
+    public boolean changePassword(String uuid, String password) {
+
         try {
             User user = userDB.getByUUID(uuid);
             //System.out.println(user.getEmail());
@@ -220,5 +224,13 @@ public class AccountService {
         } catch (Exception ex) {
             return false;
         }
+    }
+
+    void assignTicket(User user, EventDate event_date) {
+        int ticket = Integer.parseInt(String.valueOf(event_date.getEventDateId()) + String.valueOf(user.getUserId()));
+        user.setTicket(ticket);
+        bikeService.assignEventId(user, event_date);
+
+        userDB.update(user);
     }
 }

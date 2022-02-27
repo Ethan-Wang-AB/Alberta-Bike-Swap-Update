@@ -6,9 +6,7 @@
 package models;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,12 +16,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -42,7 +38,8 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Bike.findBySize", query = "SELECT b FROM Bike b WHERE b.size = :size")
     , @NamedQuery(name = "Bike.findByPrice", query = "SELECT b FROM Bike b WHERE b.price = :price")
     , @NamedQuery(name = "Bike.findByToSell", query = "SELECT b FROM Bike b WHERE b.toSell = :toSell")
-    , @NamedQuery(name = "Bike.findByDonate", query = "SELECT b FROM Bike b WHERE b.donate = :donate")})
+    , @NamedQuery(name = "Bike.findByDonate", query = "SELECT b FROM Bike b WHERE b.donate = :donate")
+    , @NamedQuery(name = "Bike.findByBikeEventTickets", query = "SELECT b FROM Bike b WHERE b.bikeEventTickets = :bikeEventTickets")})
 public class Bike implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -79,11 +76,12 @@ public class Bike implements Serializable {
     @NotNull
     @Column(name = "donate")
     private boolean donate;
+    @Size(max = 30)
+    @Column(name = "bike_event_tickets")
+    private String bikeEventTickets;
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     @ManyToOne(optional = false)
     private User userId;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "bikeId")
-    private List<Trade> tradeList;
 
     public Bike() {
     }
@@ -172,21 +170,20 @@ public class Bike implements Serializable {
         this.donate = donate;
     }
 
+    public String getBikeEventTickets() {
+        return bikeEventTickets;
+    }
+
+    public void setBikeEventTickets(String bikeEventTickets) {
+        this.bikeEventTickets = bikeEventTickets;
+    }
+
     public User getUserId() {
         return userId;
     }
 
     public void setUserId(User userId) {
         this.userId = userId;
-    }
-
-    @XmlTransient
-    public List<Trade> getTradeList() {
-        return tradeList;
-    }
-
-    public void setTradeList(List<Trade> tradeList) {
-        this.tradeList = tradeList;
     }
 
     @Override
