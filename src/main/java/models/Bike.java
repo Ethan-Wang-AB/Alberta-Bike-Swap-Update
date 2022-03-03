@@ -39,7 +39,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Bike.findByPrice", query = "SELECT b FROM Bike b WHERE b.price = :price")
     , @NamedQuery(name = "Bike.findByToSell", query = "SELECT b FROM Bike b WHERE b.toSell = :toSell")
     , @NamedQuery(name = "Bike.findByDonate", query = "SELECT b FROM Bike b WHERE b.donate = :donate")
-    , @NamedQuery(name = "Bike.findByBikeEventTickets", query = "SELECT b FROM Bike b WHERE b.bikeEventTickets = :bikeEventTickets")})
+    , @NamedQuery(name = "Bike.findByBikeEventTickets", query = "SELECT b FROM Bike b WHERE b.bikeEventTickets = :bikeEventTickets")
+    , @NamedQuery(name = "Bike.findByChecked", query = "SELECT b FROM Bike b WHERE b.checked = :checked")})
 public class Bike implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -79,6 +80,8 @@ public class Bike implements Serializable {
     @Size(max = 30)
     @Column(name = "bike_event_tickets")
     private String bikeEventTickets;
+    @Column(name = "checked")
+    private Boolean checked;
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     @ManyToOne(optional = false)
     private User userId;
@@ -176,6 +179,14 @@ public class Bike implements Serializable {
 
     public void setBikeEventTickets(String bikeEventTickets) {
         this.bikeEventTickets = bikeEventTickets;
+    }
+
+    public Boolean getChecked() {
+        return checked;
+    }
+
+    public void setChecked(Boolean checked) {
+        this.checked = checked;
     }
 
     public User getUserId() {
