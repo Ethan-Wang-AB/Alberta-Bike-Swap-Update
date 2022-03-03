@@ -233,4 +233,8 @@ public class AccountService {
 
         userDB.update(user);
     }
+
+    public User getByTicket(int parseInt) {
+           return userDB.getUserByTicket(parseInt);
+    }
 }
