@@ -82,11 +82,11 @@ INSERT INTO `event_date_user` (`event_date_id`,`user_id`) VALUES (3,2);
 INSERT INTO `event_date_user` (`event_date_id`,`user_id`) VALUES (3,3);
 INSERT INTO `event_date_user` (`event_date_id`,`user_id`) VALUES (3,5);
 
-INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`) 
-   VALUES('123456789A',2,500.5,1,0,'Calgary-22-1');
+INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`) 
+   VALUES('123456789A',2,500.5,1,0,'Calgary-22-1',true);
    
-INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`) 
-   VALUES('B123456789',3,610.2,1,0,'Calgary-33-1');
+INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`) 
+   VALUES('B123456789',3,610.2,1,0,'Calgary-33-1',true);
    
 INSERT INTO `trade` VALUES(1,2,3,'2022-5-30',2);
 
