@@ -152,6 +152,24 @@ public class UserDB extends CommonDB<User> {
         }
 
     }
+    
+      public final User getUserByTicket(int ticket) {
+          EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        try {
+            System.out.println(ticket);
+            User user = em.createNamedQuery("User.findByTicket", User.class).setParameter("ticket", ticket).getSingleResult();
+            return user;
+        } catch (Exception ex) {
+            System.out.println("get user by ticket sql issue");
+            ex.printStackTrace();
+            return null;
+
+        } finally {
+            em.close();
+        }
+
+    }
+    
 public User getByUUID(String uuid){
          EntityManager em = DBUtil.getEmFactory().createEntityManager();
         
