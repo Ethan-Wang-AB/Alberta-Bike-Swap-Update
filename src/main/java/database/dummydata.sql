@@ -28,6 +28,10 @@ INSERT INTO `role` VALUES (4, 'Technician','check the bike',3);
 INSERT INTO `role` VALUES (5, 'Food Provider','Provide food',4);
 INSERT INTO `role` VALUES (6, 'Seller','Sell bike',-1);
 INSERT INTO `role` VALUES (7, 'Buyer','Buy bike',-1);
+INSERT INTO `role` VALUES (8, 'Food provider','provide food',2);
+INSERT INTO `role` VALUES (9, 'Reception','check tickets and bookkeeping',2);
+INSERT INTO `role` VALUES (10, 'Technician','check the bike',3);
+INSERT INTO `role` VALUES (11, 'Security','Secure the court',4);
 
 INSERT INTO `faq` VALUES (1, '1st question','who is the owner','Laura',1,1,1);
 INSERT INTO `faq` VALUES (2, '2nd question','where is the event','3 cities',1,1,2);
@@ -38,9 +42,9 @@ INSERT INTO `safety` VALUES (2, 'Theft','Take care of your money','www.call311.c
 INSERT INTO `safety` VALUES (3, 'Extreme Weather Notice','Be healthy','www.weather.com',1,1,3);
 
 
-INSERT INTO `event_date` VALUES (1, 1,1,'2022-10-22','2022-10-24','day 1 collect, day2 sell');
-INSERT INTO `event_date` VALUES (2, 2,2,'2022-10-22','2022-10-24','day 1 collect, day2 sell');
-INSERT INTO `event_date` VALUES (3, 3,3,'2022-10-22','2022-10-24','day 1 collect, day2 sell');
+INSERT INTO `event_date` VALUES (1, 1,1,'2022-3-17','2022-3-19','day 1 collect, day2 sell',false);
+INSERT INTO `event_date` VALUES (2, 2,2,'2022-3-17','2022-3-19','day 1 collect, day2 sell',false);
+INSERT INTO `event_date` VALUES (3, 3,3,'2022-3-17','2022-3-19','day 1 collect, day2 sell',false);
 
 
 INSERT INTO `user` (`email`,`name`,`password`,`role_id`,`cell_number`,`address_id`,`diet_id`,`shirt_size`,affiliation_id)
@@ -82,13 +86,20 @@ INSERT INTO `event_date_user` (`event_date_id`,`user_id`) VALUES (3,2);
 INSERT INTO `event_date_user` (`event_date_id`,`user_id`) VALUES (3,3);
 INSERT INTO `event_date_user` (`event_date_id`,`user_id`) VALUES (3,5);
 
-INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`) 
-   VALUES('123456789A',2,500.5,1,0,'Calgary-22-1',true);
+INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`) 
+   VALUES('123456789A',2,500.5,1,0,'Calgary-22-1',true,'assets/bikes/bike001.jpg');
    
-INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`) 
-   VALUES('B123456789',3,610.2,1,0,'Calgary-33-1',true);
+INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`) 
+   VALUES('B123456789',3,857.2,1,0,'Calgary-33-1',true,'assets/bikes/bike002.jpg');
+
+INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`) 
+   VALUES('B123456480',3,999.2,1,0,'Calgary-33-1',true,'assets/bikes/bike003.jpg');
+INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`) 
+   VALUES('B123456309',2,380.2,1,0,'Calgary-33-1',true,'assets/bikes/bike004.jpg');
+INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`) 
+   VALUES('B123456239',3,690.2,1,0,'Calgary-33-1',true,'assets/bikes/bike005.jpg');
    
-INSERT INTO `trade` VALUES(1,2,3,'2022-5-30',2);
+INSERT INTO `trade` VALUES(1,2,3,'2022-3-5',2);
 
 INSERT INTO `trade_desc` VALUES(1,'Ticket-Seller',3);
 

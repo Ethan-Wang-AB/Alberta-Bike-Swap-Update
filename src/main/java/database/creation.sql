@@ -234,6 +234,7 @@ CREATE TABLE IF NOT EXISTS `absdb`.`event_date` (
   start_date   DATE NOT NULL,
   end_date		DATE NOT NULL,
   schedule		VARCHAR(2000),
+  `held`       TINYINT(1),
  
   PRIMARY KEY (`event_date_id`),
   CONSTRAINT `fk_event_id`

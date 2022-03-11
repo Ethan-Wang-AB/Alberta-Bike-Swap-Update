@@ -132,7 +132,7 @@ public class EventDateDB extends CommonDB<EventDate> {
         try {
             //System.out.println("Category get : "+name);
 
-            EventDate event_date = em.createNamedQuery("EventDate.findByEventDateId", EventDate.class).setParameter("eventDateid", eventDateId).getSingleResult();
+            EventDate event_date = em.createNamedQuery("EventDate.findByEventDateId", EventDate.class).setParameter("eventDateId", eventDateId).getSingleResult();
             return event_date;
         }catch(Exception ex){
         System.out.println("get event_date by id sql issue");

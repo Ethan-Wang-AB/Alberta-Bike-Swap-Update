@@ -44,6 +44,9 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "EventDate.findBySchedule", query = "SELECT e FROM EventDate e WHERE e.schedule = :schedule")})
 public class EventDate implements Serializable {
 
+    @Column(name = "held")
+    private Boolean held;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -165,6 +168,14 @@ public class EventDate implements Serializable {
     @Override
     public String toString() {
         return "models.EventDate[ eventDateId=" + eventDateId + " ]";
+    }
+
+    public Boolean getHeld() {
+        return held;
+    }
+
+    public void setHeld(Boolean held) {
+        this.held = held;
     }
     
 }
