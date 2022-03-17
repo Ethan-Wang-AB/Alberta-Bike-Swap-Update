@@ -6,6 +6,7 @@
 package dataaccess;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -20,11 +21,11 @@ public class SystemDB {
     //database name
     private final String DATABASE_NAME = "ABS";
     //path and file name of the back up address, for windows it has a default path and only name needed.
-    private final String PATH = "/abs/backup/backup-";
+    private final String PATH = "c://abs/backup/backup-";
     //use root user to backup
     private final String USERNAME = "root";
     //correct password for the root user
-    private final String PASSWORD = "PASSWORD";
+    private final String PASSWORD = "password";
 
     private SystemDB() {
 
@@ -36,15 +37,19 @@ public class SystemDB {
 //        
 //    }    
 
-    public final boolean backup(File file) {
+    public final boolean backup() throws IOException {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         //EntityTransaction trans = em.getTransaction();
-
-        String sqlString = "mysqldump --user " + USERNAME + " --" + PASSWORD + " " + DATABASE_NAME + " > " + PATH + new Date().toString() + ".sql";
+        String filename=PATH + new Date().toString() + ".sql";
+        File file=new File("c:/temp/temp.sql");
+        file.createNewFile();
+        String sqlString = "\"mysql --user " + USERNAME + " --" + PASSWORD + " " + DATABASE_NAME + " < " +DATABASE_NAME + ".sql\"";
+        sqlString = "mysqldump -uroot -ppassword --all-databases > c:/temp/temp01.sql";
+        System.out.println("start backup");
         try {
-
-            em.createNativeQuery(sqlString);
-
+        
+        Process runtimeProcess = Runtime.getRuntime().exec(new String[] { "cmd.exe", "/c", sqlString});
+        System.out.println("process backup finished");
             return true;
         } catch (Exception e) {
             e.printStackTrace();
