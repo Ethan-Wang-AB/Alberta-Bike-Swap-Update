@@ -87,17 +87,17 @@ INSERT INTO `event_date_user` (`event_date_id`,`user_id`) VALUES (3,3);
 INSERT INTO `event_date_user` (`event_date_id`,`user_id`) VALUES (3,5);
 
 INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`) 
-   VALUES('123456789A',2,500.5,1,0,'Calgary-22-1',true,'assets/bikes/bike001.jpg');
+   VALUES('123456789A',2,500.5,1,0,'Calgary-22-1',true,'assets/img/bikes/bike001.jpg');
    
 INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`) 
-   VALUES('B123456789',3,857.2,1,0,'Calgary-33-1',true,'assets/bikes/bike002.jpg');
+   VALUES('B123456789',3,857.2,1,0,'Calgary-33-1',true,'assets/img/bikes/bike002.jpg');
 
 INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`) 
-   VALUES('B123456480',3,999.2,1,0,'Calgary-33-1',true,'assets/bikes/bike003.jpg');
+   VALUES('B123456480',3,999.2,1,0,'Calgary-33-1',true,'assets/img/bikes/bike003.jpg');
 INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`) 
-   VALUES('B123456309',2,380.2,1,0,'Calgary-33-1',true,'assets/bikes/bike004.jpg');
+   VALUES('B123456309',2,380.2,1,0,'Calgary-33-1',true,'assets/img/bikes/bike004.jpg');
 INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`) 
-   VALUES('B123456239',3,690.2,1,0,'Calgary-33-1',true,'assets/bikes/bike005.jpg');
+   VALUES('B123456239',3,690.2,1,0,'Calgary-33-1',true,'assets/img/bikes/bike005.jpg');
    
 INSERT INTO `trade` VALUES(1,2,3,'2022-3-5',2);
 
