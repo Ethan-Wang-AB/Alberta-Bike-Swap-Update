@@ -7,6 +7,7 @@ package services;
 
 import dataaccess.SystemDB;
 import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -26,9 +27,9 @@ public class SystemService {
 //    }    
     
     
-    public final boolean backup(File file)
+    public final boolean backup() throws IOException
     {
-		return systemDB.backup(file);
+		return systemDB.backup();
         
     }    
     
