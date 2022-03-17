@@ -15,6 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -46,6 +47,10 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Bike.findByBikeEventTickets", query = "SELECT b FROM Bike b WHERE b.bikeEventTickets = :bikeEventTickets")
     , @NamedQuery(name = "Bike.findByChecked", query = "SELECT b FROM Bike b WHERE b.checked = :checked")})
 public class Bike implements Serializable {
+
+    @Lob
+    @Column(name = "photo")
+    private byte[] photo;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "bikeId")
     private List<Trade> tradeList;
@@ -236,6 +241,14 @@ public class Bike implements Serializable {
 
     public void setTradeList(List<Trade> tradeList) {
         this.tradeList = tradeList;
+    }
+
+    public byte[] getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
     }
     
 }
