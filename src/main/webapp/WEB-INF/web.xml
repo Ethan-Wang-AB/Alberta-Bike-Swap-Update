@@ -145,6 +145,18 @@
         <servlet-name>SupporterServlet</servlet-name>
         <servlet-class>servlets.SupporterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TestingInventory</servlet-name>
+        <servlet-class>servlets.TestingInventory</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TestUpdatingPhoto</servlet-name>
+        <servlet-class>servlets.TestUpdatingPhoto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TestBackup</servlet-name>
+        <servlet-class>servlets.TestBackup</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>WelcomeServlet</servlet-name>
         <url-pattern>/Welcome</url-pattern>
@@ -252,6 +264,18 @@
     <servlet-mapping>
         <servlet-name>SupporterServlet</servlet-name>
         <url-pattern>/Supporter</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TestingInventory</servlet-name>
+        <url-pattern>/TestingInventory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TestUpdatingPhoto</servlet-name>
+        <url-pattern>/TestUpdatingPhoto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TestBackup</servlet-name>
+        <url-pattern>/TESTINGBackup</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
