@@ -5,8 +5,11 @@
  */
 package dataaccess;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Calendar;
 import java.util.Date;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -21,7 +24,10 @@ public class SystemDB {
     //database name
     private final String DATABASE_NAME = "ABS";
     //path and file name of the back up address, for windows it has a default path and only name needed.
-    private final String PATH = "c://abs/backup/backup-";
+    private final String PATH = "c:/temp/absdb";
+    private final String SERVERPATH="C:/Program Files/MySQL/MySQL Server 5.7/bin/mysqldump";
+    
+    //private final String BATCH="C:\\Program Files\\MySQL\\MySQL Workbench 8.0 CE\\backup.bat";
     //use root user to backup
     private final String USERNAME = "root";
     //correct password for the root user
@@ -41,14 +47,32 @@ public class SystemDB {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         //EntityTransaction trans = em.getTransaction();
         String filename=PATH + new Date().toString() + ".sql";
-        File file=new File("c:/temp/temp.sql");
-        file.createNewFile();
-        String sqlString = "\"mysql --user " + USERNAME + " --" + PASSWORD + " " + DATABASE_NAME + " < " +DATABASE_NAME + ".sql\"";
+//        File file=new File("c:/temp/temp.sql");
+//        file.createNewFile();
+        String sqlString = "mysqldump --column-statistics=0 --user " + USERNAME + " -p" + PASSWORD + " " + DATABASE_NAME + " > " +DATABASE_NAME + ".sql";
         sqlString = "mysqldump -uroot -ppassword --all-databases > c:/temp/temp01.sql";
         System.out.println("start backup");
         try {
-        
-        Process runtimeProcess = Runtime.getRuntime().exec(new String[] { "cmd.exe", "/c", sqlString});
+            
+            ProcessBuilder pb=new ProcessBuilder();
+            Process p=Runtime.getRuntime().exec(
+             SERVERPATH+ " -u"+USERNAME+ " -p"+PASSWORD+ " absdb -r"+PATH+Calendar.getInstance().getTimeInMillis()/1000000000+".sql"
+            );
+// pb.command("cmd /c Rundll32.exe Powrprof.dll,SetSuspendState")   ;         
+////pb.command("runas /user:845593\\Administrator \"cmd.exe /c");
+//                    pb.command("cd C:\\Program Files\\MySQL\\MySQL Workbench 8.0 CE");
+//                    
+//            pb.command("mysqldump -uroot -ppassword --all-databases > c:/temp/temp01.sql");
+//            Process p=pb.start();
+//        Process runtimeProcess0 = Runtime.getRuntime().exec(new String[] { "cmd.exe", "/K", String.format("%s%s%n", "cd ",SERVERPATH),sqlString});
+      BufferedReader reader =
+                    new BufferedReader(new InputStreamReader(p.getInputStream()));
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+//        Process runtimeProcess1 = Runtime.getRuntime().exec(new String[] { "cmd.exe", "/c", sqlString});
         System.out.println("process backup finished");
             return true;
         } catch (Exception e) {
