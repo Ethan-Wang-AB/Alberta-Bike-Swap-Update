@@ -157,6 +157,10 @@
         <servlet-name>TestBackup</servlet-name>
         <servlet-class>servlets.TestBackup</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TestRestore</servlet-name>
+        <servlet-class>servlets.TestRestore</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>WelcomeServlet</servlet-name>
         <url-pattern>/Welcome</url-pattern>
@@ -276,6 +280,10 @@
     <servlet-mapping>
         <servlet-name>TestBackup</servlet-name>
         <url-pattern>/TESTINGBackup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TestRestore</servlet-name>
+        <url-pattern>/TestRestore</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

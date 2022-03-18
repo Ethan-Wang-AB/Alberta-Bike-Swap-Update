@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `absdb`.`announcement` (
    body VARCHAR(1000) NOT NULL,
    picture VARCHAR(300),
    link    VARCHAR(300),
-   date DATE NOT NULL DEFAULT (CURRENT_DATE),
+   date DATETIME not null DEFAULT CURRENT_TIMESTAMP,
    PRIMARY KEY (announcement_id));
 
 -- -----------------------------------------------------

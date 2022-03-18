@@ -26,7 +26,7 @@ public class SystemDB {
     //path and file name of the back up address, for windows it has a default path and only name needed.
     private final String PATH = "c:/temp/absdb";
     private final String SERVERPATH="C:/Program Files/MySQL/MySQL Server 5.7/bin/mysqldump";
-    
+    private final String SERVERPATHRESTORE="C:/Program Files/MySQL/MySQL Server 5.7/bin/mysql";
     //private final String BATCH="C:\\Program Files\\MySQL\\MySQL Workbench 8.0 CE\\backup.bat";
     //use root user to backup
     private final String USERNAME = "root";
@@ -88,16 +88,27 @@ public class SystemDB {
     public final boolean restore(File file) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         //EntityTransaction trans = em.getTransaction();
-
-        String sqlString = "mysqldump --user " + USERNAME + " --" + PASSWORD + " " + DATABASE_NAME + " < " + PATH + new Date().toString() + ".sql";
+        System.out.println(file.getPath());
+        String sqlString = SERVERPATHRESTORE+ " -u" + USERNAME + " -p" + PASSWORD +" " +DATABASE_NAME  +" <" + file.getPath();
+        sqlString="C:/Program Files/MySQL/MySQL Server 5.7/bin/mysql -uroot -ppassword absdb < c:/temp/absdb.sql";
         try {
+            System.out.println("restore start");
 
-            em.createNativeQuery(sqlString);
+           Process p= Runtime.getRuntime().exec(sqlString);
+           
+ BufferedReader reader =
+                    new BufferedReader(new InputStreamReader(p.getInputStream()));
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+                        System.out.println("restore finish");
 
             return true;
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("backup problem");
+            System.out.println("restore problem");
             return false;
         } finally {
             em.close();
