@@ -34,7 +34,7 @@ public class TestRestore extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
           SystemService system=new SystemService();
-          File file=new File("c:\\temp\\absdb.sql");
+          File file=new File("c:\\temp\\absdb16477.sql");
           system.restore(file);
 
     }

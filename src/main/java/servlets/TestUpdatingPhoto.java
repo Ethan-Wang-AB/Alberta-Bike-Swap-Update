@@ -58,7 +58,7 @@ public class TestUpdatingPhoto extends HttpServlet {
             throws ServletException, IOException {
         
         BikeService bikeService=BikeService.getInstance();
-        bikeService.updatePhoto(bikeService.getBike(1), request.getPart("photo"));
+        bikeService.updatePhoto(bikeService.getBike(5), request.getPart("photo"));
                     getServletContext().getRequestDispatcher("/WEB-INF/TESTINGUpdatingPhotoBlob.jsp").forward(request, response);
 
         
