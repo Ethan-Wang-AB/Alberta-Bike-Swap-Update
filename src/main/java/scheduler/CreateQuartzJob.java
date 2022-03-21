@@ -37,22 +37,22 @@ public class CreateQuartzJob implements Job {
         //handle JobExecutionException  
         //debug message 
         ServletContext servletContext = (ServletContext) jExeCtx.getMergedJobDataMap().get("servletContext");
-        ArrayList<EventDate> events = (ArrayList<EventDate>) servletContext.getAttribute("events");
+      //  ArrayList<EventDate> events = (ArrayList<EventDate>) servletContext.getAttribute("events");
+        EventDate e=(EventDate) (jExeCtx.getJobDetail().getJobDataMap().get("event"));
+//        for (EventDate event : events) {
 
-        for (EventDate event : events) {
+//            Calendar test = Calendar.getInstance();
+//            Calendar schedule = Calendar.getInstance();
+//            schedule.setTime(event.getStartDate());
+//            test.setTime(jExeCtx.getFireTime());
+//            schedule.set(Calendar.DATE, -1);
+            List<EventDateUser> users = e.getEventDateUserList();
+//            if ((schedule.get(Calendar.DAY_OF_YEAR) - test.get(Calendar.DAY_OF_YEAR)) <= 2) {
 
-            Calendar test = Calendar.getInstance();
-            Calendar schedule = Calendar.getInstance();
-            schedule.setTime(event.getStartDate());
-            test.setTime(jExeCtx.getFireTime());
-            schedule.set(Calendar.DATE, -1);
-            List<EventDateUser> users = event.getEventDateUserList();
-            if ((schedule.get(Calendar.DAY_OF_YEAR) - test.get(Calendar.DAY_OF_YEAR)) <= 2) {
+                for (EventDateUser user : users) {
 
-                for (EventDateUser e : users) {
-
-                    String email = e.getUserId().getEmail();
-                    String body = String.format("%s%s%n%s%n%n%s%n%s", "Hi ", e.getUserId().getName() + " ,", "Please remember to attend the coming Alberta Bike Swap event, thank you.", "Regards,", "Laura");
+                    String email = user.getUserId().getEmail();
+                    String body = String.format("%s%s%n%s%n%n%s%n%s", "Hi ", user.getUserId().getName() + " ,", "Please remember to attend the coming Alberta Bike Swap event, thank you.", "Regards,", "Laura");
                     try {
                         GmailService.sendMail(email, "Remind to attend tomorrow's Alberta Bike Swap Event", body, false);
                     } catch (MessagingException ex) {
@@ -62,6 +62,6 @@ public class CreateQuartzJob implements Job {
                     }
                 }
             }
-        }
-    }
+        
+    
 }
