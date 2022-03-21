@@ -42,9 +42,9 @@ INSERT INTO `safety` VALUES (2, 'Theft','Take care of your money','www.call311.c
 INSERT INTO `safety` VALUES (3, 'Extreme Weather Notice','Be healthy','www.weather.com',1,1,3);
 
 
-INSERT INTO `event_date` VALUES (1, 1,1,'2022-3-17','2022-3-19','day 1 collect, day2 sell',false);
-INSERT INTO `event_date` VALUES (2, 2,2,'2022-3-17','2022-3-19','day 1 collect, day2 sell',false);
-INSERT INTO `event_date` VALUES (3, 3,3,'2022-3-17','2022-3-19','day 1 collect, day2 sell',false);
+INSERT INTO `event_date` VALUES (1, 1,1,'2022-4-17','2022-4-19','day 1 collect, day2 sell',false);
+INSERT INTO `event_date` VALUES (2, 2,2,'2022-4-17','2022-4-19','day 1 collect, day2 sell',false);
+INSERT INTO `event_date` VALUES (3, 3,3,'2022-4-17','2022-4-19','day 1 collect, day2 sell',false);
 
 
 INSERT INTO `user` (`email`,`name`,`password`,`role_id`,`cell_number`,`address_id`,`diet_id`,`shirt_size`,affiliation_id)
