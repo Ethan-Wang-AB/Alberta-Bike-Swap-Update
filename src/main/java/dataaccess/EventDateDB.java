@@ -167,4 +167,15 @@ public class EventDateDB extends CommonDB<EventDate> {
         return eventdateDB;
     }
 
+    public List<EventDate> getAllUnheld() {
+EntityManager em = DBUtil.getEmFactory().createEntityManager();
+
+        try {
+            List<EventDate> lists;
+            lists = em.createNamedQuery("EventDate.findAllUnheld", EventDate.class).setParameter("held", false).getResultList();
+            return  lists;
+        } finally {
+            em.close();
+        }    }
+
 }
