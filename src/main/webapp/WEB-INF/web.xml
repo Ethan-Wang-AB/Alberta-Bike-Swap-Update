@@ -114,7 +114,7 @@
     </servlet>
     <servlet>
         <servlet-name>QuartzInitializer</servlet-name>
-        <servlet-class>servlets.QuartzInitializerServlet</servlet-class>
+        <servlet-class>org.quartz.ee.servlet.QuartzInitializerServlet</servlet-class>
         <init-param>
             <param-name>shutdown-on-unload</param-name>
             <param-value>true</param-value>
@@ -311,7 +311,7 @@
         <env-entry-type>java.lang.String</env-entry-type>
         <env-entry-value>Sait12345.</env-entry-value>
     </env-entry>
-    <!--    <context-param>
+        <context-param>
         <param-name>quartz:shutdown-on-unload</param-name>
         <param-value>true</param-value>
     </context-param>
@@ -328,7 +328,7 @@
     </listener>
     <listener>
         <listener-class>scheduler.QuartzScheduler</listener-class>
-    </listener>-->
+    </listener>
     <!--    
     <resource-env-ref>
   <description>DataSource
