@@ -27,7 +27,7 @@
          <%@include file="header.jsp"%>
          
            <div class="first_container container">
-            <h1>Volunteer Registration Form</h1>
+            <h1>Volunteer. Make a difference.</h1>
             <!--            Everything below can be commented out when no sign ups are available-->
             <h2>Select what city you would like to volunteer in:</h2>
             <div id="volunteerCityChoice">
@@ -43,9 +43,11 @@
                 </div>
                 <div id="volunteerEdmonton" class="volunteerForm">
                     <input type="button" value="Hide form" class="formCityOption" onclick='toggleForm("volunteerEdmonton")'><br>
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSea15o6cg42PkSFOkQ5tf6k7NSN7fpWo4ypfs-BA_ua9gNRYg/viewform?embedded=true" width="640" height="1193" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
                 </div>
                 <div id="volunteerLethbridge" class="volunteerForm">
                     <input type="button" value="Hide form" class="formCityOption" onclick='toggleForm("volunteerLethbridge")'><br>
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScTLs9SF2gQ0zc8Sv9Pf2VXnhIMTGOH4PIvQJDfflfwDZLFBQ/viewform?embedded=true" width="640" height="1007" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
                 </div>
             </div>
            </div>
