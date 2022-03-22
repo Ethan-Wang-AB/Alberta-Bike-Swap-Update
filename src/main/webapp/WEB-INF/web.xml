@@ -161,6 +161,10 @@
         <servlet-name>TestRestore</servlet-name>
         <servlet-class>servlets.TestRestore</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VolunteerGoogleForm</servlet-name>
+        <servlet-class>servlets.VolunteerGoogleForm</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>WelcomeServlet</servlet-name>
         <url-pattern>/Welcome</url-pattern>
@@ -284,6 +288,10 @@
     <servlet-mapping>
         <servlet-name>TestRestore</servlet-name>
         <url-pattern>/TestRestore</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VolunteerGoogleForm</servlet-name>
+        <url-pattern>/VolunteerGoogleForm</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

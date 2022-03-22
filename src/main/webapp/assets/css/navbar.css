@@ -29,12 +29,12 @@
 .nav-header-item {
   text-align: center;
   position: relative;
-  display: block;
+  display:inline-block;
   padding: 0;
 }
 .nav-header-item a {
   padding-top: 30px !important;
-  margin: 0 auto;
+  margin: 0;
   display: block;
   height: 100%;
 }
@@ -50,7 +50,7 @@
   font-weight: 300;
 }
 .nav-header-item .nav-header-item-inline {
-  display: inline-block;
+  display: inline;
   /*position: relative;*/
 }
 .nav-slider {

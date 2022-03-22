@@ -76,12 +76,22 @@
                         </a>
                     </div>
 
-                    <div class="col col-sm-2 nav-header-item">
+                    <div class="col col-sm-1 nav-header-item">
                         <a href="${path}/Volunteer">
                             <div class="nav-item-inline">
                                 <img src="assets/img/header_footer/volunteer.svg" alt="volunteer" />
                                 <label>VOLUNTEER</label>
                                 <div class="nav-slider" id="volunteer"></div>
+                            </div>
+                        </a>
+                    </div>
+                            
+                     <div class="col col-sm-1 nav-header-item">
+                        <a href="${path}/VolunteerGoogleForm">
+                            <div class="nav-item-inline">
+                                <img src="assets/img/header_footer/volunteer.svg" alt="volunteer" />
+                                <label>GOOGLE FORM</label>
+                                <div class="nav-slider" id="volunteerGoogle"></div>
                             </div>
                         </a>
                     </div>

@@ -37,7 +37,7 @@
 /*            
 For some reason, the styling below was not being shown on the page when written on FAQPageStyling.
 For now, we will write it here while we find a more permanent solution.
-*/
+   */
             #faqTitle{
                 padding-top: 30px;
             }
@@ -46,10 +46,8 @@ For now, we will write it here while we find a more permanent solution.
                 overflow: hidden;
                 justify-content: center;
                 align-items: center;
-                width: 900px;
+                width: 850px;
                 height: auto;
-                box-shadow: 0 1px 3px rgba(0,0,0,0.33);
-                padding: 25px;
             }
             
             #emailFormTitle{
@@ -106,6 +104,8 @@ For now, we will write it here while we find a more permanent solution.
                 box-shadow: 0 1px 3px rgba(0,0,0,0.33);
                 cursor: pointer;
             }
+            
+         
 
         </style>
     </head>
@@ -190,7 +190,7 @@ For now, we will write it here while we find a more permanent solution.
                         fund the swaps.
                     </p>
                     <p>
-                        <strong>Q:</strong> Do I have to be there to sell my bike?
+                        <strong>Q: Do I have to be there to sell my bike?</strong>
                     </p>
                     <p>
                         <strong>A:</strong> No, we’ll sell your bike for you and mail you a cheque or e-transfer. It’s not just the
@@ -334,9 +334,10 @@ For now, we will write it here while we find a more permanent solution.
                         your bike needs to be picked-up. We only have the space until the end of the swap.</p>
 
                 </div>
-                <h4 id="faqTitle"> Don't see your question above? </h4>
+                <input type="button" value="Don't see your question above?" class="faqQuestion" onclick='toggleFAQCard("Card6")'>
+                <div class="faqAnswerCard" id="Card6">
                 <div id="faqEmailWrapper">
-                    <h5 class="emailFormTitle">Message us</h5>
+                    <h5 class="emailFormTitle">Send us an email!</h5>
 
                     <div role="form" lang="en-CA" dir="ltr">
                         <form action="" method="post" id="emailForm" novalidate="novalidate">
@@ -360,6 +361,7 @@ For now, we will write it here while we find a more permanent solution.
                             </div>
                         </form>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
