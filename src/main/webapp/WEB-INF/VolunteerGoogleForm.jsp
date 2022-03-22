@@ -11,14 +11,21 @@
              
              <script>
             function toggleForm(form) {
-                var x = document.getElementById(form);
-                if (x.style.display === "none" || x.style.display === "") {
-                    x.style.display = 'block';
-                } else {
-                    x.style.display = 'none';
-                }
+                hideForm();
+                document.getElementById(form).style.display = 'block';
+            }    
+            function hideForm(){
+                document.getElementById("volunteerCalgary").style.display = 'none';
+                document.getElementById("volunteerEdmonton").style.display = 'none';
+                document.getElementById("volunteerLethbridge").style.display = 'none';
             }
         </script>
+        <style>
+            #title{
+    background: url(../assets/img/header-bike-01.svg) no-repeat bottom center;
+    background-size: 200px;
+}
+        </style>
     </head>
     <body>
         
@@ -27,7 +34,7 @@
          <%@include file="header.jsp"%>
          
            <div class="first_container container">
-            <h1>Volunteer. Make a difference.</h1>
+            <h1 id="title">Volunteer. Make a difference.</h1>
             <!--            Everything below can be commented out when no sign ups are available-->
             <h2>Select what city you would like to volunteer in:</h2>
             <div id="volunteerCityChoice">
@@ -38,15 +45,12 @@
 <!--            Update the google form src with the new form for each city each year. The rest should stay the same -->
             <div id="volunteerFormWrapper">
                 <div id="volunteerCalgary" class="volunteerForm">
-                    <input type="button" value="Hide form" class="formCityOption" onclick='toggleForm("volunteerCalgary")'><br>
                 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdficrrgSed4uMsj13zpUlBORB_Z5y-xZVOaq6a9Q0DJ5DdVA/viewform?embedded=true" width="640" height="1491" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
                 </div>
                 <div id="volunteerEdmonton" class="volunteerForm">
-                    <input type="button" value="Hide form" class="formCityOption" onclick='toggleForm("volunteerEdmonton")'><br>
                     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSea15o6cg42PkSFOkQ5tf6k7NSN7fpWo4ypfs-BA_ua9gNRYg/viewform?embedded=true" width="640" height="1193" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
                 </div>
                 <div id="volunteerLethbridge" class="volunteerForm">
-                    <input type="button" value="Hide form" class="formCityOption" onclick='toggleForm("volunteerLethbridge")'><br>
                     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScTLs9SF2gQ0zc8Sv9Pf2VXnhIMTGOH4PIvQJDfflfwDZLFBQ/viewform?embedded=true" width="640" height="1007" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
                 </div>
             </div>
