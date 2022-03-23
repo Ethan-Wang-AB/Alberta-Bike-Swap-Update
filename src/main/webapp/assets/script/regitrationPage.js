@@ -4,26 +4,10 @@
  */
 
 
-function myBfunction() {
-  var checkBox = document.getElementById("Seller");
-  var text = document.getElementById("bikesection");
-  if (checkBox.checked == true){
-    text.style.display = "block";
-  } else {
-     text.style.display = "none";
-  }
-}
-
-function myVfunction() {
-  var checkBox = document.getElementById("volunteer");
-  var text = document.getElementById("volunteersection");
-  if (checkBox.checked == true){
-    text.style.display = "block";
-  } else {
-     text.style.display = "none";
-  }
-}
-
+// Initialize tooltip component
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus');
+})
 function displayDivDemo(id, elementValue) {
       document.getElementById(id).style.display = elementValue.value == 1 ? 'block' : 'none';
    }
