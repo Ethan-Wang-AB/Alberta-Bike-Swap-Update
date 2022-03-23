@@ -29,7 +29,7 @@ public class SystemDB {
     //database name
     private final String DATABASE_NAME = "absdb";
     //path and file name of the back up address, for windows it has a default path and only name needed.
-    private final String PATH = "c:/temp/absdb";
+    private final String PATH = "c:/temp/absdb";//"/WEB-INF/backup/absdb";//
     private final String SERVERPATH="C:/Program Files/MySQL/MySQL Server 5.7/bin/mysqldump";
     private final String SERVERPATHRESTORE="C:/Program Files/MySQL/MySQL Server 5.7/bin";
     //private final String BATCH="C:\\Program Files\\MySQL\\MySQL Workbench 8.0 CE\\backup.bat";
@@ -63,6 +63,7 @@ public class SystemDB {
             Process p=Runtime.getRuntime().exec(
              SERVERPATH+ " -u"+USERNAME+ " -p"+PASSWORD+ " absdb -r"+PATH+Calendar.getInstance().getTimeInMillis()/100000000+".sql"
             );
+            System.out.println(PATH+Calendar.getInstance().getTimeInMillis()/100000000);
 // pb.command("cmd /c Rundll32.exe Powrprof.dll,SetSuspendState")   ;         
 ////pb.command("runas /user:845593\\Administrator \"cmd.exe /c");
 //                    pb.command("cd C:\\Program Files\\MySQL\\MySQL Workbench 8.0 CE");
@@ -94,7 +95,7 @@ public class SystemDB {
         try {
             System.out.println("restore start");
 
-           File files=new File("c:/temp/restore.bat");
+        File files=new File("c:/temp/restore.bat");//("/WEB-INF/backup/restore.bat");//
         files.createNewFile();
         PrintWriter p=new PrintWriter(files);
         p.write("cd "+SERVERPATHRESTORE);
