@@ -98,11 +98,11 @@
                      -->
                             
                     <div class="col col-sm-1 nav-header-item">
-                        <a href="${path}/BikeToSellPage">
+                        <a href="${path}/BikeInfoPage">
                             <div class="nav-item-inline">
                                 <img src="assets/img/header_footer/volunteer.svg" alt="volunteer" />
                                 <label>Bike LiveFeed</label>
-                                <div class="nav-slider" id="BikeToSellPage"></div>
+                                <div class="nav-slider" id="BikeInfoPage"></div>
                             </div>
                         </a>
                     </div>
