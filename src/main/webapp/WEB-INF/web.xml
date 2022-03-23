@@ -235,7 +235,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>BikeInfoServlet</servlet-name>
-        <url-pattern>/BikeInfoServlet</url-pattern>
+        <url-pattern>/BikeInventory</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PaymentConfirmationServlet</servlet-name>
