@@ -41,7 +41,7 @@ public class TestBackup extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                    getServletContext().getRequestDispatcher("/WEB-INF/TESTINGBackup.jsp").forward(request, response);
+                    getServletContext().getRequestDispatcher("/WEB-INF/TESTING/TESTINGBackup.jsp").forward(request, response);
     }
     
 
@@ -58,7 +58,7 @@ public class TestBackup extends HttpServlet {
             throws ServletException, IOException {
         SystemService system=new SystemService();
         system.backup();
-   getServletContext().getRequestDispatcher("/WEB-INF/TESTINGBackup.jsp").forward(request, response);
+   getServletContext().getRequestDispatcher("/WEB-INF/TESTING/TESTINGBackup.jsp").forward(request, response);
 
     }
 

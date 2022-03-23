@@ -52,7 +52,7 @@ public class TestingInventory extends HttpServlet {
     request.setAttribute("bikes", bikes);
 
 
-      getServletContext().getRequestDispatcher("/WEB-INF/TESTING_BikeInventory.jsp").forward(request, response);
+      getServletContext().getRequestDispatcher("/WEB-INF/TESTING/TESTING_BikeInventory.jsp").forward(request, response);
     }
 
     /**

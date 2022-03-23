@@ -42,7 +42,7 @@ public class TestUpdatingPhoto extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            getServletContext().getRequestDispatcher("/WEB-INF/TESTINGUpdatingPhotoBlob.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/WEB-INF/TESTING/TESTINGUpdatingPhotoBlob.jsp").forward(request, response);
     }
 
     /**
@@ -59,7 +59,7 @@ public class TestUpdatingPhoto extends HttpServlet {
         
         BikeService bikeService=BikeService.getInstance();
         bikeService.updatePhoto(bikeService.getBike(5), request.getPart("photo"));
-                    getServletContext().getRequestDispatcher("/WEB-INF/TESTINGUpdatingPhotoBlob.jsp").forward(request, response);
+                    getServletContext().getRequestDispatcher("/WEB-INF/TESTING/TESTINGUpdatingPhotoBlob.jsp").forward(request, response);
 
         
     }
