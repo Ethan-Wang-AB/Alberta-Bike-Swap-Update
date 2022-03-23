@@ -19,7 +19,8 @@
 
     </head>
     <body>
-        <div class="container"> 
+        
+                <div class="container"> 
             <div class="box"> 
                 <div class="box-row"> 
                     <div class="box-cell box1"> 
@@ -55,16 +56,138 @@
                         <ul class="nav nav-tabs ">
                             <li class="active">
                                 <a href="#tab_default_1" data-toggle="tab">
-                                    Bike Information </a>
-                            </li>
-                            <li>
-                                <a href="#tab_default_2" data-toggle="tab">
                                     Volunteering </a>
                             </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_default_1">
+                                <p>
+                                    Volunteering
+                                </p>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="tshirtSize">T-Shirt size:</label>
+                                            <p> M ${tshirtSize}</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">Dietary Restrictions:</label>
+                                            <p> No ${diet}</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="firstposition">First Position Choice:</label>
+                                            <p> Volunteer / Admin Desk - Supports volunteers and is central point for emergency services (AM/PM)${firstposition}</p>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="email">Second Position Choice:</label>
+                                            <p> Floater - Gets to do a little of everything (AM/PM) ${secondposition}</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="vShift">City & Shift:</label>
+                                            <p> Calgary / 12 PM - 6 PM ${vShift} </p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">Space for other information if needed:</label>
+                                            <p> pune, maharashtra</p>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <ul class="nav nav-tabs ">
                             <li>
-                                <a href="#tab_default_3" data-toggle="tab">
-                                    Other</a>
+                                <form action="EditEventInfo"  method="get">
+                                    <button type="submit" class="btn btn-danger btn-block">Edit</button>
+                                </form>
+
                             </li>
+                        </ul>                
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-default">
+                    <div class="menu_title">
+                        <h2>Username ${name}</h2>
+
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="city"> City:</label>
+                                    <p>${city}</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number:</label>
+                                    <p>${phone}</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <p>${email}</p>
+                                </div>
+                                <form action="EditProfile"  method="get">
+                                    <button type="submit" class="btn btn-danger btn-block">Edit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        
+        
+        
+        <!--<div class="container"> 
+            <div class="box"> 
+                <div class="box-row"> 
+                    <div class="box-cell box1"> 
+                        <div class="center">
+                            <img src="assets/img/admin/logo-01.svg" alt="logo" width="50%"/> 
+                        </div>
+                    </div> 
+
+                    <div class="box-cell box2"> 
+                        <div class="center">
+                            <a href="/" class="button">Logout</a>
+                        </div> 
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="fb-profile">
+                    <div class="fb-profile-text">
+                        <h1></h1>
+
+                    </div>
+                </div>
+            </div>
+        </div>  
+        <div class="container">
+            <div class="col-sm-8">
+
+                <div data-spy="scroll" class="tabbable-panel">
+                    <div class="tabbable-line">
+                        <ul class="nav nav-tabs ">
+                            <li class="active">
+                                <a href="#tab_default_1" data-toggle="tab">
+                                    Volunteering </a>
+                            </li>
+
 
                         </ul>
                         <div class="tab-content">
@@ -299,5 +422,6 @@
         </c:if>
 
     </div>
+    -->
 </body>
 </html>
