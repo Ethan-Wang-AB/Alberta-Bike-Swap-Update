@@ -7,10 +7,12 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.Bike;
 import services.BikeService;
 
 /**
@@ -35,7 +37,23 @@ public class BikeInfoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         BikeService bikeService = BikeService.getInstance();
-        request.setAttribute("bikes", bikeService.getAll());
+       
+        double minPrice=0;
+        double maxPrice=99999;
+        try{
+           minPrice=Double.parseDouble(request.getParameter("minPrice"));
+                   maxPrice=Double.parseDouble(request.getParameter("minPrice"));
+
+        }catch(Exception e){
+        
+        }
+        
+         List<Bike> bikes=bikeService.getAll();
+         for(Bike b:bikes){
+         if(b.getPrice()<minPrice && b.getPrice()>maxPrice)
+            bikes.remove(b);
+         }
+         request.setAttribute("bikes", bikes);
         
         getServletContext().getRequestDispatcher("/WEB-INF/BikeInfoPage.jsp").forward(request, response);
     }
