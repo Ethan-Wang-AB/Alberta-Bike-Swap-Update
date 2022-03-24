@@ -31,7 +31,7 @@
                             <h4>Price Filter</h4> 
                         </header>
                         <div class="panel-body">
-                            <form role="form product-form">
+                            <form method="get" action="BikeInventory" role="form product-form">
                                 <div class="form-group">
                                     <label>Price</label>
                                     <input type="number" id="minPrice" name="minPrice" min="0" placeholder="min price" class="form-control" />
