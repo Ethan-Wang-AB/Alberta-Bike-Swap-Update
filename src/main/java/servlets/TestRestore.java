@@ -6,22 +6,25 @@
 package servlets;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import services.SystemService;
 
 /**
  *
  * @author 845593
  */
+@MultipartConfig
 public class TestRestore extends HttpServlet {
-
-   
-
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -34,8 +37,25 @@ public class TestRestore extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
           SystemService system=new SystemService();
-          File file=new File("c:\\temp\\absdb16477.sql");
-          system.restore(file);
+          Part part=request.getPart("restore");
+          String path=getServletContext().getRealPath("WEB-INF/backup/backup.sql");
+          System.out.println(path);
+          File file=new File(path);
+          if(!file.exists()){
+          file.createNewFile();
+          }
+          else {file.delete();
+          file.createNewFile();}
+          InputStream input=part.getInputStream();
+         // PrintWriter print = new PrintWriter(file);
+         OutputStream output=new FileOutputStream(file);
+          byte[]bytes=new byte[input.available()];
+                  int read=0;
+          while((read=input.read(bytes))!=-1){
+            output.write(bytes, 0, read);
+          }
+          
+          //system.restore(file);
 
     }
 

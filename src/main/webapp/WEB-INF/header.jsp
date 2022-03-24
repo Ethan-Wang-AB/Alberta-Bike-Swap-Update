@@ -98,7 +98,7 @@
                      -->
                             
                     <div class="col col-sm-1 nav-header-item">
-                        <a href="${path}/BikeInfoPage">
+                        <a href="${path}/BikeInventory">
                             <div class="nav-item-inline">
                                 <img src="assets/img/header_footer/volunteer.svg" alt="volunteer" />
                                 <label>Bike LiveFeed</label>

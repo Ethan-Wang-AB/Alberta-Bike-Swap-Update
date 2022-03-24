@@ -12,7 +12,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form method="POST" action="TestRestore">
+        <form method="POST" action="TestRestore"  enctype='multipart/form-data'>
+            
+              <input type="file" id="restore" name="restore" value="upload" accept=".sql" ><br>
+
             <input type="submit" value="restore">
             
         </form>
