@@ -36,20 +36,15 @@
                         <h2 class="title">Volunteer Registration methods</h2>
                     
                         <form action="NormalForm"  method="get">
-                                    <button type="submit" class="btn btn-primary" >Normal Form</button>
+                                    <button type="submit" class="btn btn-primary" >Standard Form</button>
                                 </form>
                         
-                        <br/>
+                        <br>
                         <form action="GoogleForm"  method="get">
                                     <button type="submit" class="btn btn-primary">Google Form</button>
                                 </form>
                        
                      </div>
-    
-            
-            
-            
-            
             
          
            </div>
