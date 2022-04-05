@@ -9,7 +9,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-
         <!-- Title Page-->
         <title>Alberta Bike Swap | Admin Volunteer Management Page</title>
 
@@ -20,8 +19,8 @@
         <h1>Volunteer Manage</h1>
 
         <div>
-            <h2>Download Report</h2>
-            <button type="submit" formaction="URL"> Download Report</button>
+            <h2>Download Volunteer Information Report</h2>
+            <button type="submit" formaction="URL">Download Report</button>
            
         </div>
 

@@ -104,6 +104,9 @@
             </table>
 
         </div>
+        
+        <%-- operation message--%>
+         ${message}
 
     </body>
 </html>

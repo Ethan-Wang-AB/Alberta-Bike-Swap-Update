@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -16,6 +16,7 @@
       justify-content: center;
       font-family: Roboto, Arial, sans-serif;
       font-size: 15px;
+      
       }
       form {
       border: 5px solid #f1f1f1;
