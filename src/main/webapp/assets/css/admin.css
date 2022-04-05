@@ -1,0 +1,6 @@
+html, body {
+     margin: 0px;
+     background: url(../img/locations/city-01.jpg) center no-repeat fixed;
+    background-size: cover;
+}
+
