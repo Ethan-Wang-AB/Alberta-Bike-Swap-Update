@@ -44,9 +44,9 @@
                 <img src="assets/img/header_footer/logo-01.svg" alt="Alberta Bike Swap Logo" />
             </div>
 
-            <div class="col col-lg-8 nav-menu">
+            <div class="col col-xl-9 nav-menu">
                 <div class="row">
-                    <div class="col col-sm-2 nav-header-item">
+                    <div class="col col-1 nav-header-item">
                         <a href="${path}/locations" id="nav-home">
                             <div class="nav-item-inline">
                                 <img src="assets/img/header_footer/home.svg" alt="home" />
@@ -56,7 +56,7 @@
                         </a>
                     </div>
 
-                    <div class="col col-sm-2 nav-header-item">
+                    <div class="col col-2 nav-header-item">
                         <a href="${path}/Faq">
                             <div class="nav-item-inline">
                                 <img src="assets/img/header_footer/info.svg" alt="info" />
@@ -66,7 +66,7 @@
                         </a>
                     </div>
 
-                    <div class="col col-sm-2 nav-header-item">
+                    <div class="col col-2 nav-header-item">
                         <a href="${path}/Supporter">
                             <div class="nav-item-inline">
                                 <img src="assets/img/header_footer/supporters.svg" alt="supporters" />
@@ -76,7 +76,7 @@
                         </a>
                     </div>
 
-                    <div class="col col-sm-1 nav-header-item">
+                    <div class="col col-2 nav-header-item">
                         <a href="${path}/Volunteer">
                             <div class="nav-item-inline">
                                 <img src="assets/img/header_footer/volunteer.svg" alt="volunteer" />
@@ -85,19 +85,8 @@
                             </div>
                         </a>
                     </div>
-                            
-                     <!--<div class="col col-sm-1 nav-header-item">
-                        <a href="${path}/VolunteerGoogleForm">
-                            <div class="nav-item-inline">
-                                <img src="assets/img/header_footer/volunteer.svg" alt="volunteer" />
-                                <label>GOOGLE FORM</label>
-                                <div class="nav-slider" id="volunteerGoogle"></div>
-                            </div>
-                        </a>
-                    </div>
-                     -->
-                            
-                    <div class="col col-sm-1 nav-header-item">
+                           
+                    <div class="col col-2 nav-header-item">
                         <a href="${path}/BikeInventory">
                             <div class="nav-item-inline">
                                 <img src="assets/img/header_footer/volunteer.svg" alt="volunteer" />
@@ -107,7 +96,7 @@
                         </a>
                     </div>
 
-                    <div class="col col-sm-2 nav-header-item">
+                    <div class="col col-1 nav-header-item">
                         <a href="${path}/Safety">
                             <div class="nav-item-inline">
                                 <img src="assets/img/header_footer/safety.svg" alt="safety" />
@@ -117,7 +106,7 @@
                         </a>
                     </div>
 
-                    <div class="col col-sm-2 nav-header-item">
+                    <div class="col col-2 nav-header-item">
                         <a href="${path}/AboutUs">
                             <div class="nav-item-inline">
                                 <img src="assets/img/header_footer/about.svg" alt="about" />
