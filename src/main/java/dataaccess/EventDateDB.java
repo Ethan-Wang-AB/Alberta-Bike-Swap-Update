@@ -35,8 +35,11 @@ public class EventDateDB extends CommonDB<EventDate> {
             Event event = a.getEventId();
             event.getEventDateList().add(a);
              trans.begin();
+             em.persist(a.getAddressId());
+             
              em.persist(a);
              em.merge(event);
+             em.merge(a);
            
              trans.commit();
              return true;
@@ -172,7 +175,7 @@ EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
         try {
             List<EventDate> lists;
-            lists = em.createNamedQuery("EventDate.findAllUnheld", EventDate.class).setParameter("held", false).getResultList();
+            lists = em.createNamedQuery("EventDate.findByHeld", EventDate.class).setParameter("held", false).getResultList();
             return  lists;
         } finally {
             em.close();
