@@ -5,6 +5,7 @@
  */
 package services;
 
+import dataaccess.CityDB;
 import dataaccess.EventDB;
 import dataaccess.EventDateDB;
 import java.math.BigDecimal;
@@ -31,6 +32,7 @@ public class EventService {
 
     private EventDB eventDB = EventDB.getInstance();
     private EventDateDB eventDateDB = EventDateDB.getInstance();
+    private CityDB cityDB=new CityDB();
 
     public final Event getEvent(int id) {
         Event event = eventDB.getEvent(id);
@@ -104,7 +106,7 @@ public class EventService {
             json += "\"eventDateId\" : " + event.getEventDateId() + ", \n";
             json += "\"address\" : \"" + event.getAddressId() + "\", \n";
             json += "\"date\" : \"" + event.getStartDate() + "\", \n";
-            json += "\"schedule\" : \"" + event.getSchedule() + "\", \n";
+            json += "\"schedule\" : \"" +"day1: "+ event.getScheduleDay1() + " day2: "+event.getScheduleDay2()+"\", \n";
             json += "}";
             return json;
         }
@@ -151,8 +153,11 @@ public class EventService {
 //        return json;
     }
 
-    public List<Event> getAllEvents() {
-        return eventDB.getAll();
+    public List<EventDate> getAllEventDates() {
+        return eventDateDB.getAll();
+    }
+    public List<Event> getAllEvents(){
+    return eventDB.getAll();
     }
 
     public String getDetailedEventJson(EventDate event) {
@@ -187,9 +192,16 @@ public class EventService {
      *
      * @param event
      */
+    public City getCity(int id){
+    return cityDB.getCity(id);
+    
+    }
     public final void scheduleNotify(EventDate event) {
 
     }
-
+    public final void addEvent(EventDate e){
+    
+    eventDateDB.add(e);
+    }
   
 }
