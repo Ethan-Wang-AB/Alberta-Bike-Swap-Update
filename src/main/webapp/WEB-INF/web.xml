@@ -247,7 +247,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EventServlet</servlet-name>
-        <url-pattern>/EventServlet</url-pattern>
+        <url-pattern>/EditEvent</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AboutUsServlet</servlet-name>
