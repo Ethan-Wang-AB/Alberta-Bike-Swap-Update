@@ -21,17 +21,27 @@ INSERT INTO `diet` VALUES (3, 'gluton free');
 INSERT INTO `affiliation` VALUES (1, 'Liberal');
 INSERT INTO `affiliation` VALUES (2, 'Conservative');
 
-INSERT INTO `role` VALUES (1, 'Admin','hold of the event and the owner of the company',0);
-INSERT INTO `role` VALUES (2, 'Technician','Check the bike',1);
-INSERT INTO `role` VALUES (3, 'Technician','check the bike',2);
-INSERT INTO `role` VALUES (4, 'Technician','check the bike',3);
-INSERT INTO `role` VALUES (5, 'Food Provider','Provide food',4);
-INSERT INTO `role` VALUES (6, 'Seller','Sell bike',-1);
-INSERT INTO `role` VALUES (7, 'Buyer','Buy bike',-1);
-INSERT INTO `role` VALUES (8, 'Food provider','provide food',2);
-INSERT INTO `role` VALUES (9, 'Reception','check tickets and bookkeeping',2);
-INSERT INTO `role` VALUES (10, 'Technician','check the bike',3);
-INSERT INTO `role` VALUES (11, 'Security','Secure the court',4);
+INSERT INTO `role` VALUES (1,'Admin','hold of the event and the owner of the company',0)
+,(2,'Volunteer / Admin Desk','- Supports volunteers and is central point for emergency services (AM/PM)',1)
+,(3,'Technician','check the bike',2)
+,(4,'Food Volunteer – Calgary Only','- Manages volunteer food and drinks in the break area (AM/PM)',1)
+,(5,'Safety / Security','- manages safe access to the venue and monitors for emergency situations (AM/PM)',1)
+,(6,'Bike Receiver','- stationed at curb and is the first point of contact for bike Sellers and Donators (AM/PM)',1)
+,(7,'Screener','- knows bikes and is able to identify bikes that will not pass the tech check (AM/PM)',1)
+,(8,'Bike Tech','- follows the Swap checklist to ensure bikes are safe and not worn out (AM/PM)',1)
+,(9,'Scribe','- touches nearly every bike at the swap by recording serial numbers, makes, models, colour (AM/PM)',1)
+,(10,'Placer','- moves bikes from the staging racks to the sales racks and places them by type (AM/PM)',1)
+,(11,'Dream Fulfillment (Sales)','- helps people find their perfect bike (PM)',3)
+,(12,'Line Manager','- chats with happy people who found their perfect bike, directs people to the cash-only line. (PM)',3)
+,(13,'Gatekeeper','- keeps the checkout line near the computers moving (PM)',3)
+,(14,'Data Tracker','- loves to organize paper and understands efficiency and data completeness (AM/PM)',3)
+,(15,'Rack Admin','- manages / collects rack fees and AMA data (AM 8 AM - 2PM)',4)
+,(16,'Computer Op','- inputs seller data, processes sales data for receipts (AM/PM)',1)
+,(17,'Transaction Support','- reviews paperwork with Seller & Buyers (AM/PM)',1)
+,(18,'Floater','- Gets to do a little of everything (AM/PM)',1)
+,(19,'NEW! Day of the event social media wiz',' - in Facebook, Twitter, and Instagram (must pass spelling tst)',1)
+,(20,'Seller','Selling bikes',1)
+,(21,'Buyer',' buying bikes',1);
 
 INSERT INTO `faq` VALUES (1, '1st question','who is the owner','Laura',1,1,1);
 INSERT INTO `faq` VALUES (2, '2nd question','where is the event','3 cities',1,1,2);
@@ -42,9 +52,8 @@ INSERT INTO `safety` VALUES (2, 'Theft','Take care of your money','www.call311.c
 INSERT INTO `safety` VALUES (3, 'Extreme Weather Notice','Be healthy','www.weather.com',1,1,3);
 
 
-INSERT INTO `event_date` VALUES (1, 1,1,'2022-4-17','2022-4-19','day 1 collect, day2 sell',false);
-INSERT INTO `event_date` VALUES (2, 2,2,'2022-4-17','2022-4-19','day 1 collect, day2 sell',false);
-INSERT INTO `event_date` VALUES (3, 3,3,'2022-4-17','2022-4-19','day 1 collect, day2 sell',false);
+INSERT INTO `event_date` VALUES (1,1,1,'2022-04-17','2022-04-19','8:00-17:00', '8:00-17:00',0),(2,2,2,'2022-04-17','2022-04-19','8:00-17:00', '8:00-17:00',0),(3,3,3,'2022-04-17','2022-04-19','8:00-17:00', '8:00-17:00',0);
+
 
 
 INSERT INTO `user` (`email`,`name`,`password`,`role_id`,`cell_number`,`address_id`,`diet_id`,`shirt_size`,affiliation_id)

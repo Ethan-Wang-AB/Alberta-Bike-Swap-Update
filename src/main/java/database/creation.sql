@@ -97,10 +97,12 @@ CREATE TABLE IF NOT EXISTS `absdb`.`diet` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `absdb`.`role` (
   `role_id` INT(11) NOT NULL AUTO_INCREMENT,
-  `role_name` VARCHAR(25) NOT NULL,
+  `role_name` VARCHAR(45) NOT NULL,
   `role_description` VARCHAR(2000) NOT NULL,
   `shift` TINYINT(11) NOT NULL default 1,
    PRIMARY KEY (`role_id`));
+
+
 
 -- -----------------------------------------------------
 -- Table `absdb`.`user`
@@ -234,7 +236,8 @@ CREATE TABLE IF NOT EXISTS `absdb`.`event_date` (
  `address_id`  INT(11) NOT NULL,
   start_date   DATE NOT NULL,
   end_date		DATE NOT NULL,
-  schedule		VARCHAR(2000),
+   `schedule_day1` varchar(2000) DEFAULT '8:00-17:00',
+  `schedule_day2` varchar(2000) DEFAULT '8:00-17:00',
   `held`       TINYINT(1),
  
   PRIMARY KEY (`event_date_id`),
