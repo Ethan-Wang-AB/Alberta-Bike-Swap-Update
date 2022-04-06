@@ -42,11 +42,14 @@ public class BikeInfoServlet extends HttpServlet {
         double minPrice=0;
         double maxPrice=99999;
         try{
-           minPrice=Double.parseDouble(request.getParameter("minPrice"));
-                   maxPrice=Double.parseDouble(request.getParameter("maxPrice"));
-
+                if(request.getParameter("minPrice") != null){
+                minPrice=Double.parseDouble(request.getParameter("minPrice"));
+                }
+                if(request.getParameter("maxPrice") != null){
+                maxPrice=Double.parseDouble(request.getParameter("maxPrice"));
+                }
         }catch(Exception e){
-        
+                
         }
         
          List<Bike> bikes=bikeService.getAll();

@@ -8,12 +8,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 */
 
 body{
-    margin-top:20px;
 background: white ;
 background-image: url(https://albertabikeswap.ca/wp-content/themes/starkers-html5-master/images/nav-city.svg);
 background-repeat: no-repeat;
-  background-size: 20%;
-  background-position: bottom right;
+background-size: 20%;
+background-position: bottom right;
 }
 
 h4{
@@ -90,6 +89,9 @@ h4{
     margin: 5px 0 0 0;
 }
 
+.product-list{
+    padding-top: 150px;
+}
 .product-list img{
     width: 100%;
     border-radius: 4px 4px 0 0;
