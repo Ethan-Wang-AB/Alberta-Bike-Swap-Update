@@ -63,8 +63,8 @@
                 <div class="col-sm"><h4 id="buy"></h4></div>
                 <div class="w-100"></div>
                 <div class="col-sm-1 offset-md-3 city-info hidden"><h5>Donate:</h5></div>
-                <div class="col-sm"><h4 id="donate"></h4></div>
-                <div class="col-sm"> <button type="button" class="btn btn-info city-info hidden" id="goFqa" onclick="locationsApp.genPDF()">FAQ</button>
+                <div class="col-sm"><h4 id="donate"></h4></div><br>
+                <div class="col-sm"> <button type="button" class="btn btn-info city-info hidden" id="goFaq" onclick="window.location.href='/Faq'">Want to know more?</button>
                 </div>
                 <div class="col-sm"> <button type="button" class="btn btn-info city-info hidden" id="download" onclick="locationsApp.genPDF()">Download Poster</button>
                 </div>

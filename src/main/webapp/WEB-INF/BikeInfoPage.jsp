@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,15 +13,13 @@
         <title>Bike Live Feed | Alberta Bike Swap</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
         <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href="assets/css/sellBikeStyle.css" rel="stylesheet" />
-        </  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <body>
         <%@include file="header.jsp"%>
-
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
-
+        
         <div class="container bootdey">
             <div class ="pagesetter">
 
@@ -73,10 +72,10 @@
                                                 Bike Information
                                             </a>
                                         </h4>
-                                        <p class="bikeInfo">${bike.getBikeIndex()}</p>
-                                        <p class="bikeInfo">${bike.getMaker()}</p>
-                                        <p class="bikeInfo">${bike.getModel()}</p>
-                                        <p class="price">${bike.getPrice()}</p>
+                                        <p class="bikeInfo">Bike ID: ${bike.getBikeIndex()}</p>
+                                        <p class="bikeInfo">Bike Make: ${bike.getMaker()}</p>
+                                        <p class="bikeInfo">Bike Model: ${bike.getModel()}</p>
+                                        <p class="price">Price $${bike.getPrice()}</p>
                                     </div>
                                 </section>
                             </div>
@@ -85,7 +84,7 @@
                 </div>
             </div>
         </div>
-
+        
         <%@include file="footer.jsp"%>
 
     </body>

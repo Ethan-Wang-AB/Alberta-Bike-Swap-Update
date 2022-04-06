@@ -10,8 +10,9 @@
 
 <!DOCTYPE html>
 <html>
-        <head>
+    <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="assets/css/EditEventPageStyle.css">
         <title>Admin Event Management page</title>
     </head>
     <body>
@@ -45,9 +46,58 @@
                     <input type="text" id="address" name="address" required>
                     <input type="submit" value="Add new event">       
 
-                </fieldset>
+                                <input type="date" id="start" name="trip-start" value="2022-01-01" accept=""
+                                       min="2018-01-01" max="2100-12-31">
+                                <br/>
+                                <label for="day1time">Choose Day 1 Time:</label>
+                                <input type="time" id="day1time" name="day1time"
+                                       min="06:00" max="21:00" required><br/>
+                                <label for="day1time">Choose Day 2 Time:</label>
+                                <input type="time" id="day2time" name="day2time"
+                                       min="06:00" max="21:00" required><br/>
+                                <input type="submit" value="Add new event">       
+                            </fieldset>
+                        </form>
+                    </div>
+                    
+                    
+                <%-- Edit Event form--%>
+                    <div class="item">
+                        <h2>Edit Event</h2>
+                        <form action="" method="POST">
+                            <fieldset>
+                                <label for="fname">Event id:</label>
+                                <input type="text" id="eventid" name="eventid"><br>
 
-            </form>
+                                <label for="location">Choose a location:</label>
+                                <select id="location" name="location">
+                                    <option value="Calgary">Calgary</option>
+                                    <option value="Edmonton">Edmonton</option>
+                                    <option value="Lethbridge">Lethbridge</option>
+                                </select>
+                                <br/>
+                                <label for="start">Event date:</label>
+
+                                <input type="date" id="start" name="trip-start" value="2022-01-01" accept=""
+                                       min="2018-01-01" max="2100-12-31">
+                                <br/>
+                                <label for="day1time">Choose Day 1 Time:</label>
+                                <input type="time" id="day1time" name="day1time"
+                                       min="06:00" max="21:00" required><br/>
+                                <label for="day1time">Choose Day 2 Time:</label>
+                                <input type="time" id="day2time" name="day2time"
+                                       min="06:00" max="21:00" required><br/>
+                                <input type="submit" value="Edit event"> 
+                            </fieldset>
+                        </form>
+                    </div>
+
+                </div>
+
+                <br/><br/>
+
+            </div>
+
 
         </div>
 
@@ -88,20 +138,12 @@
         </div>
 
         <%-- Even Information--%>
-        <div>
-            <h2>Event Details</h2>
-            <table border="1">
-                <tr>
-                    <th>Event ID</th>
-                    <th>Location</th>
-                    <th>Day1 Date</th>
-                    <th>Day1 Time</th>
-                    <th>Day2 Date</th>
-                    <th>Day2 Time</th>
-                    <th>Delete</th>
-                    
-                </tr>
-                <c:forEach var="event" items="${eventdata}">
+        <div class="wrapper">
+            <div class ="box box2">
+                <h2>Event Details</h2>
+                <%-- operation message--%>
+                Message: ${message}<br/><br/>
+                <table border="1">
                     <tr>
                         <td>${event.eventDateId}</td>
                         <td>${event.addressId.addressDetail}</td>
@@ -111,10 +153,23 @@
                         <td align="center">${event.scheduleDay2}</td>
                         <td align="center"><a href="EditEvent?delete&id=${event.eventDateId}">Delete</a></td>
                     </tr>
-                </c:forEach>
-            </table>
+                    <c:forEach var="event" items="${eventdata}">
+                        <tr>
+                            <td>${eventid}</td>
+                            <td>${location}</td>
+                            <td align="center">Day1Date ${employee[2]}</td>
+                            <td align="center">$Day1Time{employee[3]}</td>
+                            <td align="center">$Day2Date{employee[2]}</td>
+                            <td align="center">$Day2Time{employee[3]}</td>
+                            <td align="center">Delete $eventid</td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </div>
 
         </div>
+
+
 
     </body>
 </html>

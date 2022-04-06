@@ -9,7 +9,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-
         <!-- Title Page-->
         <title>Alberta Bike Swap | Admin Volunteer Management Page</title>
 
