@@ -237,4 +237,19 @@ public class AccountService {
     public User getByTicket(int parseInt) {
            return userDB.getUserByTicket(parseInt);
     }
+    
+    public List<User> getAllUser(){
+    return userDB.getAll();
+    }
+    
+    public List<Role> getRoles(){
+    return RoleDB.getInstance().getAll();
+    }
+
+    public List<User> getAllUserExceptAdmin() {
+        Role role=this.getRole(1);
+         return userDB.getAllExceptAdmin(role);
+    }
+
+  
 }
