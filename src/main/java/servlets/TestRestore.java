@@ -55,6 +55,8 @@ public class TestRestore extends HttpServlet {
             output.write(bytes, 0, read);
           }
           
+          system.restore(file);
+          
           //system.restore(file);
 
     }
