@@ -7,10 +7,14 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.Role;
+import models.User;
+import services.AccountService;
 
 /**
  *
@@ -31,6 +35,22 @@ public class EditProfileServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                        AccountService accountService=AccountService.getInstance();
+
+              if(request.getParameterMap().containsKey("userEmail")){
+               String shift=request.getParameter("finalshift");
+                String userEmail=request.getParameter("userEmail");
+                User u=accountService.getByEmail(userEmail);
+                Role role=accountService.getRole(Integer.parseInt(shift));
+                u.setRoleId(role);
+                accountService.update(u);
+               
+              }
+               List<User> users=accountService.getAllUserExceptAdmin();
+
+                request.setAttribute("users",users);
+                request.setAttribute("roles",accountService.getRoles());
+                
                     getServletContext().getRequestDispatcher("/WEB-INF/EditProfilePage.jsp").forward(request, response);
     }
 
@@ -45,6 +65,7 @@ public class EditProfileServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
     }
 
     
