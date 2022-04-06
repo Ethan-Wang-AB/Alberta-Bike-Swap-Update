@@ -144,6 +144,7 @@
                 <%-- operation message--%>
                 Message: ${message}<br/><br/>
                 <table border="1">
+                         <c:forEach var="event" items="${eventdata}">
                     <tr>
                         <td>${event.eventDateId}</td>
                         <td>${event.addressId.addressDetail}</td>
@@ -153,16 +154,7 @@
                         <td align="center">${event.scheduleDay2}</td>
                         <td align="center"><a href="EditEvent?delete&id=${event.eventDateId}">Delete</a></td>
                     </tr>
-                    <c:forEach var="event" items="${eventdata}">
-                        <tr>
-                            <td>${eventid}</td>
-                            <td>${location}</td>
-                            <td align="center">Day1Date ${employee[2]}</td>
-                            <td align="center">$Day1Time{employee[3]}</td>
-                            <td align="center">$Day2Date{employee[2]}</td>
-                            <td align="center">$Day2Time{employee[3]}</td>
-                            <td align="center">Delete $eventid</td>
-                        </tr>
+              
                     </c:forEach>
                 </table>
             </div>
