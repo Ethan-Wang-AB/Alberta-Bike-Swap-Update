@@ -7,6 +7,7 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -42,18 +43,18 @@ public class BikeInfoServlet extends HttpServlet {
         double maxPrice=99999;
         try{
            minPrice=Double.parseDouble(request.getParameter("minPrice"));
-                   maxPrice=Double.parseDouble(request.getParameter("minPrice"));
+                   maxPrice=Double.parseDouble(request.getParameter("maxPrice"));
 
         }catch(Exception e){
         
         }
         
          List<Bike> bikes=bikeService.getAll();
+         ArrayList<Bike> filter=new ArrayList<>();
          for(Bike b:bikes){
-         if(b.getPrice()<minPrice && b.getPrice()>maxPrice)
-            bikes.remove(b);
-         }
-         request.setAttribute("bikes", bikes);
+         if(b.getPrice()>=minPrice && b.getPrice()<=maxPrice)
+        filter.add(b);         }
+         request.setAttribute("bikes", filter);
         
         getServletContext().getRequestDispatcher("/WEB-INF/BikeInfoPage.jsp").forward(request, response);
     }
