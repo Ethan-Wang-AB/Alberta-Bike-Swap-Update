@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import models.Role;
 import models.User;
 
 /**
@@ -94,6 +95,22 @@ public class UserDB extends CommonDB<User> {
             return  lists;
         } catch (Exception ex) {
             System.out.println("get all users sql issue");
+            ex.printStackTrace();
+            return null;
+        } finally {
+            em.close();
+        }
+    }
+    
+     public List<User> getAllExceptAdmin(Role role) {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+
+        try {
+            List<User> lists;
+            lists = em.createNamedQuery("User.findAllExceptAdmin", User.class).setParameter("role", role).getResultList();
+            return  lists;
+        } catch (Exception ex) {
+            System.out.println("get all users except admin sql issue");
             ex.printStackTrace();
             return null;
         } finally {
