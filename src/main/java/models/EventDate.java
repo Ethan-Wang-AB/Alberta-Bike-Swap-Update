@@ -37,16 +37,13 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "EventDate.findAll", query = "SELECT e FROM EventDate e")
-    , @NamedQuery(name = "EventDate.findAllUnheld", query = "SELECT e FROM EventDate e where e.held=:held")
-    ,@NamedQuery(name = "EventDate.findByEventDateId", query = "SELECT e FROM EventDate e WHERE e.eventDateId = :eventDateId")
-        , @NamedQuery(name = "EventDate.findAllByEvent", query = "SELECT e FROM EventDate e WHERE e.eventId = :eventId")
+    , @NamedQuery(name = "EventDate.findByEventDateId", query = "SELECT e FROM EventDate e WHERE e.eventDateId = :eventDateId")
     , @NamedQuery(name = "EventDate.findByStartDate", query = "SELECT e FROM EventDate e WHERE e.startDate = :startDate")
     , @NamedQuery(name = "EventDate.findByEndDate", query = "SELECT e FROM EventDate e WHERE e.endDate = :endDate")
-    , @NamedQuery(name = "EventDate.findBySchedule", query = "SELECT e FROM EventDate e WHERE e.schedule = :schedule")})
+    , @NamedQuery(name = "EventDate.findByScheduleDay1", query = "SELECT e FROM EventDate e WHERE e.scheduleDay1 = :scheduleDay1")
+    , @NamedQuery(name = "EventDate.findByScheduleDay2", query = "SELECT e FROM EventDate e WHERE e.scheduleDay2 = :scheduleDay2")
+    , @NamedQuery(name = "EventDate.findByHeld", query = "SELECT e FROM EventDate e WHERE e.held = :held")})
 public class EventDate implements Serializable {
-
-    @Column(name = "held")
-    private Boolean held;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -65,8 +62,13 @@ public class EventDate implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date endDate;
     @Size(max = 2000)
-    @Column(name = "schedule")
-    private String schedule;
+    @Column(name = "schedule_day1")
+    private String scheduleDay1;
+    @Size(max = 2000)
+    @Column(name = "schedule_day2")
+    private String scheduleDay2;
+    @Column(name = "held")
+    private Boolean held;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "eventDateId")
     private List<EventDateUser> eventDateUserList;
     @JoinColumn(name = "address_id", referencedColumnName = "address_id")
@@ -113,12 +115,28 @@ public class EventDate implements Serializable {
         this.endDate = endDate;
     }
 
-    public String getSchedule() {
-        return schedule;
+    public String getScheduleDay1() {
+        return scheduleDay1;
     }
 
-    public void setSchedule(String schedule) {
-        this.schedule = schedule;
+    public void setScheduleDay1(String scheduleDay1) {
+        this.scheduleDay1 = scheduleDay1;
+    }
+
+    public String getScheduleDay2() {
+        return scheduleDay2;
+    }
+
+    public void setScheduleDay2(String scheduleDay2) {
+        this.scheduleDay2 = scheduleDay2;
+    }
+
+    public Boolean getHeld() {
+        return held;
+    }
+
+    public void setHeld(Boolean held) {
+        this.held = held;
     }
 
     @XmlTransient
@@ -169,14 +187,6 @@ public class EventDate implements Serializable {
     @Override
     public String toString() {
         return "models.EventDate[ eventDateId=" + eventDateId + " ]";
-    }
-
-    public Boolean getHeld() {
-        return held;
-    }
-
-    public void setHeld(Boolean held) {
-        this.held = held;
     }
     
 }

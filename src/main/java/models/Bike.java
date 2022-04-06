@@ -48,13 +48,6 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Bike.findByChecked", query = "SELECT b FROM Bike b WHERE b.checked = :checked")})
 public class Bike implements Serializable {
 
-    @Lob
-    @Column(name = "photo")
-    private byte[] photo;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "bikeId")
-    private List<Trade> tradeList;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -94,9 +87,14 @@ public class Bike implements Serializable {
     private String bikeEventTickets;
     @Column(name = "checked")
     private Boolean checked;
+    @Lob
+    @Column(name = "photo")
+    private byte[] photo;
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     @ManyToOne(optional = false)
     private User userId;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "bikeId")
+    private List<Trade> tradeList;
 
     public Bike() {
     }
@@ -201,12 +199,29 @@ public class Bike implements Serializable {
         this.checked = checked;
     }
 
+    public byte[] getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
+    }
+
     public User getUserId() {
         return userId;
     }
 
     public void setUserId(User userId) {
         this.userId = userId;
+    }
+
+    @XmlTransient
+    public List<Trade> getTradeList() {
+        return tradeList;
+    }
+
+    public void setTradeList(List<Trade> tradeList) {
+        this.tradeList = tradeList;
     }
 
     @Override
@@ -232,23 +247,6 @@ public class Bike implements Serializable {
     @Override
     public String toString() {
         return "models.Bike[ bikeId=" + bikeId + " ]";
-    }
-
-    @XmlTransient
-    public List<Trade> getTradeList() {
-        return tradeList;
-    }
-
-    public void setTradeList(List<Trade> tradeList) {
-        this.tradeList = tradeList;
-    }
-
-    public byte[] getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(byte[] photo) {
-        this.photo = photo;
     }
     
 }
