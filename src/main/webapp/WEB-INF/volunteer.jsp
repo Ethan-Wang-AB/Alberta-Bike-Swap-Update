@@ -38,11 +38,14 @@
                         <form action="NormalForm"  method="get">
                                     <button type="submit" class="btn btn-primary" >Standard Form</button>
                                 </form>
+                        <!-- redirected to RegistrationPage.jsp -->
                         
                         <br>
                         <form action="GoogleForm"  method="get">
                                     <button type="submit" class="btn btn-primary">Google Form</button>
                                 </form>
+                        
+                        <!-- redirected to VolunteerGoogleForm.jsp -->
                        
                      </div>
             
