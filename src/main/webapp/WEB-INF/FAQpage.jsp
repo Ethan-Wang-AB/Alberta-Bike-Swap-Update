@@ -18,20 +18,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-
+        <script src="./assets/js/toggleFAQ.js"></script>
         <title>Event Page for Alberta Bike Swap</title>
-
-        <script>
-            function toggleFAQCard(cardNumber) {
-                var x = document.getElementById(cardNumber);
-                if (x.style.display === "none" || x.style.display === "") {
-                    x.style.display = 'block';
-                } else {
-                    x.style.display = 'none';
-                }
-            }
-        </script>
-
         <style>
 /*            
 For some reason, the styling below was not being shown on the page when written on FAQPageStyling.

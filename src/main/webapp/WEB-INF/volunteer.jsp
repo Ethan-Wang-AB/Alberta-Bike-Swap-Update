@@ -9,8 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Alberta Bike Swap | Volunteer Register Page</title>
-        
+        <title>Alberta Bike Swap | Volunteer Register Page</title> 
         <!-- Main CSS-->
         <link rel="stylesheet" type="text/css" href="assets/css/volunteer.css">
         
@@ -30,19 +29,19 @@
         <%@include file="header.jsp"%>
          
         <div class="first_container container">
-         
- 
-        
-                        <h2 class="title">Volunteer Registration methods</h2>
-                    
-                        <form action="NormalForm"  method="get">
+                <h3 id="title" style="background: url(../assets/img/header-bike-01.svg) no-repeat bottom center; background-size: 250px;">Volunteer. Make a difference.</h3>
+                <h3>Thank you for choosing to help run one of our events. Choose a method below to register.</h3>
+          
+                        <form  method="POST">
                                     <button type="submit" class="btn btn-primary" >Standard Form</button>
+                                    <input type="hidden" name="formType" value="S">
                                 </form>
                         <!-- redirected to RegistrationPage.jsp -->
                         
                         <br>
-                        <form action="GoogleForm"  method="get">
+                        <form method="POST">
                                     <button type="submit" class="btn btn-primary">Google Form</button>
+                                    <input type="hidden" name="formType" value="G">
                                 </form>
                         
                         <!-- redirected to VolunteerGoogleForm.jsp -->

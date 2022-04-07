@@ -46,6 +46,18 @@ public class VolunteerServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //get parameters to determine action 
+        String formParam = request.getParameter("formType");
+        if(formParam != null){
+            if(formParam.equals("S")){
+                //load the standard form jsp
+                getServletContext().getRequestDispatcher("/WEB-INF/volunteer.jsp").forward(request, response);
+            }
+            if(formParam.equals("G")){
+                //load the standard form jsp
+                getServletContext().getRequestDispatcher("/WEB-INF/VolunteerGoogleForm.jsp").forward(request, response);
+            }
+        }
     }
 
     /**

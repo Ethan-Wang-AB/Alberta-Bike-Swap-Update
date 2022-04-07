@@ -34,9 +34,9 @@
          <%@include file="header.jsp"%>
          
            <div class="first_container container">
-            <h1 id="title">Volunteer. Make a difference.</h1>
+            <h4 id="title">Volunteer. Make a difference.</h4>
             <!--            Everything below can be commented out when no sign ups are available-->
-            <h2>Select what city you would like to volunteer in:</h2>
+            <h3 id="subtitle">Select what city you would like to volunteer in:</h3>
             <div id="volunteerCityChoice">
                 <input type="button" value="Calgary" class="formCityOption" onclick='toggleForm("volunteerCalgary")'>
                 <input type="button" value="Edmonton" class="formCityOption" onclick='toggleForm("volunteerEdmonton")'>
