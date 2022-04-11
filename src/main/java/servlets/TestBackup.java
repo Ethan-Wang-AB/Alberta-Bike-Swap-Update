@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import services.SystemService;
 
 /**
@@ -57,9 +58,14 @@ public class TestBackup extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         SystemService system=new SystemService();
-        system.backup();
-   getServletContext().getRequestDispatcher("/WEB-INF/TESTING/TESTINGBackup.jsp").forward(request, response);
+        boolean status=system.backup();
+        HttpSession session=request.getSession();
+        if(status){
+        session.setAttribute("backupMessage","backup is successful");
+        
+        }else    session.setAttribute("backupMessage","backup is unsuccessful");
 
+          response.sendRedirect("admin");
     }
 
     /**
