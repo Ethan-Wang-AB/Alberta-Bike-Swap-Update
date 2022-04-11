@@ -30,7 +30,6 @@
 
     </head>
     <body >
-        <%@include file="header.jsp"%>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -42,6 +41,8 @@
         <script type="text/javascript">$('#home').addClass('active')</script>
         <script type="text/javascript" src="../assets/js/locationJS.js"></script>
         <script type="text/javascript" src="../assets/js/locationsPoster.js"></script>
+                <%@include file="header.jsp"%>
+
         <div class="container-fluid parallax" id="cityPage">
             <div class="row city" >
                 <div class="row justify-content-center">
@@ -84,7 +85,7 @@
             <div class="card mb-3 post shadow">
                 <div class="container">
                     <div class="card row flex-row">
-                        <img class="col-sm-4 card-img-start img-fluid p-0" src="https://albertabikeswap.ca/wp-content/uploads/2019/01/image.png" />
+<!--                        <img class="col-sm-4 card-img-start img-fluid p-0" src="https://albertabikeswap.ca/wp-content/uploads/2019/01/image.png" />-->
                         <div class="col-sm-8 card-body">
 
                             <div class="card-header">
@@ -111,7 +112,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body text-center">
-                                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ZntnXr1p2p0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<!--                                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ZntnXr1p2p0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
 
                                                 </div>
 
