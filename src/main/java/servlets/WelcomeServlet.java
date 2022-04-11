@@ -23,6 +23,11 @@ public class WelcomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session=request.getSession();
+        if(request.getParameterMap().containsKey("logout")){
+           session.invalidate();
+           }
+        
         
              getServletContext().getRequestDispatcher("/WEB-INF/welcomepage.jsp").forward(request, response);
 
