@@ -102,9 +102,9 @@
                                         <div class="rs-select2 js-select-simple select--no-search">
                                             <select name="location">
                                                 <option disabled="disabled" selected="selected">Choose your location</option>
-                                                <option value="1">Edmonton</option>
-                                                <option value="2">Calgary</option>
-                                                <option value="3">Lethbridge</option>
+                                                <option value="3">Edmonton</option>
+                                                <option value="1">Calgary</option>
+                                                <option value="2">Lethbridge</option>
                                             </select>
                                             <div class="select-dropdown"></div>
                                         </div>
