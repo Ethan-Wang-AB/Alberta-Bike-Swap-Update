@@ -29,7 +29,7 @@ public class SystemDB {
     //database name
     private final String DATABASE_NAME = "absdb";
     //path and file name of the back up address, for windows it has a default path and only name needed.
-    private final String PATH = "c:/temp/absdb";//"/WEB-INF/backup/absdb";//
+    private final String PATH = "c:/temp/absRestore.sql";
     private final String SERVERPATH="C:/Program Files/MySQL/MySQL Server 5.7/bin/mysqldump";
     private final String SERVERPATHRESTORE="C:/Program Files/MySQL/MySQL Server 5.7/bin";
     //private final String BATCH="C:\\Program Files\\MySQL\\MySQL Workbench 8.0 CE\\backup.bat";
@@ -52,25 +52,15 @@ public class SystemDB {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         //EntityTransaction trans = em.getTransaction();
         String filename=PATH + new Date().toString() + ".sql";
-//        File file=new File("c:/temp/temp.sql");
-//        file.createNewFile();
-        //String sqlString = "mysqldump --column-statistics=0 --user " + USERNAME + " -p" + PASSWORD + " " + DATABASE_NAME + " > " +DATABASE_NAME + ".sql";
-        //sqlString = "mysqldump -uroot -ppassword --all-databases > c:/temp/temp01.sql";
+
         System.out.println("start backup");
         try {
             
             ProcessBuilder pb=new ProcessBuilder();
             Process p=Runtime.getRuntime().exec(
-             SERVERPATH+ " -u"+USERNAME+ " -p"+PASSWORD+ " absdb -r"+PATH+Calendar.getInstance().getTimeInMillis()/100000000+".sql"
+             SERVERPATH+ " -u"+USERNAME+ " -p"+PASSWORD+ " absdb -r"+PATH
             );
-            System.out.println(PATH+Calendar.getInstance().getTimeInMillis()/100000000);
-// pb.command("cmd /c Rundll32.exe Powrprof.dll,SetSuspendState")   ;         
-////pb.command("runas /user:845593\\Administrator \"cmd.exe /c");
-//                    pb.command("cd C:\\Program Files\\MySQL\\MySQL Workbench 8.0 CE");
-//                    
-//            pb.command("mysqldump -uroot -ppassword --all-databases > c:/temp/temp01.sql");
-//            Process p=pb.start();
-//        Process runtimeProcess0 = Runtime.getRuntime().exec(new String[] { "cmd.exe", "/K", String.format("%s%s%n", "cd ",SERVERPATH),sqlString});
+
       BufferedReader reader =
                     new BufferedReader(new InputStreamReader(p.getInputStream()));
 
@@ -78,7 +68,6 @@ public class SystemDB {
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
             }
-//        Process runtimeProcess1 = Runtime.getRuntime().exec(new String[] { "cmd.exe", "/c", sqlString});
         System.out.println("process backup finished");
             return true;
         } catch (Exception e) {
