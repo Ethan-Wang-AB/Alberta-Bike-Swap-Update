@@ -58,7 +58,7 @@ public class LocationServlet extends HttpServlet {
         page, which will load the Javascript and loads the actions */
         String action = request.getParameter("action");
         if (action == null) {
-            getServletContext().getRequestDispatcher("/WEB-INF/locations_backupcode.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/WEB-INF/locations.jsp").forward(request, response);
             return;
         }
 
