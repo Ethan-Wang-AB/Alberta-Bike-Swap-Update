@@ -31,7 +31,7 @@
                             <b>ADMIN PAGE</b>
                         </span>
                     </div>
-                     <a href="#" class="btn btn-success navbar-btn">Logout</a>
+                    <a href="/Welcome?logout" class="btn btn-success navbar-btn">Logout</a>
 
                 </div>
                 </div>
@@ -81,14 +81,31 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Backup Section</h5>
                                         <p class="card-text"> Click the "BACKUP" button to backup the database information</p>
-                                        <a href="/BackUp" class="btn btn-danger">Backup</a>
+
+                                        <form class="btn btn-danger" method="POST" action="TESTINGBackup">
+                                            <input type="submit" value="backup">
+                                        </form>
+    <p>
+                ${backupMessage}
+            </p>
+
                                     </div>
                                 </div>
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Restore Section</h5>
                                         <p class="card-text">Click the "RESTORE" button to backup the database information</p>
-                                        <a href="/Restore" class="btn btn-danger">Restore</a>
+
+
+                                        <form class="btn btn-danger" method="GET" action="TestRestore" >
+
+
+                                            <input type="submit" value="restore">
+
+                                        </form>
+    <p>
+                ${restoreMessage}
+            </p>
                                     </div>
                                 </div>
                             </div>
@@ -104,7 +121,7 @@
 
 
 
-
+        
 
 
 
