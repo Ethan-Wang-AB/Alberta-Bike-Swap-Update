@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-    <!--    <filter>
+    <filter>
         <filter-name>AdminFilter</filter-name>
         <filter-class>filters.AdminFilter</filter-class>
     </filter>
@@ -8,22 +8,43 @@
         <filter-name>VolunteerFilter</filter-name>
         <filter-class>filters.VolunteerFilter</filter-class>
     </filter>
-    <filter>
+    <!--    <filter>
         <filter-name>SellerFilter</filter-name>
         <filter-class>filters.SellerFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>SellerFilter</filter-name>
         <servlet-name>EditBikeServlet</servlet-name>
-    </filter-mapping>
+    </filter-mapping>-->
     <filter-mapping>
         <filter-name>VolunteerFilter</filter-name>
         <servlet-name>ProfileServlet</servlet-name>
     </filter-mapping>
     <filter-mapping>
+        <filter-name>VolunteerFilter</filter-name>
+        <servlet-name>EditUserServlet</servlet-name>
+    </filter-mapping>
+    <filter-mapping>
         <filter-name>AdminFilter</filter-name>
         <servlet-name>AdminServlet</servlet-name>
-    </filter-mapping>-->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <servlet-name>TestBackup</servlet-name>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <servlet-name>TestRestore</servlet-name>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <servlet-name>EventServlet</servlet-name>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <servlet-name>EditProfileServlet</servlet-name>
+    </filter-mapping>
+   
     <servlet>
         <servlet-name>WelcomeServlet</servlet-name>
         <servlet-class>servlets.WelcomeServlet</servlet-class>
@@ -338,14 +359,14 @@
         <listener-class>scheduler.QuartzScheduler</listener-class>
     </listener>
     <!--    
-    <resource-env-ref>
-  <description>DataSource
-  </description>
-  <resource-env-ref-name>
-    dbc/irb_prod
-  </resource-env-ref-name>
-  <resource-env-ref-type>
-    javax.sql.DataSource
-  </resource-env-ref-type>
-</resource-env-ref>-->
+        <resource-env-ref>
+      <description>DataSource
+      </description>
+      <resource-env-ref-name>
+        dbc/irb_prod
+      </resource-env-ref-name>
+      <resource-env-ref-type>
+        javax.sql.DataSource
+      </resource-env-ref-type>
+    </resource-env-ref>-->
 </web-app>
