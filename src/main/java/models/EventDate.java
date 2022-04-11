@@ -37,6 +37,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "EventDate.findAll", query = "SELECT e FROM EventDate e")
+    ,@NamedQuery(name = "EventDate.findAllByEvent", query = "SELECT e FROM EventDate e WHERE e.eventId=:eventId")     
     , @NamedQuery(name = "EventDate.findByEventDateId", query = "SELECT e FROM EventDate e WHERE e.eventDateId = :eventDateId")
     , @NamedQuery(name = "EventDate.findByStartDate", query = "SELECT e FROM EventDate e WHERE e.startDate = :startDate")
     , @NamedQuery(name = "EventDate.findByEndDate", query = "SELECT e FROM EventDate e WHERE e.endDate = :endDate")
