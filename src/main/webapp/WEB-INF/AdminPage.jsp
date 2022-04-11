@@ -59,14 +59,14 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Event Management Page</h5>
                                         <p class="card-text">ADD New Event, EDIT Existed Event, DELETE Event</p>
-                                        <a href="#" class="btn btn-success">Edit Event</a>
+                                        <a href="/EditEvent" class="btn btn-success">Edit Event</a>
                                     </div>
                                 </div>
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Volunteer Management Page</h5>
                                         <p class="card-text">EDIT Volunteer Shift , Download Volunteer Report</p>
-                                        <a href="#" class="btn btn-primary">Edit Volunteer</a>
+                                        <a href="/EditProfile" class="btn btn-primary">Edit Volunteer</a>
                                     </div>
                                 </div>
                             </div>
@@ -81,14 +81,14 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Backup Section</h5>
                                         <p class="card-text"> Click the "BACKUP" button to backup the database information</p>
-                                        <a href="#" class="btn btn-danger">Backup</a>
+                                        <a href="/BackUp" class="btn btn-danger">Backup</a>
                                     </div>
                                 </div>
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Restore Section</h5>
                                         <p class="card-text">Click the "RESTORE" button to backup the database information</p>
-                                        <a href="#" class="btn btn-danger">Restore</a>
+                                        <a href="/Restore" class="btn btn-danger">Restore</a>
                                     </div>
                                 </div>
                             </div>
