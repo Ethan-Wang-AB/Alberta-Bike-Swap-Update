@@ -20,6 +20,7 @@ import scheduler.QuartzScheduler;
  */
 public class SystemService {
     private SystemDB systemDB=SystemDB.getInstance();
+    private final String ADDRESS="c:/temp/absRestore.sql";
 //     public final boolean toggleOpenStatus()
 //    {
 //		return false;
@@ -56,4 +57,13 @@ public class SystemService {
         ServletContextEvent ctx=new ServletContextEvent(context);
         scheduler.contextInitialized(ctx);
     }    
+
+    public Boolean restore() throws IOException {
+         File file=new File(ADDRESS);
+         if(!file.exists()){
+         file.createNewFile();
+         }
+        return restore(file);
+         
+    }
 }
