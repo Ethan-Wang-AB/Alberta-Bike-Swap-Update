@@ -41,9 +41,6 @@
         </header>
 
 
-
-
-
         <div class="container-fluid">
             <div class="container-position">
                 <!-- Admin Function Menu Section -->
@@ -51,7 +48,7 @@
 
                     <div class="card bg-light mb-3" style="width: 900px;">
 
-                        <!-- Top Section -->
+                        <!-- Top Menu Section -->
                         <div class="card bg-light mb-3">
                             <h5 class="card-header">Admin Function Menu</h5>
                             <div class="card-group">
@@ -69,64 +66,62 @@
                                         <a href="/EditProfile" class="btn btn-primary">Edit Volunteer</a>
                                     </div>
                                 </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Bike Management Page</h5>
+                                        <p class="card-text">EDIT Bike Inventory Information</p>
+                                        <a href="/EditProfile" class="btn btn-dark">Edit Bike</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <!-- End of Top Menu Section -->
 
 
                         <!-- Backup and Restore Section -->
                         <div class="card bg-light mb-3">
                             <h5 class="card-header">Backup and Restore Section</h5>
                             <div class="card-group">
+                                
+                                <!-- Backup Section -->
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Backup Section</h5>
                                         <p class="card-text"> Click the "BACKUP" button to backup the database information</p>
 
-                                        <form class="btn btn-danger" method="POST" action="TESTINGBackup">
-                                            <input type="submit" value="backup">
+                                        <form  method="POST" action="TESTINGBackup">
+                                            <input type="submit" value="BACKUP">
                                         </form>
-    <p>
-                ${backupMessage}
-            </p>
+                                        <p>
+                                            ${backupMessage}
+                                        </p>
 
                                     </div>
                                 </div>
+                                        
+                                        
+                                <!-- Restore Section -->        
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Restore Section</h5>
                                         <p class="card-text">Click the "RESTORE" button to backup the database information</p>
 
-
-                                        <form class="btn btn-danger" method="GET" action="TestRestore" >
-
-
-                                            <input type="submit" value="restore">
-
+                                        <form  method="GET" action="TestRestore" >
+                                            <input type="submit" value="RESTORE">
                                         </form>
-    <p>
-                ${restoreMessage}
-            </p>
+                                        <p>
+                                            ${restoreMessage}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                                        
+                       <!-- End of Backup and Restore Section -->                 
 
                     </div>
-
                 </div>
-
-
             </div>
-
-
-
-
-        
-
-
-
-            <br/>
-
         </div>
 
 
