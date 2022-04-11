@@ -75,12 +75,16 @@
                                             <div class="rs-select2 js-select-simple select--no-search">
                                                 <select name="diet" >
                                                     <option disabled="disabled" selected="selected" >Choose Dietary Restriction</option>
-                                                    <option value=""></option>
-                                                    <option value="1">Vegetarian</option>
-                                                    <option value="2">Gluten free</option>
-                                                    <option value="3">No-dairy</option>
-                                                    <option value="4">Nut sensitive</option>
-                                                    <option value="5">Other</option>
+                                                    <c:forEach var="diet" items="${diets}">
+                                                        <option value="${diet.dietId}">${diet.dietDes}</option>
+
+                                                    </c:forEach>
+                                                    <!--                                                    <option value=""></option>
+                                                                                                        <option value="1">Vegetarian</option>
+                                                                                                        <option value="2">Gluten free</option>
+                                                                                                        <option value="3">No-dairy</option>
+                                                                                                        <option value="4">Nut sensitive</option>
+                                                                                                        <option value="5">Other</option>-->
                                                 </select>
                                                 <div class="select-dropdown"></div>
                                             </div>
@@ -88,7 +92,7 @@
                                     </div>
                                 </div>
 
-                               
+
                                 <div class="form-row">
                                     <div class="name">First Position Choice</div>
                                     <div class="value">
@@ -96,23 +100,27 @@
                                             <div class="rs-select2 js-select-simple select--no-search">
                                                 <select name="firstposition" >
                                                     <option disabled="disabled" selected="selected" >Choose Your First Position Choice</option>
-                                                    <option value="1">Volunteer / Admin Desk (AM/PM)</option>
-                                                    <option value="2">Food Volunteer (AM/PM)</option>
-                                                    <option value="3">Safety / Security (AM/PM)</option>
-                                                    <option value="4">Bike Receiver (AM/PM)</option>
-                                                    <option value="5">Screener (AM/PM)</option>
-                                                    <option value="6">Bike Tech (AM/PM)</option>
-                                                    <option value="7">Scribe (AM/PM)</option>
-                                                    <option value="8">Placer (AM/PM)</option>
-                                                    <option value="9">Dream Fulfillment (Sales)(PM)</option>
-                                                    <option value="10">Line Manager (PM)</option>
-                                                    <option value="11">Gatekeeper  (PM)</option>
-                                                    <option value="12">Data Tracker (AM/PM)</option>
-                                                    <option value="13">Rack Admin (AM 8 AM - 2PM)</option>
-                                                    <option value="14">Computer Op (AM/PM)</option>
-                                                    <option value="15">Transaction Support (AM/PM)</option>
-                                                    <option value="16">Floater (AM/PM)</option>
-                                                    <option value="17">NEW! Day of the event social media wiz</option>
+                                                    <c:forEach var="role" items="${roles}">
+                                                        <option value="${role.roleId}">${role.roleName}</option>
+
+                                                    </c:forEach>
+                                                    <!--                                                    <option value="1">Volunteer / Admin Desk (AM/PM)</option>
+                                                                                                        <option value="2">Food Volunteer (AM/PM)</option>
+                                                                                                        <option value="3">Safety / Security (AM/PM)</option>
+                                                                                                        <option value="4">Bike Receiver (AM/PM)</option>
+                                                                                                        <option value="5">Screener (AM/PM)</option>
+                                                                                                        <option value="6">Bike Tech (AM/PM)</option>
+                                                                                                        <option value="7">Scribe (AM/PM)</option>
+                                                                                                        <option value="8">Placer (AM/PM)</option>
+                                                                                                        <option value="9">Dream Fulfillment (Sales)(PM)</option>
+                                                                                                        <option value="10">Line Manager (PM)</option>
+                                                                                                        <option value="11">Gatekeeper  (PM)</option>
+                                                                                                        <option value="12">Data Tracker (AM/PM)</option>
+                                                                                                        <option value="13">Rack Admin (AM 8 AM - 2PM)</option>
+                                                                                                        <option value="14">Computer Op (AM/PM)</option>
+                                                                                                        <option value="15">Transaction Support (AM/PM)</option>
+                                                                                                        <option value="16">Floater (AM/PM)</option>
+                                                                                                        <option value="17">NEW! Day of the event social media wiz</option>-->
                                                 </select>
                                                 <div class="select-dropdown"></div>
                                             </div>
@@ -128,24 +136,29 @@
                                             <div class="rs-select2 js-select-simple select--no-search">
                                                 <select name="secondposition" >
                                                     <option disabled="disabled" selected="selected" >Choose Your Second Position Choice</option>
-                                                    <option value=""></option>
-                                                    <option value="1">Volunteer / Admin Desk (AM/PM)</option>
-                                                    <option value="2">Food Volunteer (AM/PM)</option>
-                                                    <option value="3">Safety / Security (AM/PM)</option>
-                                                    <option value="4">Bike Receiver (AM/PM)</option>
-                                                    <option value="5">Screener (AM/PM)</option>
-                                                    <option value="6">Bike Tech (AM/PM)</option>
-                                                    <option value="7">Scribe (AM/PM)</option>
-                                                    <option value="8">Placer (AM/PM)</option>
-                                                    <option value="9">Dream Fulfillment (Sales)(PM)</option>
-                                                    <option value="10">Line Manager (PM)</option>
-                                                    <option value="11">Gatekeeper  (PM)</option>
-                                                    <option value="12">Data Tracker (AM/PM)</option>
-                                                    <option value="13">Rack Admin (AM 8 AM - 2PM)</option>
-                                                    <option value="14">Computer Op (AM/PM)</option>
-                                                    <option value="15">Transaction Support (AM/PM)</option>
-                                                    <option value="16">Floater (AM/PM)</option>
-                                                    <option value="17">NEW! Day of the event social media wiz</option>
+
+                                                    <c:forEach var="role" items="${roles}">
+                                                        <option value="${role.roleId}">${role.roleName}</option>
+
+                                                    </c:forEach>
+                                                    <!--                                                    <option value=""></option>
+                                                                                                        <option value="1">Volunteer / Admin Desk (AM/PM)</option>
+                                                                                                        <option value="2">Food Volunteer (AM/PM)</option>
+                                                                                                        <option value="3">Safety / Security (AM/PM)</option>
+                                                                                                        <option value="4">Bike Receiver (AM/PM)</option>
+                                                                                                        <option value="5">Screener (AM/PM)</option>
+                                                                                                        <option value="6">Bike Tech (AM/PM)</option>
+                                                                                                        <option value="7">Scribe (AM/PM)</option>
+                                                                                                        <option value="8">Placer (AM/PM)</option>
+                                                                                                        <option value="9">Dream Fulfillment (Sales)(PM)</option>
+                                                                                                        <option value="10">Line Manager (PM)</option>
+                                                                                                        <option value="11">Gatekeeper  (PM)</option>
+                                                                                                        <option value="12">Data Tracker (AM/PM)</option>
+                                                                                                        <option value="13">Rack Admin (AM 8 AM - 2PM)</option>
+                                                                                                        <option value="14">Computer Op (AM/PM)</option>
+                                                                                                        <option value="15">Transaction Support (AM/PM)</option>
+                                                                                                        <option value="16">Floater (AM/PM)</option>
+                                                                                                        <option value="17">NEW! Day of the event social media wiz</option>-->
                                                 </select>
                                                 <div class="select-dropdown"></div>
                                             </div>
@@ -153,26 +166,26 @@
                                     </div>
                                 </div>
 
-                            <br/>
-                            <br/>
-                            <c:if test="${errorMessage != null}">
-                                <div
-                                    class="alert alert-danger alert-dismissible fade show pb-2 pt-2 mt-3"
-                                    role="alert"
-                                    >
-                                    <i class="bi bi-x-circle me-2"></i>
-                                    ${errorMessage}
-                                    <button
-                                        type="button"
-                                        class="btn-close btn-sm pb-1"
-                                        data-bs-dismiss="alert"
-                                        aria-label="Close"
-                                        ></button>
-                                </div>
-                            </c:if>
+                                <br/>
+                                <br/>
+                                <c:if test="${errorMessage != null}">
+                                    <div
+                                        class="alert alert-danger alert-dismissible fade show pb-2 pt-2 mt-3"
+                                        role="alert"
+                                        >
+                                        <i class="bi bi-x-circle me-2"></i>
+                                        ${errorMessage}
+                                        <button
+                                            type="button"
+                                            class="btn-close btn-sm pb-1"
+                                            data-bs-dismiss="alert"
+                                            aria-label="Close"
+                                            ></button>
+                                    </div>
+                                </c:if>
 
 
-                            
+
 
 
 
