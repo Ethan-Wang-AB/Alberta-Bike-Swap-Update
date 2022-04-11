@@ -167,9 +167,9 @@ public class EventService {
         if (event != null) {
             json += "\"eventId\" : " + event.getEventDateId() + ", \n";
             json += "\"address\" : \"" + event.getAddressId().getAddressDetail() + "\", \n";
-            json += "\"date\" : \"" + event.getStartDate() + "\", \n";
-            json += "\"consign\" : \"" + event.getStartDate() + "\", \n";
-            json += "\"buy\" : \"" + event.getEndDate() + "\", \n";
+            json += "\"date\" : \"" + (event.getStartDate().getYear()+1900)+", "+(event.getStartDate().getMonth()+1)+", "+event.getStartDate().getDate() +" - "+(event.getEndDate().getYear()+1900)+", "+(event.getEndDate().getMonth()+1)+", "+event.getEndDate().getDate()+ "\", \n";
+            json += "\"consign\" : \"" + (event.getStartDate().getYear()+1900)+", "+(event.getStartDate().getMonth()+1)+", "+event.getStartDate().getDate()+" Time: " +event.getScheduleDay1()+ "\", \n";
+            json += "\"buy\" : \"" +(event.getEndDate().getYear()+1900)+", "+(event.getEndDate().getMonth()+1)+", "+event.getEndDate().getDate() +" Time: "+event.getScheduleDay2()+ "\", \n";
 
             json += "\"donate\" : \"Both Days\"\n";
             json += "}";
