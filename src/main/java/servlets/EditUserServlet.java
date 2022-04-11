@@ -12,8 +12,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import models.Address;
+import models.City;
 import models.User;
 import services.AccountService;
+import services.EventService;
 
 /**
  *
@@ -52,6 +55,22 @@ public class EditUserServlet extends HttpServlet {
             HttpSession session=request.getSession();
             User user=accountService.getByEmail((String) session.getAttribute("email"));
         try{
+            String name=request.getParameter("first_name")+" "+request.getParameter("last_name");
+            String emailN=request.getParameter("email");
+            String password=request.getParameter("password");
+            long phone=Long.parseLong(request.getParameter("area_code")+request.getParameter("phone"));
+            String addressN=request.getParameter("address");
+            EventService eventService=new EventService();
+            City city=eventService.getCity(Integer.parseInt(request.getParameter("location")));
+            Address address=new Address();
+            address.setCityId(city);
+            address.setAddressDetail(addressN);
+            user.setAddressId(address);
+            user.setEmail(emailN);
+            user.setName(name);
+            user.setPassword(password);
+            user.setCellNumber(phone);
+            accountService.update(user);
             //return to the profile page showing updated info
             response.sendRedirect("Profile");
         }catch(Exception e){
