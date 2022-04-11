@@ -71,9 +71,11 @@ public class LoginServlet extends HttpServlet {
             request.setAttribute("errorMessage", "Your email and password are not matched with our system");
              getServletContext().getRequestDispatcher("/WEB-INF/loginpage.jsp").forward(request, response);
         }
-        else{
-         session.setAttribute("email",email);
-        response.sendRedirect("Profile");
+        session.setAttribute("email",email);
+        if(user.getRoleId().getRoleId() == 1){
+            response.sendRedirect("admin");
+        }else{
+             response.sendRedirect("Profile");
         }
         
     }

@@ -45,7 +45,7 @@
                         <h2 class="title">Change Event Information</h2>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="registration">
+                        <form method="POST" action="">
                             <!-- volunteer section -->
                             <div id="volunteersection" >
                                 <div class="form-row">

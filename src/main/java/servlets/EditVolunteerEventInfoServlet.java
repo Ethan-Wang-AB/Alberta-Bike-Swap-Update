@@ -17,11 +17,36 @@ import services.AccountService;
 
 /**
  *
- * @author 845593
+ * @author 851649
  */
-public class EditUserServlet extends HttpServlet {
+public class EditVolunteerEventInfoServlet extends HttpServlet {
 
-  
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet EditVolunteerEventInfoServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet EditVolunteerEventInfoServlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
+    }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -34,7 +59,7 @@ public class EditUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                    getServletContext().getRequestDispatcher("/WEB-INF/EditUserPage.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/WEB-INF/editVolunteerEventInfo.jsp").forward(request, response);
     }
 
     /**
@@ -57,11 +82,19 @@ public class EditUserServlet extends HttpServlet {
         }catch(Exception e){
             //load error message, then reload page
             request.setAttribute("errorMessage","There was an issue during the update, please try again.");
-            getServletContext().getRequestDispatcher("/WEB-INF/EditUserPage.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/WEB-INF/editVolunteerEventInfo.jsp").forward(request, response);
         }
        
     }
 
-    
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
 
 }

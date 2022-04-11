@@ -40,7 +40,7 @@
                         <h2 class="title">Change Personal Information</h2>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="registration">
+                        <form method="POST" action="">
                             <div class="form-row m-b-55">
                                 <div class="name">Name</div>
                                 <div class="value">

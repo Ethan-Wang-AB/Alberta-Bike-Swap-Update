@@ -60,6 +60,17 @@ public class ProfileServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                String formParam = request.getParameter("editType");
+        if(formParam != null){
+            if(formParam.equals("Info")){
+                //load the standard form jsp
+                response.sendRedirect("EditVolunteerEventInfo");
+            }
+            if(formParam.equals("Profile")){
+                //load the standard form jsp
+                response.sendRedirect("EditUser");
+            }
+        }
     }
 
 

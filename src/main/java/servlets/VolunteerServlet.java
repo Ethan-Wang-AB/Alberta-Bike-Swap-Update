@@ -51,7 +51,7 @@ public class VolunteerServlet extends HttpServlet {
         if(formParam != null){
             if(formParam.equals("S")){
                 //load the standard form jsp
-                getServletContext().getRequestDispatcher("/WEB-INF/volunteer.jsp").forward(request, response);
+                response.sendRedirect("registration");
             }
             if(formParam.equals("G")){
                 //load the standard form jsp

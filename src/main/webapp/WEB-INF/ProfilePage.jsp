@@ -105,7 +105,8 @@
                         </div>
                         <ul class="nav nav-tabs ">
                             <li>
-                                <form action="EditEventInfo"  method="get">
+                                <form action="EditVolunteerEventInfo"  method="get">
+                                    <input type="hidden" name="editType" value="Info">
                                     <button type="submit" class="btn btn-danger btn-block">Edit</button>
                                 </form>
 
@@ -137,7 +138,8 @@
                                     <label for="email">Email:</label>
                                     <p>${email}</p>
                                 </div>
-                                <form action="EditProfile"  method="get">
+                                <form action=""  method="POST">
+                                    <input type="hidden" name="editType" value="Profile">
                                     <button type="submit" class="btn btn-danger btn-block">Edit</button>
                                 </form>
                             </div>

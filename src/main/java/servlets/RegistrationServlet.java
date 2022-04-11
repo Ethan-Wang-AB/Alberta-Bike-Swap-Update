@@ -58,28 +58,23 @@ public class RegistrationServlet extends HttpServlet {
             String address = request.getParameter("address");
             System.out.println(request.getParameter("roldId"));
             int roleId = Integer.parseInt(request.getParameter("roleId"));
-              AccountService accountService = AccountService.getInstance();
-              
+            AccountService accountService = AccountService.getInstance();
             if(roleId==2){
-          
-
-            accountService.insert(email, fistname, lastname, password, phone, accountService.getRole(roleId), address, city);
-            session.setAttribute("email",email);
-            response.sendRedirect("Profile");
+                accountService.insert(email, fistname, lastname, password, phone, accountService.getRole(roleId), address, city);
+                session.setAttribute("email",email);
+                response.sendRedirect("Profile");
             }
             if(roleId==3){
-            session.setAttribute("email",email);
-
-            short shirtSize=Short.parseShort(request.getParameter("tshirtsize"));
-            int firstPosition=Integer.parseInt(request.getParameter("firstposition"))+2;
-            int secondPosition=Integer.parseInt(request.getParameter("secondposition"))+2;
-            accountService.insert(email, fistname, lastname, password, phone, 
-             accountService.getRole(firstPosition),accountService.getRole(secondPosition), address, city, shirtSize);
-            response.sendRedirect("Profile");
+                session.setAttribute("email",email);
+                short shirtSize=Short.parseShort(request.getParameter("tshirtsize"));
+                int firstPosition=Integer.parseInt(request.getParameter("firstposition"))+2;
+                int secondPosition=Integer.parseInt(request.getParameter("secondposition"))+2;
+                accountService.insert(email, fistname, lastname, password, phone, 
+                accountService.getRole(firstPosition),accountService.getRole(secondPosition), address, city, shirtSize);
+                response.sendRedirect("Profile");
             }
+            response.sendRedirect("Login");
         } catch (Exception e) {
-            
-            
             e.printStackTrace();
             request.setAttribute("errorMessage", "Please check your input, there is something wrong with your phone number format.");
             getServletContext().getRequestDispatcher("/WEB-INF/RegistrationPage.jsp").forward(request, response);

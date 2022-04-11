@@ -53,6 +53,7 @@
         <div class="card bg-light col-md-8">
             <h1 class="ms-1 mt-1">Alberta Bike Swap | Login</h1>
             <div class="card-body">
+                <p id="message">${message}</p>
                 <form action="Login" method="post">
                     <div class="input-group flex-nowrap mb-3">
                         <span class="input-group-text"><i class="bi bi-at"></i></span>
