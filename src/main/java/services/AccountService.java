@@ -5,6 +5,7 @@
  */
 package services;
 
+import dataaccess.DietDB;
 import dataaccess.RoleDB;
 import dataaccess.UserDB;
 import java.security.NoSuchAlgorithmException;
@@ -12,6 +13,7 @@ import java.util.List;
 import models.Address;
 import models.Bike;
 import models.City;
+import models.Diet;
 import models.EventDate;
 import models.Role;
 import models.State;
@@ -24,7 +26,7 @@ import models.User;
 public class AccountService {
 
     private static AccountService accountService = new AccountService();
-
+    private DietDB dietDB=new DietDB();
     private UserDB userDB = UserDB.getInstance();
     private BikeService bikeService = BikeService.getInstance();
 
@@ -251,5 +253,25 @@ public class AccountService {
          return userDB.getAllExceptAdmin(role);
     }
 
+    public Diet getDiet(int parseInt) {
+       return dietDB.getDiet(parseInt);
+
+    }
+
+    public List<Diet> getAllDiet(){
+    return dietDB.getAll();
+    }
+
+    public List<Role> getRolesExceptAdmin() {
+      List<Role> roles=getRoles();
+      for(int i=0;i<roles.size();i++){
+      if(roles.get(i).getRoleId()==1){
+      roles.remove(roles.get(i));
+      break;
+      }
+      }
+      return roles;
+      
+    }
   
 }
