@@ -65,6 +65,7 @@ public class AccountService {
         user.setPassword(password);
         user.setSalt(salt);
         user.setCellNumber(phone);
+        
         user.setAddressId(add);
         user.setRoleId(role);
         userDB.add(user);
