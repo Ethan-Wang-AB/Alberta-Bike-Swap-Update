@@ -40,7 +40,9 @@ public class EditVolunteerEventInfoServlet extends HttpServlet {
         HttpSession session = request.getSession();
         User user = accountService.getByEmail((String) session.getAttribute("email"));
         
-        
+        //check if we want to update or return
+        String action = request.getParameter("action");
+        if(action.equals("Change")){
         try {
         String tshirt = request.getParameter("tshirtsize");
         String diet = request.getParameter("diet");
@@ -60,6 +62,10 @@ public class EditVolunteerEventInfoServlet extends HttpServlet {
             //load error message, then reload page
             request.setAttribute("errorMessage", "There was an issue during the update, please try again.");
             getServletContext().getRequestDispatcher("/WEB-INF/editVolunteerEventInfo.jsp").forward(request, response);
+        }
+        }
+        if(action.equals("Profile")){
+            response.sendRedirect("Profile");
         }
 
     }

@@ -221,8 +221,13 @@
 
                             <!-- submit box section -->
                             <div>
+                                <input type="hidden" name="action" value="Change">
                                 <button class="btn btn--radius-2 btn--red" type="submit">Change</button>
                             </div>
+                        </form>
+                        <form action="" method="POST">
+                                <input type="hidden" name="action" value="Profile">
+                                <button class="btn btn--radius-2 btn--green" type="submit">Return to Profile</button>
                         </form>
                     </div>
                 </div>

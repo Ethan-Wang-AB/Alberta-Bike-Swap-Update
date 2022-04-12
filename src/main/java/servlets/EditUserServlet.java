@@ -67,6 +67,12 @@ public class EditUserServlet extends HttpServlet {
             throws ServletException, IOException {
             AccountService accountService=AccountService.getInstance();
             HttpSession session=request.getSession();
+            //check what the user wishes to do
+            String action = request.getParameter("action");
+            if(action.equals("Profile")){
+                response.sendRedirect("Profile");
+            }
+            if(action.equals("Change")){
             User user=accountService.getByEmail((String) session.getAttribute("email"));
             //check if each value is not null, isnt an empty string, and is  updated before changing user object.
             //user should be able to update some values without having to fill in all of them. 
@@ -107,7 +113,7 @@ public class EditUserServlet extends HttpServlet {
             request.setAttribute("errorMessage","There was an issue during the update, please try again.");
             getServletContext().getRequestDispatcher("/WEB-INF/EditUserPage.jsp").forward(request, response);
         }
-       
+            }
     }
 
     
