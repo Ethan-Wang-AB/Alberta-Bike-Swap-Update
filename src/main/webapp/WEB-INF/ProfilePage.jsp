@@ -89,7 +89,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="vShift">City & Shift:</label>
-                                            <p> Calgary / 12 PM - 6 PM ${vShift} </p>
+                                            <p>${vShift} </p>
                                         </div>
                                         <div class="form-group">
                                             <label for="email">Space for other information if needed:</label>

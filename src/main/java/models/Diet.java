@@ -54,6 +54,33 @@ public class Diet implements Serializable {
 
     public Diet(Integer dietId) {
         this.dietId = dietId;
+        //assign an appropriate description
+        switch(dietId){
+            case(0):{
+                dietDes="None";
+                break;
+             }
+            case(1):{
+                dietDes="Vegetarian";
+                break;
+             }
+            case(2):{
+                dietDes="Gluten-Free";
+                break;
+             }
+             case(3):{
+                dietDes="No-Dairy";
+                break;
+             }
+             case(4):{
+                dietDes="Nut-Sensitive";
+                break;
+             }
+            case(5):{
+                dietDes="Other";
+                break;
+             }             
+        }
     }
 
     public Diet(Integer dietId, String dietDes) {

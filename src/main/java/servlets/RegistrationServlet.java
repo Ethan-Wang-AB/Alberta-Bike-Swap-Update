@@ -48,29 +48,33 @@ public class RegistrationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session=request.getSession();
+        //try to bring in values from the jsp, fail if any are empty.
         try {
             String fistname = request.getParameter("first_name");
             String lastname = request.getParameter("last_name");
             String email = request.getParameter("email");
-            String city = request.getParameter("area_code");
+            String city = request.getParameter("location");
             Long phone = Long.parseLong(request.getParameter("phone"));
             String password = request.getParameter("password");
             String address = request.getParameter("address");
 //            System.out.println(request.getParameter("roleId"));
 //            int roleId = Integer.parseInt(request.getParameter("roleId"));
-            AccountService accountService = AccountService.getInstance();
+            
 //            if(roleId==2){
 //                accountService.insert(email, fistname, lastname, password, phone, accountService.getRole(roleId), address, city);
 //                session.setAttribute("email",email);
 //                response.sendRedirect("Profile");
 //            }
 //            if(roleId==3){
-                session.setAttribute("email",email);
+                int dietId = Integer.parseInt(request.getParameter("diet"));
                 short shirtSize=Short.parseShort(request.getParameter("tshirtsize"));
                 int firstPosition=Integer.parseInt(request.getParameter("firstposition"))+2;
                 int secondPosition=Integer.parseInt(request.getParameter("secondposition"))+2;
-                accountService.insert(email, fistname, lastname, password, phone, 
-                accountService.getRole(firstPosition),accountService.getRole(secondPosition), address, city, shirtSize);
+                //build a user using the information above
+                AccountService accountService = AccountService.getInstance();
+                accountService.insertNew(email, fistname, lastname, password, phone, 
+                accountService.getRole(firstPosition),accountService.getRole(secondPosition), address, city, shirtSize, dietId);
+                session.setAttribute("email",email);
                 response.sendRedirect("Profile");
         } catch (Exception e) {
             e.printStackTrace();

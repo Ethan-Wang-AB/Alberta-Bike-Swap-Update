@@ -112,9 +112,9 @@
                                         <div class="rs-select2 js-select-simple select--no-search">
                                             <select name="location">
                                                 <option disabled="disabled" selected="selected">Choose your location</option>
-                                                <option value="1">Edmonton</option>
-                                                <option value="2">Calgary</option>
-                                                <option value="3">Lethbridge</option>
+                                                <option value="1">Calgary</option>
+                                                <option value="2">Lethbridge</option>
+                                                <option value="3">Edmonton</option>
                                             </select>
                                             <div class="select-dropdown"></div>
                                         </div>
@@ -178,7 +178,7 @@
                                             <div class="rs-select2 js-select-simple select--no-search">
                                                 <select name="diet" >
                                                     <option disabled="disabled" selected="selected" >Choose Dietary Restriction</option>
-                                                    <option value=""></option>
+                                                    <option value="0">No Restriction</option>
                                                     <option value="1">Vegetarian</option>
                                                     <option value="2">Gluten free</option>
                                                     <option value="3">No-dairy</option>

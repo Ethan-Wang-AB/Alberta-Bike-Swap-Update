@@ -176,23 +176,24 @@ public class AccountService {
         return RoleDB.getInstance().getRole(number);
     }
 
-    public void insert(String email, String fistname, String lastname, String password, Long phone, Role role, Role role0, String address, String city, short shirtSize) throws NoSuchAlgorithmException {
+    public void insertNew(String email, String fistname, String lastname, String password, Long phone, Role firstRole, Role secondRole, String address, String city, short shirtSize, int dietId) throws NoSuchAlgorithmException {
         Address add = new Address();
         add.setAddressDetail(address);
-
         City thecity = new City();
-        thecity.setCityName(city);
-        if (city.equalsIgnoreCase("calgary")) {
+        if (city.equalsIgnoreCase("1")) {
             thecity.setCityId(1);
             State state = new State();
             state.setStateId(1);
             state.setStateName("AB");
             thecity.setStateid(state);
-        } else if (city.equalsIgnoreCase("edmonton")) {
-            thecity.setCityId(3);
-        } else if (city.equalsIgnoreCase("lethbridge")) {
+            thecity.setCityName("Calgary");
+        } else if (city.equalsIgnoreCase("2")) {
             thecity.setCityId(2);
-        } else {
+            thecity.setCityName("Lethbridge");
+        } else if (city.equalsIgnoreCase("3")) {
+            thecity.setCityId(3);
+            thecity.setCityName("Edmonton");
+        }else {
             add = null;
         }
 
@@ -208,10 +209,12 @@ public class AccountService {
         user.setSalt(salt);
         user.setCellNumber(phone);
         user.setAddressId(add);
-        user.setRoleId(role);
-        user.setRoleIdFirst(role);
-        user.setRoleIdSecond(role0);
+        user.setRoleId(firstRole);
+        user.setRoleIdFirst(firstRole);
+        user.setRoleIdSecond(secondRole);
         user.setShirtSize(shirtSize);
+        Diet diet = new Diet(dietId);
+        user.setDietId(diet);
         userDB.add(user);
     }
 

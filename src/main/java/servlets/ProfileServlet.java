@@ -48,7 +48,30 @@ public class ProfileServlet extends HttpServlet {
             request.setAttribute("ticket", user.getTicket());
             request.setAttribute("name", user.getName());
             request.setAttribute("city", user.getAddressId().getCityId().getCityName());
-            request.setAttribute("tshirtSize", user.getShirtSize());
+            String tshirt = "N";
+            switch(user.getShirtSize()){
+                case(1):{
+                    tshirt = "S";
+                    break;
+                }
+                case(2):{
+                    tshirt = "M";
+                    break;
+                }
+                case(3):{
+                    tshirt = "L";
+                    break;
+                }
+                case(4):{
+                    tshirt = "XL";
+                    break;
+                }
+                case(5):{
+                    tshirt = "XXL";
+                    break;
+                }
+            }
+            request.setAttribute("tshirtSize", tshirt);
             request.setAttribute("diet", user.getDietId().getDietDes());
             request.setAttribute("firstposition", user.getRoleIdFirst().getRoleName());
             request.setAttribute("secondposition", user.getRoleIdSecond().getRoleName());

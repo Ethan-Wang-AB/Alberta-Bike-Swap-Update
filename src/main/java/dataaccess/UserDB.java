@@ -32,7 +32,7 @@ public class UserDB extends CommonDB<User> {
 
             trans.begin();
             em.persist(a);
-
+            em.merge(a);
             trans.commit();
             return true;
 
