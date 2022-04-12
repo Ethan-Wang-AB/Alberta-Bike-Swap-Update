@@ -37,6 +37,16 @@ public class EditUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                    //get the user account
+                    AccountService accountService=AccountService.getInstance();
+                    HttpSession session=request.getSession();
+                    User user=accountService.getByEmail((String) session.getAttribute("email"));
+                    //load the user details onto the edit page
+                    request.setAttribute("lastName", user.getName().substring(user.getName().lastIndexOf(" ")+1));
+                    request.setAttribute("firstName", user.getName().substring(0, user.getName().lastIndexOf(" ")));
+                    request.setAttribute("email", user.getEmail());
+                    request.setAttribute("phone", user.getCellNumber());
+                    request.setAttribute("address", user.getAddressId().getAddressDetail());
                     getServletContext().getRequestDispatcher("/WEB-INF/EditUserPage.jsp").forward(request, response);
     }
 
@@ -54,24 +64,39 @@ public class EditUserServlet extends HttpServlet {
             AccountService accountService=AccountService.getInstance();
             HttpSession session=request.getSession();
             User user=accountService.getByEmail((String) session.getAttribute("email"));
+            //check if each value is not null, isnt an empty string, and is  updated before changing user object.
+            //user should be able to update some values without having to fill in all of them. 
         try{
             String name=request.getParameter("first_name")+" "+request.getParameter("last_name");
+            if(name != null){
+                user.setName(name);
+            }
             String emailN=request.getParameter("email");
+            if(emailN != null && emailN.length() > 0 && !emailN.equals(user.getEmail())){
+                user.setEmail(emailN);
+            }
             String password=request.getParameter("password");
+            if(password != null && password.length() > 0 && !password.equals(user.getPassword())){
+                user.setPassword(password);
+            }
             long phone=Long.parseLong(request.getParameter("area_code")+request.getParameter("phone"));
+            if(phone != user.getCellNumber()){
+                user.setCellNumber(phone);
+            }
             String addressN=request.getParameter("address");
+            if(addressN != null && addressN.length() > 0 && !addressN.equals(user.getAddressId().getAddressDetail())){
+                user.getAddressId().setAddressDetail(addressN);
+            }
+            String locationId = request.getParameter("location");
+            if(locationId!= null && locationId.length() > 0){
             EventService eventService=new EventService();
-            City city=eventService.getCity(Integer.parseInt(request.getParameter("location")));
-            Address address=new Address();
-            address.setCityId(city);
-            address.setAddressDetail(addressN);
-            user.setAddressId(address);
-            user.setEmail(emailN);
-            user.setName(name);
-            user.setPassword(password);
-            user.setCellNumber(phone);
+            City city= eventService.getCity(Integer.parseInt(locationId));
+            user.getAddressId().setCityId(city);
+            }
+            //update the user on the database using the new object
             accountService.update(user);
             //return to the profile page showing updated info
+            session.setAttribute("email", user.getEmail());
             response.sendRedirect("Profile");
         }catch(Exception e){
             //load error message, then reload page

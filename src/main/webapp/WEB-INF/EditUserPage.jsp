@@ -47,13 +47,13 @@
                                     <div class="row row-space">
                                         <div class="col-2">
                                             <div class="input-group-desc">
-                                                <input class="input--style-5" type="text" name="first_name">
+                                                <input class="input--style-5" type="text" name="first_name" value="${firstName}">
                                                 <label class="label--desc">first name</label>
                                             </div>
                                         </div>
                                         <div class="col-2">
                                             <div class="input-group-desc">
-                                                <input class="input--style-5" type="text" name="last_name">
+                                                <input class="input--style-5" type="text" name="last_name" value="${lastName}">
                                                 <label class="label--desc">last name</label>
                                             </div>
                                         </div>
@@ -64,7 +64,7 @@
                                 <div class="name">Email</div>
                                 <div class="value">
                                     <div class="input-group">
-                                        <input class="input--style-5" type="email" name="email">
+                                        <input class="input--style-5" type="email" name="email" value="${email}">
                                     </div>
                                 </div>
                             </div>
@@ -82,13 +82,13 @@
                                     <div class="row row-refine">
                                         <div class="col-3">
                                             <div class="input-group-desc">
-                                                <input class="input--style-5" type="number" name="area_code">
+                                                <input class="input--style-5" type="number" name="area_code" value="${areaCode}">
                                                 <label class="label--desc">Area Code</label>
                                             </div>
                                         </div>
                                         <div class="col-9">
                                             <div class="input-group-desc">
-                                                <input class="input--style-5" type="phone" name="phone">
+                                                <input class="input--style-5" type="phone" name="phone" value="${phone}">
                                                 <label class="label--desc">Phone Number</label>
                                             </div>
                                         </div>
@@ -115,7 +115,7 @@
                                 <div class="name">Address</div>
                                 <div class="value">
                                     <div class="input-group">
-                                        <input class="input--style-5" type="text" name="address">
+                                        <input class="input--style-5" type="text" name="address" value="${address}">
                                     </div>
                                 </div>
                             </div>

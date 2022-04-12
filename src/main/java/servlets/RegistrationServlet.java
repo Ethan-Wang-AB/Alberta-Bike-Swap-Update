@@ -54,9 +54,12 @@ public class RegistrationServlet extends HttpServlet {
             String lastname = request.getParameter("last_name");
             String email = request.getParameter("email");
             String city = request.getParameter("location");
-            Long phone = Long.parseLong(request.getParameter("phone"));
+//            construct a full phone number before converting it
+            String phoneNumber = request.getParameter("area_code")+request.getParameter("phone");
+            Long phone = Long.parseLong(phoneNumber);
             String password = request.getParameter("password");
             String address = request.getParameter("address");
+            //commented out because the jsp never collects a roleId, was causing issues with the registration.
 //            System.out.println(request.getParameter("roleId"));
 //            int roleId = Integer.parseInt(request.getParameter("roleId"));
             

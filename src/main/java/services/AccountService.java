@@ -176,7 +176,7 @@ public class AccountService {
         return RoleDB.getInstance().getRole(number);
     }
 
-    public void insertNew(String email, String fistname, String lastname, String password, Long phone, Role firstRole, Role secondRole, String address, String city, short shirtSize, int dietId) throws NoSuchAlgorithmException {
+    public void insertNew(String email, String firstname, String lastname, String password, Long phone, Role firstRole, Role secondRole, String address, String city, short shirtSize, int dietId) throws NoSuchAlgorithmException {
         Address add = new Address();
         add.setAddressDetail(address);
         City thecity = new City();
@@ -204,7 +204,7 @@ public class AccountService {
         String newPassword = PasswordUtil.hashAndSaltPassword(password, salt);
         User user = new User();
         user.setEmail(email);
-        user.setName(lastname + ", " + fistname);
+        user.setName(firstname + " " + lastname);
         user.setPassword(password);
         user.setSalt(salt);
         user.setCellNumber(phone);
