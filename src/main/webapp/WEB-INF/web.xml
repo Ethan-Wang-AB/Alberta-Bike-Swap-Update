@@ -50,6 +50,10 @@
         <filter-name>AdminFilter</filter-name>
         <servlet-name>EditProfileServlet</servlet-name>
     </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <servlet-name>EditBikeServlet</servlet-name>
+    </filter-mapping>
    
     <servlet>
         <servlet-name>WelcomeServlet</servlet-name>
