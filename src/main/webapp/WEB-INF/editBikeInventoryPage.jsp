@@ -40,7 +40,7 @@
                 <div class="card bg-light mb-3" style="width: 800px;">
                     <h5 class="card-header">Bike Inventory Menu</h5>
                     <div class="card-footer bg-transparent">
-                        <a href="">Back to Admin Main Page</a></div>
+                        <a href="admin">Back to Admin Main Page</a></div>
                     <div class="card bg-light mb-3">  
 
                         <!-- Add Bike -->
