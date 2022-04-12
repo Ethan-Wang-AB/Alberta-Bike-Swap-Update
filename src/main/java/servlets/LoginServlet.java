@@ -35,15 +35,13 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
         HttpSession session=request.getSession();
+        session.invalidate();
         if(request.getParameterMap().containsKey("logout") || request.getParameterMap().containsValue("logout")){
           session.invalidate();
                               getServletContext().getRequestDispatcher("/WEB-INF/Welcome.jsp").forward(request, response);
 
           }
-        
-               
                     getServletContext().getRequestDispatcher("/WEB-INF/loginpage.jsp").forward(request, response);
     }
 

@@ -101,6 +101,7 @@ public class AccountService {
 
             }
         } catch (Exception e) {
+                return null;
         }
 
         return null;

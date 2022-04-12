@@ -163,7 +163,6 @@ public class UserDB extends CommonDB<User> {
             System.out.println("get user by email sql issue");
             ex.printStackTrace();
             return null;
-
         } finally {
             em.close();
         }

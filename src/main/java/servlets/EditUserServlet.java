@@ -45,7 +45,11 @@ public class EditUserServlet extends HttpServlet {
                     request.setAttribute("lastName", user.getName().substring(user.getName().lastIndexOf(" ")+1));
                     request.setAttribute("firstName", user.getName().substring(0, user.getName().lastIndexOf(" ")));
                     request.setAttribute("email", user.getEmail());
-                    request.setAttribute("phone", user.getCellNumber());
+                    String phone = Long.toString(user.getCellNumber());
+                    String areaCode = phone.substring(0, 3);
+                    String phoneNumber = phone.substring(3);
+                    request.setAttribute("areaCode", areaCode);
+                    request.setAttribute("phone", phoneNumber);
                     request.setAttribute("address", user.getAddressId().getAddressDetail());
                     getServletContext().getRequestDispatcher("/WEB-INF/EditUserPage.jsp").forward(request, response);
     }
