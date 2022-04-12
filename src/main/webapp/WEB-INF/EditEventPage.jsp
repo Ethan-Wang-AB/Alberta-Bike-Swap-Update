@@ -20,7 +20,7 @@
         <div class="wrapper">
             <div class="box box2">
                 <h1>Event page</h1>
-                <a href="#">Back to main</a>
+                <a href="/admin">Back to main</a>
                 <br/><br/>
 
                 <%-- Add Event form--%>
