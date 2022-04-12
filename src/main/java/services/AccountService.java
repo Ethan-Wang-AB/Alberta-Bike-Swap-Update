@@ -207,6 +207,7 @@ public class AccountService {
         user.setSalt(salt);
         user.setCellNumber(phone);
         user.setAddressId(add);
+        user.setRoleId(role);
         user.setRoleIdFirst(role);
         user.setRoleIdSecond(role0);
         user.setShirtSize(shirtSize);

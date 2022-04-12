@@ -46,7 +46,16 @@ public class ProfileServlet extends HttpServlet {
             request.setAttribute("Address", user.getAddressId());
             request.setAttribute("photo", user.getPhotoPath());
             request.setAttribute("ticket", user.getTicket());
+            request.setAttribute("name", user.getName());
             request.setAttribute("city", user.getAddressId().getCityId().getCityName());
+            request.setAttribute("tshirtSize", user.getShirtSize());
+            request.setAttribute("diet", user.getDietId().getDietDes());
+            request.setAttribute("firstposition", user.getRoleIdFirst().getRoleName());
+            request.setAttribute("secondposition", user.getRoleIdSecond().getRoleName());
+            request.setAttribute("vShift", user.getRoleId().getShift());
+        
+        
+        
             getServletContext().getRequestDispatcher("/WEB-INF/ProfilePage.jsp").forward(request, response);
     }
 

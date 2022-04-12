@@ -68,15 +68,15 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="tshirtSize">T-Shirt size:</label>
-                                            <p> M ${tshirtSize}</p>
+                                            <p>${tshirtSize}</p>
                                         </div>
                                         <div class="form-group">
                                             <label for="email">Dietary Restrictions:</label>
-                                            <p> No ${diet}</p>
+                                            <p> ${diet}</p>
                                         </div>
                                         <div class="form-group">
                                             <label for="firstposition">First Position Choice:</label>
-                                            <p> Volunteer / Admin Desk - Supports volunteers and is central point for emergency services (AM/PM)${firstposition}</p>
+                                            <p> ${firstposition}</p>
                                         </div>
 
                                     </div>
@@ -85,7 +85,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="email">Second Position Choice:</label>
-                                            <p> Floater - Gets to do a little of everything (AM/PM) ${secondposition}</p>
+                                            <p>${secondposition}</p>
                                         </div>
                                         <div class="form-group">
                                             <label for="vShift">City & Shift:</label>
@@ -93,7 +93,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="email">Space for other information if needed:</label>
-                                            <p> pune, maharashtra</p>
+                                            <p></p>
                                         </div>
 
                                     </div>
@@ -120,7 +120,7 @@
             <div class="col-sm-4">
                 <div class="panel panel-default">
                     <div class="menu_title">
-                        <h2>Username ${name}</h2>
+                        <h2>${name}</h2>
 
                     </div>
                     <div class="panel-body">
