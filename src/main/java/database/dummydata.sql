@@ -95,34 +95,34 @@ INSERT INTO `event_date_user` (`event_date_id`,`user_id`) VALUES (3,2);
 INSERT INTO `event_date_user` (`event_date_id`,`user_id`) VALUES (3,3);
 INSERT INTO `event_date_user` (`event_date_id`,`user_id`) VALUES (3,5);
 
-INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`) 
-   VALUES('123456789A',2,500.5,1,0,'Calgary-22-1',true,'assets/img/bikes/bike001.jpg');
+INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`,`maker`,`model`) 
+   VALUES('123456789A',2,500.5,1,0,'Calgary-22-1',true,'assets/img/bikes/bike001.jpg','BMW','BMW-01');
    
-INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`) 
-   VALUES('B123456789',3,857.2,1,0,'Calgary-33-1',true,'assets/img/bikes/bike002.jpg');
+INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`,`maker`,`model`) 
+   VALUES('B123456789',3,857.2,1,0,'Calgary-33-1',true,'assets/img/bikes/bike002.jpg','BMW','BMW-02');
 
-INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`) 
-   VALUES('B123456480',3,999.2,1,0,'Calgary-33-2',true,'assets/img/bikes/bike003.jpg');
-INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`) 
-   VALUES('B123456309',2,380.2,1,0,'Calgary-33-3',true,'assets/img/bikes/bike004.jpg');
-INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`) 
-   VALUES('B123456239',3,690.2,1,0,'Calgary-33-4',true,'assets/img/bikes/bike005.jpg');
-INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`) 
-   VALUES('1234567011',2,358.5,1,0,'Calgary-22-2',true,'assets/img/bikes/bike011.jpg');
+INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`,`maker`,`model`) 
+   VALUES('B123456480',3,999.2,1,0,'Calgary-33-2',true,'assets/img/bikes/bike003.jpg','BMW','BMW-03');
+INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`,`maker`,`model`) 
+   VALUES('B123456309',2,380.2,1,0,'Calgary-33-3',true,'assets/img/bikes/bike004.jpg','BMW','BMW-04');
+INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`,`maker`,`model`) 
+   VALUES('B123456239',3,690.2,1,0,'Calgary-33-4',true,'assets/img/bikes/bike005.jpg','Benz','Benz-01');
+INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`,`maker`,`model`) 
+   VALUES('1234567011',2,358.5,1,0,'Calgary-22-2',true,'assets/img/bikes/bike011.jpg','Benz','Benz-02');
    
-INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`) 
-   VALUES('B123456012',3,357.2,1,0,'Calgary-33-5',true,'assets/img/bikes/bike012.jpg');
+INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`,`maker`,`model`) 
+   VALUES('B123456012',3,357.2,1,0,'Calgary-33-5',true,'assets/img/bikes/bike012.jpg','Benz','Benz-03');
 
-INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`) 
-   VALUES('B123456006',3,1099.2,1,0,'Calgary-33-6',true,'assets/img/bikes/bike006.jpg');
-INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`) 
-   VALUES('B123456007',2,880.2,1,0,'Calgary-33-7',true,'assets/img/bikes/bike007.jpg');
-INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`) 
-   VALUES('B123456008',3,1290.2,1,0,'Calgary-33-8',true,'assets/img/bikes/bike008.jpg');
-INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`) 
-   VALUES('B123456009',2,2380.2,1,0,'Calgary-33-9',true,'assets/img/bikes/bike009.jpg');
-INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`) 
-   VALUES('B123452010',3,690.2,1,0,'Calgary-33-10',true,'assets/img/bikes/bike010.jpg');
+INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`,`maker`,`model`) 
+   VALUES('B123456006',3,1099.2,1,0,'Calgary-33-6',true,'assets/img/bikes/bike006.jpg','Benz','Benz-04');
+INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`,`maker`,`model`) 
+   VALUES('B123456007',2,880.2,1,0,'Calgary-33-7',true,'assets/img/bikes/bike007.jpg','Honda','Honda-01');
+INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`,`maker`,`model`) 
+   VALUES('B123456008',3,1290.2,1,0,'Calgary-33-8',true,'assets/img/bikes/bike008.jpg','Honda','Honda-02');
+INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`,`maker`,`model`) 
+   VALUES('B123456009',2,2380.2,1,0,'Calgary-33-9',true,'assets/img/bikes/bike009.jpg','Honda','Honda-03');
+INSERT INTO `bike` (`bike_index`,`user_id`,`price`,`toSell`,`donate`,`bike_event_tickets`,`checked`,`photo_path`,`maker`,`model`) 
+   VALUES('B123452010',3,690.2,1,0,'Calgary-33-10',true,'assets/img/bikes/bike010.jpg','Honda','Honda-04');
    
 INSERT INTO `trade` VALUES(1,2,3,'2022-3-5',2);
 
