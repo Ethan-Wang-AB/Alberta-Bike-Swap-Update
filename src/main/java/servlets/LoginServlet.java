@@ -65,18 +65,18 @@ public class LoginServlet extends HttpServlet {
         User user=accountService.login(email,password);
         System.out.print("servlet  :"+email+" "+password);
         
-        if(user==null){
+        if(user == null){
             request.setAttribute("errorMessage", "Your email and password are not matched with our system");
              getServletContext().getRequestDispatcher("/WEB-INF/loginpage.jsp").forward(request, response);
         }
-        
-        session.setAttribute("email",email);
+        else{
+        session.setAttribute("email",user.getEmail());
         if(user.getRoleId().getRoleId() == 1){
             response.sendRedirect("admin");
         }else{
              response.sendRedirect("Profile");
         }
-        
+        }
     }
 
     /**

@@ -78,32 +78,36 @@ public class AccountService {
             User user = userDB.getUserByEmail(email);
             // System.out.println(user.getEmail());
             //System.out.println(user.getSalt());
-
-            if (user == null) {
-                return null;
-            }
-            if ((user.getSalt() == null || user.getSalt().equals("")) && password.equals(user.getPassword())) {
-
-                user.setSalt(PasswordUtil.getSalt());
-                String newPassword = PasswordUtil.hashAndSaltPassword(password, user.getSalt());
-                System.out.println(newPassword);
-
-                user.setPassword(newPassword);
-                update(user);
+            String saltedPassword = saltPassword(user, password);
+            if(user.getPassword().equals(saltedPassword))
                 return user;
-            } else {
-                String code = PasswordUtil.hashAndSaltPassword(password, user.getSalt());
-                System.out.println(user.getPassword());
-                System.out.println(code);
-                if (user.getPassword().equals(code)) {
-                    return user;
-                }
-
             }
-        } catch (Exception e) {
+        catch (Exception e) {
                 return null;
+            }
+            return null;
         }
-
+        
+        private String saltPassword(User user, String checkPassword){
+            String password = user.getPassword();
+            try{
+                if (user.getSalt() == null || user.getSalt().equals("")) {
+                    user.setSalt(PasswordUtil.getSalt());
+                    String newPassword = PasswordUtil.hashAndSaltPassword(password, user.getSalt());
+                    user.setPassword(newPassword);
+                    update(user);
+                    return newPassword;
+                } 
+                else {
+                    String code = PasswordUtil.hashAndSaltPassword(checkPassword, user.getSalt());
+                    if (user.getPassword().equals(code)) {
+                        return code;
+                    }
+                }
+                }
+            catch(Exception e){
+                e.printStackTrace();
+            }
         return null;
     }
 
