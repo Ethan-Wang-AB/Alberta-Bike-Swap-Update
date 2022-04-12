@@ -278,5 +278,9 @@ public class AccountService {
       return roles;
       
     }
+
+    public User getAdmin() {
+         return userDB.getByUserId(1);
+    }
   
 }

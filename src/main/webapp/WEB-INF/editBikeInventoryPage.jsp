@@ -33,14 +33,14 @@
 
     <div class="container-fluid">
         <div class="container-position">
-            
-            
+
+
             <!-- Admin Bike Inventory Section -->
             <div class="col d-flex justify-content-center">
                 <div class="card bg-light mb-3" style="width: 800px;">
                     <h5 class="card-header">Bike Inventory Menu</h5>
                     <div class="card-footer bg-transparent">
-                        <a href="">Back to Admin Main Page</a></div>
+                        <a href="admin">Back to Admin Main Page</a></div>
                     <div class="card bg-light mb-3">  
 
                         <!-- Add Bike -->
@@ -48,18 +48,23 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">Add New Bike</h5>
-                                    <form>
+                                    <form action="EditBike" method="post">
+                                        <input type="hidden" name="action" value="add">
+                                         <div class="form-group">
+                                            <label for="bikeIndex">Bike Index</label>
+                                            <input type="text" class="form-control" id="bikeIndex" name="bikeIndex_add" placeholder="Example input">
+                                        </div>
                                         <div class="form-group">
                                             <label for="bikeMake">Bike Make</label>
-                                            <input type="text" class="form-control" id="bikeMake" placeholder="Example input">
+                                            <input type="text" class="form-control" id="bikeMake" name="bikeMake_add" placeholder="Example input">
                                         </div>
                                         <div class="form-group">
                                             <label for="bikeModel">Bike Model</label>
-                                            <input type="text" class="form-control" id="bikeModel" placeholder="Another input">
+                                            <input type="text" class="form-control" id="bikeModel" name="bikeModel_add" placeholder="Another input">
                                         </div>
                                         <div class="form-group">
                                             <label for="bikePrice">Bike Price</label>
-                                            <input type="text" class="form-control" id="bikePrice" placeholder="Another input">
+                                            <input type="number" step="0.01" class="form-control" id="bikePrice_add" name="bikePrice_add" placeholder="Another input">
                                         </div>
                                         <button type="submit" class="btn btn-success">Add</button>
                                     </form>
@@ -71,30 +76,36 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">Edit Bike</h5>
-                                    <form>
+                                    <form action="EditBike" method="post">
+                                        <input type="hidden" name="action" value="edit">
+
                                         <div class="form-group">
                                             <label for="bikeid">Bike ID</label>
-                                            <input type="text" class="form-control" id="bikeid" placeholder="Enter Bike ID">
+                                            <input type="number" class="form-control" id="bikeid" name="bikeId_edit" placeholder="Enter Bike ID">
+                                        </div>
+                                           <div class="form-group">
+                                            <label for="bikeIndex">Bike Index</label>
+                                            <input type="text" class="form-control" id="bikeIndex" name="bikeIndex_edit" placeholder="Enter Bike ID">
                                         </div>
                                         <div class="form-group">
                                             <label for="bikeMake">Bike Make</label>
-                                            <input type="text" class="form-control" id="bikeMake" placeholder="Example input">
+                                            <input type="text" class="form-control" id="bikeMake" name="bikeMake_edit" placeholder="Example input">
                                         </div>
                                         <div class="form-group">
                                             <label for="bikeModel">Bike Model</label>
-                                            <input type="text" class="form-control" id="bikeModel" placeholder="Enter Bike Model">
+                                            <input type="text" class="form-control" id="bikeModel" name="bikeModel_edit" placeholder="Enter Bike Model">
                                         </div>
                                         <div class="form-group">
                                             <label for="bikePrice">Bike Price</label>
-                                            <input type="text" class="form-control" id="bikePrice" placeholder="Enter Price">
+                                            <input type="text" class="form-control" id="bikePrice" name="bikePrice_edit" placeholder="Enter Price">
                                         </div>
                                         <button type="submit" class="btn btn-warning">Edit</button>
                                     </form>
                                 </div>
                             </div>
-                            
+
                             <!-- End of Edit Bike form -->
-                            
+
                         </div>    
                     </div>
                 </div>
@@ -115,30 +126,33 @@
                         </thead>
                         <tbody>
                         <th>Bike ID</th>
+                        <th>Bike Index</th>
                         <th>Bike Make</th>
                         <th>Bike Model</th>
                         <th>Bike Price</th>
                         <th>Action Delete</th>
                         </tbody>
-
+                        <c:forEach var="bike" items="${bikes}">
                         <tr>
-                            <td>Test${bike.getBikeIndex()}</td>
-                            <td>Test${bike.getMaker()}</td>
-                            <td>Test</td>
-                            <td>$TestPrice ${oneItem.category}</td>
+                            <td>${bike.getBikeId()}</td>
+                            <td>${bike.getBikeIndex()}</td>
+                            <td>${bike.getMaker()}</td>
+                            <td>${bike.getModel()}</td>
+                            <td> ${bike.getPrice()}</td>
                             <td><a class="btn btn-danger"
-                                   href="/deleteItem.action?itemName=${oneItem.name}&itemCategory=${oneItem.category}">Delete
+                                   href="/EditBike?action=delete&id=${bike.bikeId}">Delete
                                 </a></td>
                         </tr>
+                        </c:forEach>
                     </table>
                 </div>
             </div>
-                                
-           <!-- End of Bike Inventory Show Table -->  
-           
+
+            <!-- End of Bike Inventory Show Table -->  
+
         </div>
     </div>
-   <!-- End of container -->     
+    <!-- End of container -->     
 
 
 
