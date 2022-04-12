@@ -70,7 +70,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Bike Management Page</h5>
                                         <p class="card-text">EDIT Bike Inventory Information</p>
-                                        <a href="/EditProfile" class="btn btn-dark">Edit Bike</a>
+                                        <a href="/EditBike" class="btn btn-dark">Edit Bike</a>
                                     </div>
                                 </div>
                             </div>
