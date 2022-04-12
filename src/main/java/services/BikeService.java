@@ -45,7 +45,10 @@ public class BikeService {
         bikeDB.update(bike);
 
     }
-
+    
+    public final void addBike(Bike bike){
+    bikeDB.add(bike);
+    }
     public final void deleteBike(Bike bike) {
         bikeDB.delete(bike);
     }
