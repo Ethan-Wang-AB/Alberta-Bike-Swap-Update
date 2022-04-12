@@ -206,4 +206,19 @@ public User getByUUID(String uuid){
 
     }
 
+    public User getByUserId(int i) {
+         EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        
+        try {
+   
+            User user = em.createNamedQuery("User.findByUserId",User.class).setParameter("userId",i).getSingleResult();
+              //System.out.println("uuid in userDB after"+user.getResetPasswordUuid());
+            return user;
+        } finally {
+            em.close();
+        }
+   
+        
+    }
+
 }
