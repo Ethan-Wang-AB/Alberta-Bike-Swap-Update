@@ -119,7 +119,7 @@
                 <div class="card-body bg-light">
                     <h5 class="card-header">Bike Inventory</h5>
                     <div class="card-footer bg-transparent">
-                        <p>message:${Message}</p></div>
+                        <p>${Message}</p></div>
 
                     <table class="table table-striped">
                         <thead>

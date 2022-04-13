@@ -99,9 +99,9 @@ public class EditUserServlet extends HttpServlet {
             }
             String locationId = request.getParameter("location");
             if(locationId!= null && locationId.length() > 0){
-            EventService eventService=new EventService();
-            City city= eventService.getCity(Integer.parseInt(locationId));
-            user.getAddressId().setCityId(city);
+                EventService eventService=new EventService();
+                City city= eventService.getCity(Integer.parseInt(locationId));
+                user.getAddressId().setCityId(city);
             }
             //update the user on the database using the new object
             accountService.update(user);

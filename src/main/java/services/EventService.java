@@ -193,8 +193,7 @@ public class EventService {
      * @param event
      */
     public City getCity(int id){
-    return cityDB.getCity(id);
-    
+        return cityDB.getCity(id);
     }
     public final void scheduleNotify(EventDate event) {
 

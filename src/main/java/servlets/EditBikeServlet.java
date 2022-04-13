@@ -83,19 +83,26 @@ public class EditBikeServlet extends HttpServlet {
 
         } else if (action.equals("edit")) {
             id = request.getParameter("bikeId_edit");
-            make = request.getParameter("bikeMake_edit");
-            bikeIndex = request.getParameter("bikeIndex_edit");
-            model = request.getParameter("bikeModel_edit");
-            price = request.getParameter("bikePrice_edit");
-            double priceD = Double.parseDouble(price);
             Bike bike = bikeService.getBike(Integer.parseInt(id));
-            bike.setMaker(make);
-            bike.setModel(model);
-            bike.setPrice(priceD);
-            bike.setBikeIndex(bikeIndex);
-            bikeService.updateBike(bike);
-           request.setAttribute("Message","the bike has been edited");
-
+            make = request.getParameter("bikeMake_edit");
+            if(make != null && make.length() >0){
+                bike.setMaker(make);
+            }
+            bikeIndex = request.getParameter("bikeIndex_edit");
+            if(bikeIndex != null && bikeIndex.length() >0){
+                bike.setBikeIndex(bikeIndex);
+            }
+            model = request.getParameter("bikeModel_edit");
+            if(model != null && model.length() > 0){
+                bike.setModel(model);
+            }
+            price = request.getParameter("bikePrice_edit");
+            if(price != null && price.length() > 0){
+                double priceD = Double.parseDouble(price);
+                bike.setPrice(priceD);
+            }
+        bikeService.updateBike(bike);
+        request.setAttribute("Message","The bike infromation has been updated!");
         }
         request.setAttribute("bikes", bikeService.getAll());
         getServletContext().getRequestDispatcher("/WEB-INF/editBikeInventoryPage.jsp").forward(request, response);
