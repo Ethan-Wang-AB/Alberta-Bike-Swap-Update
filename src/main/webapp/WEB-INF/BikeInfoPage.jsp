@@ -86,12 +86,13 @@
                     </div>
                         <form method="POST" action="">
                             <input type="hidden" name="action" value="Prev${page}" />
-                            <input type="submit" value="Previous Page"/>
+                            <input type="submit" value="Previous Page" style="display:${prevDisplay}"/>
                         </form>
-                        <form method="POST" action="">
+                        <form method="POST" action="" >
                             <input type="hidden" name="action" value="Next${page}"/>
-                            <input type="submit" value="Next Page"/>
+                            <input type="submit" value="Next Page" style="display:${nextDisplay}"/>
                         </form>
+                            <p>${listMessage}</p>
                 </div>
             </div>
         </div>

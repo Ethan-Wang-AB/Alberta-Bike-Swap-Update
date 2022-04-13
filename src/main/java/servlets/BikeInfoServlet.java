@@ -59,6 +59,7 @@ public class BikeInfoServlet extends HttpServlet {
         }
         request.setAttribute("bikes", filter);
         request.setAttribute("page", "0");
+        request.setAttribute("prevDisplay", "none");
         getServletContext().getRequestDispatcher("/WEB-INF/BikeInfoPage.jsp").forward(request, response);
     }
 
@@ -98,6 +99,8 @@ public class BikeInfoServlet extends HttpServlet {
             }
             else{
                 limit = bikes.size();
+                request.setAttribute("listMessage","You have reached the end of our selection!");
+                request.setAttribute("nextDisplay", "none");
             }
             for(int i = page; i < limit ; i++){
                 if(bikes.get(i).getPrice()>=minPrice && bikes.get(i).getPrice()<=maxPrice){
@@ -114,8 +117,10 @@ public class BikeInfoServlet extends HttpServlet {
             ArrayList<Bike> bikeList=new ArrayList<>();
             int page = Integer.parseInt(action.substring(4));
             limit = page - 1;
-            if(page - 6 < 0){
+            if(page - 7 <= 0){
                 page = 0;
+                request.setAttribute("listMessage","You have reached the end of our selection!");
+                request.setAttribute("prevDisplay", "none");
             }
             else{
                 page = page - 7;
