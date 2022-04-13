@@ -144,7 +144,7 @@
                                 <button class="btn btn--radius-2 btn--red" type="submit">Change</button>
                             </div>
                         </form>
-                        <form action="" method="POST">
+                        <form action="Profile" method="GET">
                                 <input type="hidden" name="action" value="Profile">
                                 <button class="btn btn--radius-2 btn--green" type="submit">Return to Profile</button>
                         </form>
