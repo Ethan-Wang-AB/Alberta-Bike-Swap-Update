@@ -73,9 +73,15 @@ public class ProfileServlet extends HttpServlet {
             }
             request.setAttribute("tshirtSize", tshirt);
             request.setAttribute("diet", user.getDietId().getDietDes());
-            request.setAttribute("firstposition", user.getRoleIdFirst().getRoleName());
-            request.setAttribute("secondposition", user.getRoleIdSecond().getRoleName());
-            request.setAttribute("vShift", user.getRoleId().getShift());
+            if(user.getRoleIdFirst()!=null){
+            request.setAttribute("firstposition", user.getRoleIdFirst().getRoleName());}
+            else request.setAttribute("firstposition",null);
+            if(user.getRoleIdSecond()!=null){
+            request.setAttribute("secondposition", user.getRoleIdSecond().getRoleName());}
+            else request.setAttribute("secondposition", null);
+            if(user.getRoleId()!=null)
+            request.setAttribute("vShift", user.getAddressId().getCityId().getCityName()+" "+user.getRoleId().getShift());
+            else request.setAttribute("vShift",null);
         
         
         
