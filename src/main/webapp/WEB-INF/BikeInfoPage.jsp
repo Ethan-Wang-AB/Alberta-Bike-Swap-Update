@@ -22,6 +22,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
         <link href="assets/css/sellBikeStyle.css" rel="stylesheet" />
+    </head>
     <body>
         <%@include file="header.jsp"%>
         
@@ -83,6 +84,14 @@
                             </div>
                         </c:forEach>
                     </div>
+                        <form method="POST" action="">
+                            <input type="hidden" name="action" value="Prev${page}" />
+                            <input type="submit" value="Previous Page"/>
+                        </form>
+                        <form method="POST" action="">
+                            <input type="hidden" name="action" value="Next${page}"/>
+                            <input type="submit" value="Next Page"/>
+                        </form>
                 </div>
             </div>
         </div>

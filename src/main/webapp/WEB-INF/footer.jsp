@@ -92,7 +92,7 @@
                         </a>
                         <p>
                             <span>Mailing Address:</span>
-                            P.O. Box 67145, Northland Village, Calgary, Alberta, T2L 2L2
+                            P.O. Box 75033 RPO Cambrian, Calgary, AB, T2K 6J8
                         </p>
                     </div>
 
