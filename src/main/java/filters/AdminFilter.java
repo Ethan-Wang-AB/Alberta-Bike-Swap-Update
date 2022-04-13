@@ -42,7 +42,7 @@ public class AdminFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain){
  try {
-            System.out.println("Start admin filter");
+          //  System.out.println("Start admin filter");
             HttpSession session=((HttpServletRequest)request).getSession();
             
             String email=(String) session.getAttribute("email");

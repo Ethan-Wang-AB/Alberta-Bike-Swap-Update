@@ -48,7 +48,7 @@
                                         <div class="col-2">
                                             <div class="input-group-desc">
                                                 <input class="input--style-5" type="text" name="first_name" value="${firstName}">
-                                                <label class="label--desc">first name</label>
+                                                <label class="label--desc">Full name</label>
                                             </div>
                                         </div>
 <!--                                        <div class="col-2">

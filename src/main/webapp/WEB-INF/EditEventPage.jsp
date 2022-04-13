@@ -43,7 +43,7 @@
                 <div class="container">
                     <div class="item">
                         <h2>Add Event</h2>
-                        <form action="" method="POST">
+                        <form action="EditEvent" method="POST">
                             <input type="hidden" name="action" value="add">
 
                             <fieldset>
@@ -78,31 +78,33 @@
                     <%-- Edit Event form--%>
                     <div class="item">
                         <h2>Edit Event</h2>
-                        <form action="" method="POST">
+                        <form action="EditEvent" method="POST">
+                            <input type="hidden" name="action" value="edit">
+
                             <fieldset>
                                 <label for="fname">Event id:</label>
                                 <input type="text" id="eventid" name="eventid"><br>
 
                                 <label for="location">Choose a location:</label>
-                                <select id="location" name="location">
-                                    <option value="Calgary">Calgary</option>
-                                    <option value="Edmonton">Edmonton</option>
-                                    <option value="Lethbridge">Lethbridge</option>
+                                <select id="location" name="location_edit">
+                                    <option value="1">Calgary</option>
+                                    <option value="3">Edmonton</option>
+                                    <option value="2">Lethbridge</option>
                                 </select>
                                 <br/>
                                 <label for="start">Event date:</label>
 
-                                <input type="date" id="start" name="trip-start" value="2022-01-01" accept=""
+                                <input type="date" id="start" name="trip-start_edit" value="2022-01-01" accept=""
                                        min="2018-01-01" max="2100-12-31">
                                 <br/>
                                 <label for="day1time">Input Day 1 Start Time to End Time:</label>
-                                <input type="text" id="day1time" name="day1time"
+                                <input type="text" id="day1time" name="day1time_edit"
                                        placeholder="8:00-17:00" required><br/>
                                 <label for="day1time">Input Day 2 Start Time to End Time:</label>
-                                <input type="text" id="day2time" name="day2time"
+                                <input type="text" id="day2time" name="day2time_edit"
                                        placeholder="8:00-17:00" required><br/>
                                 <label for="address">Address</label>
-                                <input type="text" id="address" name="address" 
+                                <input type="text" id="address" name="address_edit" 
                                        placeholder="Calgary SunnySides" required>
                                 <input type="submit" value="Edit event"> 
                             </fieldset>

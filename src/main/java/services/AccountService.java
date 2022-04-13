@@ -73,7 +73,7 @@ public class AccountService {
 
     public final User login(String email, String password) {
 
-        System.out.println("accountservice " + email + " " + password);
+       // System.out.println("accountservice " + email + " " + password);
         try {
             User user = userDB.getUserByEmail(email);
             // System.out.println(user.getEmail());

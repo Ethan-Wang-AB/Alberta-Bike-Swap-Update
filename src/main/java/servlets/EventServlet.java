@@ -52,14 +52,7 @@ public class EventServlet extends HttpServlet {
         getServletContext().getRequestDispatcher("/WEB-INF/EditEventPage.jsp").forward(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -71,6 +64,7 @@ public class EventServlet extends HttpServlet {
         String location=request.getParameter("location");
         Calendar calS=Calendar.getInstance();
         String date=request.getParameter("trip-start");
+        
         String[]day=date.split("-");
         calS.set(Integer.parseInt(day[0]), Integer.parseInt(day[1])-1, Integer.parseInt(day[2]));
         
@@ -83,6 +77,7 @@ public class EventServlet extends HttpServlet {
         addressId.setAddressDetail(address);
         City cityId=eventService.getCity(Integer.parseInt(location));
         addressId.setCityId(cityId);
+        //calS.setTime(dateN);
         Date start=calS.getTime();
       
         calS.add(Calendar.DATE,1);
@@ -107,9 +102,13 @@ public class EventServlet extends HttpServlet {
          EventDate e=eventService.getEventDate(Integer.parseInt(id));
          String location=request.getParameter("location_edit");
          String date=request.getParameter("trip-start_edit");
-        String[]day=date.split("-");
-        Calendar calS=Calendar.getInstance();
-        calS.set(Integer.parseInt(day[0]), Integer.parseInt(day[1])-1, Integer.parseInt(day[2]));
+                 System.out.println("date get from frontend: "+date);
+
+       String[]day=date.split("-");
+  //     Date dateN=new Date(date); 
+       Calendar calS=Calendar.getInstance();
+       //calS.setTime(dateN);
+calS.set(Integer.parseInt(day[0]), Integer.parseInt(day[1])-1, Integer.parseInt(day[2]));
         Date start=calS.getTime();
          
          String schedule1=request.getParameter("day1time_edit");
