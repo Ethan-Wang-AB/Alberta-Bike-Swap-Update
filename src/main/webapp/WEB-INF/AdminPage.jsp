@@ -90,7 +90,7 @@
                                         <p class="card-text"> Click the "BACKUP" button to backup the database information</p>
 
                                         <form  method="POST" action="TESTINGBackup">
-                                            <input type="submit" value="BACKUP">
+                                            <input type="submit" class="bg-danger" value="BACKUP">
                                         </form>
                                         <p>
                                             ${backupMessage}
@@ -107,7 +107,7 @@
                                         <p class="card-text">Click the "RESTORE" button to backup the database information</p>
 
                                         <form  method="GET" action="TestRestore" >
-                                            <input type="submit" value="RESTORE">
+                                            <input type="submit" class="bg-danger" value="RESTORE">
                                         </form>
                                         <p>
                                             ${restoreMessage}

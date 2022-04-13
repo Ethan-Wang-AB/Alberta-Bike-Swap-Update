@@ -43,7 +43,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Download Report</h5>
                         <form action="Report" method="get"> 
-                            <input type="submit" value="Download Report">
+                            <input type="submit" class="btn btn-primary" value="Download Report">
                         </form>                      
                     </div>
                 </div>
@@ -77,7 +77,8 @@
                                 <th>Assigned</th>
                                 <th>1st Choice</th>
                                 <th>2nd Choice</th>
-                                <th>Assign Role</th>
+                                <th>Final Role</th>
+                                <th>Submit</th>
                                 </tbody>
                                 <c:forEach var="user" items="${users}">
 
@@ -101,7 +102,7 @@
                                                     </c:forEach>                 
                                                 </datalist></td>
                                         <td>
-                                            <input class="btn btn--radius-1 btn--green" type="submit">
+                                            <input class="btn btn-primary" type="submit">
                                         </td>
                                         </form>
                                     </tr>

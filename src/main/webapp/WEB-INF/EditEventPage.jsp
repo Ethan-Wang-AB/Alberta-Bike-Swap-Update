@@ -33,8 +33,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
-
-
         <div class="wrapper">
             <div class="box box2">
                 <h1>Event page</h1>
@@ -70,7 +68,7 @@
                                 <label for="address">Address</label>
                                 <input type="text" id="address" name="address" 
                                        placeholder="Calgary SunnySides" required>
-                                <input type="submit" value="Add new event">       
+                                <input type="submit"  class="btn btn-primary"  value="Add new event">       
 
 
                             </fieldset>
