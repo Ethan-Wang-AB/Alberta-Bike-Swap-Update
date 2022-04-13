@@ -1,3 +1,4 @@
+  
 <%-- 
     Document   : EditEventPage
     Created on : Feb 3, 2022, 4:06:28 PM
@@ -6,16 +7,31 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.text.SimpleDateFormat" %>
-<% SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd"); %>
+<% SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");%>
 
 <!DOCTYPE html>
 <html>
     <head>
+
+        <!-- Required meta tags -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="assets/css/EditEventPageStyle.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
         <title>Admin Event Management page</title>
     </head>
     <body>
+
+        <!-- Optional JavaScript -->
+        <link rel="stylesheet" type="text/css" href="assets/css/EditEventPageStyle.css">
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 
         <div class="wrapper">
             <div class="box box2">
@@ -43,15 +59,16 @@
                                 <input type="date" id="start" name="trip-start" value="2022-01-01" accept=""
                                        min="2018-01-01" max="2100-12-31">
                                 <br/>
-                                <label for="day1time">Choose Day 1 Time:</label>
-                                <input type="time" id="day1time" name="day1time"
-                                       min="06:00" max="21:00" required><br/>
-                                <label for="day1time">Choose Day 2 Time:</label>
-                                <input type="time" id="day2time" name="day2time"
-                                       min="06:00" max="21:00" required><br/>
+                                <label for="day1time">Input Day 1 Start Time to End Time:</label>
+                                <input type="text" id="day1time" name="day1time"
+                                       placeholder="8:00-17:00" required><br/>
+                                <label for="day1time">Input Day 2 Start Time to End Time:</label>
+                                <input type="text" id="day2time" name="day2time"
+                                       placeholder="8:00-17:00" required><br/>
                                 <label for="address">Address</label>
-                                <input type="text" id="address" name="address" required>
-                                <input type="submit" value="Add new event">       
+                                <input type="text" id="address" name="address" 
+                                       placeholder="Calgary SunnySides" required>
+                                <input type="submit"  class="btn btn-primary"  value="Add new event">       
 
 
                             </fieldset>
@@ -78,12 +95,15 @@
                                 <input type="date" id="start" name="trip-start" value="2022-01-01" accept=""
                                        min="2018-01-01" max="2100-12-31">
                                 <br/>
-                                <label for="day1time">Choose Day 1 Time:</label>
-                                <input type="time" id="day1time" name="day1time"
-                                       min="06:00" max="21:00" required><br/>
-                                <label for="day1time">Choose Day 2 Time:</label>
-                                <input type="time" id="day2time" name="day2time"
-                                       min="06:00" max="21:00" required><br/>
+                                <label for="day1time">Input Day 1 Start Time to End Time:</label>
+                                <input type="text" id="day1time" name="day1time"
+                                       placeholder="8:00-17:00" required><br/>
+                                <label for="day1time">Input Day 2 Start Time to End Time:</label>
+                                <input type="text" id="day2time" name="day2time"
+                                       placeholder="8:00-17:00" required><br/>
+                                <label for="address">Address</label>
+                                <input type="text" id="address" name="address" 
+                                       placeholder="Calgary SunnySides" required>
                                 <input type="submit" value="Edit event"> 
                             </fieldset>
                         </form>
@@ -96,33 +116,50 @@
         </div>
 
 
-
-
-
-
         <%-- Even Information--%>
-        <div class="wrapper">
-            <div class ="box box2">
-                <h2>Event Details</h2>
-                <%-- operation message--%>
-                Message: ${message}<br/><br/>
-                <table border="1">
-                    <c:forEach var="event" items="${eventdata}">
-                        <tr>
-                            <td>${event.eventDateId}</td>
-                            <td>${event.addressId.addressDetail}</td>
-                            <td align="center"> ${event.startDate.getYear()+1900}.${event.startDate.getMonth()+1}.${event.startDate.getDate()}</td>
-                            <td align="center">${event.scheduleDay1}</td>
-                            <td align="center">${event.endDate.getYear()+1900}.${event.endDate.getMonth()+1}.${event.endDate.getDate()}</td>
-                            <td align="center">${event.scheduleDay2}</td>
-                            <td align="center"><a href="EditEvent?delete&id=${event.eventDateId}">Delete</a></td>
-                        </tr>
+        <div class="container-fluid">
+            <div class="container-position">
+                <div class="container justify-content-center" >
+                    <div class ="card" style="width: 900px;">
+                        <div class="card-body bg-light">
+                            <h5 class="card-header">Event Details</h5>
+                            <div class="card-footer bg-transparent">
+                                <p> Message: ${message}</p></div>
 
-                    </c:forEach>
-                </table>
+                            <table class="table table-striped">
+
+                                <thead>
+                                </thead>
+                                <tbody>
+                                <th>Event ID</th>
+                                <th>Event Location</th>
+                                <th>Day 1 </th>
+                                <th>Time</th>
+                                <th>Day 2</th>
+                                <th>Time</th>
+                                <th>Action Delete</th>
+                                </tbody>
+                                <c:forEach var="event" items="${eventdata}">
+                                    <tr>
+                                        <td>${event.eventDateId}</td>
+                                        <td>${event.addressId.addressDetail}</td>
+                                        <td align="center"> ${event.startDate.getYear()+1900}.${event.startDate.getMonth()+1}.${event.startDate.getDate()}</td>
+                                        <td align="center">${event.scheduleDay1}</td>
+                                        <td align="center">${event.endDate.getYear()+1900}.${event.endDate.getMonth()+1}.${event.endDate.getDate()}</td>
+                                        <td align="center">${event.scheduleDay2}</td>
+                                        <td align="center"><a href="EditEvent?delete&id=${event.eventDateId}">Delete</a></td>
+                                    </tr>
+
+                                </c:forEach>  
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
-
         </div>
+
 
 
 

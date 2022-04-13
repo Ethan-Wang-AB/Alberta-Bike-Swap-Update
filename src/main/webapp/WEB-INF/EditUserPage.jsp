@@ -51,12 +51,12 @@
                                                 <label class="label--desc">first name</label>
                                             </div>
                                         </div>
-                                        <div class="col-2">
+<!--                                        <div class="col-2">
                                             <div class="input-group-desc">
                                                 <input class="input--style-5" type="text" name="last_name" value="${lastName}">
                                                 <label class="label--desc">last name</label>
                                             </div>
-                                        </div>
+                                        </div>-->
                                     </div>
                                 </div>
                             </div>
@@ -144,7 +144,7 @@
                                 <button class="btn btn--radius-2 btn--red" type="submit">Change</button>
                             </div>
                         </form>
-                        <form action="" method="POST">
+                        <form action="Profile" method="GET">
                                 <input type="hidden" name="action" value="Profile">
                                 <button class="btn btn--radius-2 btn--green" type="submit">Return to Profile</button>
                         </form>

@@ -42,8 +42,8 @@ public class EditUserServlet extends HttpServlet {
                     HttpSession session=request.getSession();
                     User user=accountService.getByEmail((String) session.getAttribute("email"));
                     //load the user details onto the edit page
-                    request.setAttribute("lastName", user.getName().substring(user.getName().lastIndexOf(" ")+1));
-                    request.setAttribute("firstName", user.getName().substring(0, user.getName().lastIndexOf(" ")));
+                    //request.setAttribute("lastName", user.getName().substring(user.getName().lastIndexOf(" ")+1));
+                    request.setAttribute("firstName", user.getName());
                     request.setAttribute("email", user.getEmail());
                     String phone = Long.toString(user.getCellNumber());
                     String areaCode = phone.substring(0, 3);
@@ -77,7 +77,7 @@ public class EditUserServlet extends HttpServlet {
             //check if each value is not null, isnt an empty string, and is  updated before changing user object.
             //user should be able to update some values without having to fill in all of them. 
         try{
-            String name=request.getParameter("first_name")+" "+request.getParameter("last_name");
+            String name=request.getParameter("first_name");
             if(name != null){
                 user.setName(name);
             }
