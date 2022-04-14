@@ -7,7 +7,9 @@
 // Initialize tooltip component
 $('#myModal').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus');
-})
+});
+
 function displayDivDemo(id, elementValue) {
       document.getElementById(id).style.display = elementValue.value == 1 ? 'block' : 'none';
    }
+   

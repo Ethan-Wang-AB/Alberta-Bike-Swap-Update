@@ -22,6 +22,10 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
         <link href="assets/css/sellBikeStyle.css" rel="stylesheet" />
+        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="assets/script/regitrationPage.js"></script>
     </head>
     <body>
         <%@include file="header.jsp"%>
@@ -71,14 +75,44 @@
 
                                     <div class="panel-body text-center">
                                         <h4>
-                                            <a href="#" class="pro-title">
+                                            <p class="pro-title">
                                                 Bike Information
-                                            </a>
+                                            <p>
                                         </h4>
                                         <p class="bikeInfo">Bike ID: ${bike.getBikeIndex()}</p>
                                         <p class="bikeInfo">Bike Make: ${bike.getMaker()}</p>
                                         <p class="bikeInfo">Bike Model: ${bike.getModel()}</p>
                                         <p class="price">Price: $${bike.getPrice()}</p>
+                                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#bikeModal${bike.getBikeIndex()}">
+                                                Details
+                                        </button>
+                                <!-- Modal -->
+                                        <div class="modal" id="bikeModal${bike.getBikeIndex()}" role="dialog" aria-labelledby="exampleModalLongTitle">
+                                            <div class="modal-dialog modal-lg" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLongTitle">Bike Information</h5>
+                                                </div>
+                                            <div class="modal-body">
+                                                <div>
+                                                    <img src="${bike.getPhotoPath()}"  class="img-rounded img-responsive" alt="" />
+                                                </div>
+                                                <p class="bikeInfo">Bike ID: ${bike.getBikeIndex()}</p>
+                                                <p class="bikeInfo">Bike Make: ${bike.getMaker()}</p>
+                                                <p class="bikeInfo">Bike Model: ${bike.getModel()}</p>
+                                                <p class="price">Price: $${bike.getPrice()}</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">Close</button>
+                                                <form>
+                                                <input type="hidden" id="action" value="Buy${bike.getBikeIndex()}">
+                                                <input type="submit" class="btn btn-primary btn-lg" value="Buy!">
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
                                     </div>
                                 </section>
                             </div>

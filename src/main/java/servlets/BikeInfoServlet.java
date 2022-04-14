@@ -77,7 +77,7 @@ public class BikeInfoServlet extends HttpServlet {
         BikeService bikeService = BikeService.getInstance();
         String action = request.getParameter("action");
         double minPrice=0;
-        double maxPrice=99999;
+        double maxPrice=9999;
         try{
                 if(request.getParameter("minPrice") != null && request.getParameter("minPrice").length() > 0){
                 minPrice=Double.parseDouble(request.getParameter("minPrice"));
