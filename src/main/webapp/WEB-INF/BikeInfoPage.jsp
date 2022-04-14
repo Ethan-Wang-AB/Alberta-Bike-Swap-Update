@@ -35,20 +35,31 @@
                 <div class="col-md-3">
                     <section style="margin-top: 150px"class="panel">
                         <header class="panel-heading">
-                            <h4>Filter by Price</h4> 
+                            <h4>Filter</h4> 
                         </header>
                         <div class="panel-body">
                             <form method="get" action="BikeInventory" role="form product-form">
                                 <div class="form-group">
-                                    <label>Price</label>
+                                    <h3>By Price:</h3>
                                     <input type="number" id="minPrice" name="minPrice" min="0" placeholder="min price" class="form-control" />
                                     <input type="number" id="maxPrice" name="maxPrice" placeholder="max price" class="form-control" />
-
                                 </div>
-                                <button class="btn btn-success" type="submit">Filter</button>
+                                <div class="form-group">
+                                    <h3>By Index:</h3>
+                                    <input type="text" id="filterIndex" name="filterIndex"  placeholder="B####"/>
+                                </div>
+                                <div class="form-group">
+                                    <h3>By Bike Make:</h3>
+                                    <input type="text" id="filterMake" name="filterMake"  placeholder="Brand Name"/>
+                                </div>
+                                <div class="form-group">
+                                    <h3>By Bike Model:</h3>
+                                    <input type="text" id="filterModel" name="filterModel"  placeholder="Model name"/>
+                                </div>
+                                <button class="btn btn-success btn-lg" type="submit">Filter</button>
                             </form>
                         </div>
-                        <p class="pro-title text-center">${message}</p>
+                        <h4 class="pro-title text-center">${message}</h4>
                     </section>
                 </div>
                 
@@ -104,7 +115,7 @@
                                                 <p class="price">Price: $${bike.getPrice()}</p>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">Close</button>
                                                 <form method="POST" action="">
                                                 <input type="hidden" name="action" value="Buy${bike.getBikeId()}">
                                                 <input type="submit" class="btn btn-primary btn-lg" value="Buy!">

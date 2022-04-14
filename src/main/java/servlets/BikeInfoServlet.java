@@ -49,23 +49,45 @@ public class BikeInfoServlet extends HttpServlet {
         if(bikes.size() == 6){
              request.setAttribute("nextDisplay", "none");
         }
+        // Price filter
         double minPrice=0;
         double maxPrice=99999;
         try{
-                if(request.getParameter("minPrice") != null){
+                if(request.getParameter("minPrice") != null && request.getParameter("minPrice").length() > 0){
                 minPrice=Double.parseDouble(request.getParameter("minPrice"));
                 }
-                if(request.getParameter("maxPrice") != null){
+                if(request.getParameter("maxPrice") != null  && request.getParameter("maxPrice").length() > 0){
                 maxPrice=Double.parseDouble(request.getParameter("maxPrice"));
                 }
         } catch(Exception e){
                 
         }
+        //Index filter
+        String index= "";
+        if(request.getParameter("filterIndex")!= null  && request.getParameter("filterIndex").length() > 0){
+            index = request.getParameter("filterIndex");
+        }
         
+        //Make filter
+        String make = "";
+        if(request.getParameter("filterMake")!= null  && request.getParameter("filterMake").length() > 0){
+            make = request.getParameter("filterMake");
+        }
+        
+        //Model filter
+        String model = "";
+        if(request.getParameter("filterModel")!= null  && request.getParameter("filterModel").length() > 0){
+            index = request.getParameter("filterModel");
+        }
+        
+        //build list
         ArrayList<Bike> filter=new ArrayList<>();
         for(int i = 0 ; i < limit; i++){
-            if(bikes.get(i).getPrice()>=minPrice && bikes.get(i).getPrice()<=maxPrice)
-                filter.add(bikes.get(i));
+            Bike temp = bikes.get(i);
+            if(temp.getPrice()>=minPrice && temp.getPrice()<=maxPrice && temp.getBikeIndex().contains(index)
+                    && temp.getMaker().contains(make) && temp.getModel().contains(model)){
+                        filter.add(temp);
+            }
         }
         request.setAttribute("bikes", filter);
         request.setAttribute("page", "0");
@@ -86,6 +108,7 @@ public class BikeInfoServlet extends HttpServlet {
             throws ServletException, IOException {
         BikeService bikeService = BikeService.getInstance();
         String action = request.getParameter("action");
+        //get filter information
         double minPrice=0;
         double maxPrice=9999;
         try{
@@ -98,6 +121,25 @@ public class BikeInfoServlet extends HttpServlet {
         } catch(Exception e){
                 
         }
+        
+        //Index filter
+        String index= "";
+        if(request.getParameter("filterIndex")!= null  && request.getParameter("filterIndex").length() > 0){
+            index = request.getParameter("filterIndex");
+        }
+        
+        //Make filter
+        String make = "";
+        if(request.getParameter("filterMake")!= null  && request.getParameter("filterMake").length() > 0){
+            make = request.getParameter("filterMake");
+        }
+        
+        //Model filter
+        String model = "";
+        if(request.getParameter("filterModel")!= null  && request.getParameter("filterModel").length() > 0){
+            index = request.getParameter("filterModel");
+        }
+        
         //someone bought a bike
         if(action != null && action.contains("Buy")){
             String bikeId = action.substring(3);
@@ -118,8 +160,11 @@ public class BikeInfoServlet extends HttpServlet {
         }
             ArrayList<Bike> filter=new ArrayList<>();
             for(int i = 0 ; i < limit; i++){
-            if(bikes.get(i).getPrice()>=minPrice && bikes.get(i).getPrice()<=maxPrice)
+            Bike temp = bikes.get(i);
+            if(temp.getPrice()>=minPrice && temp.getPrice()<=maxPrice && temp.getBikeIndex().contains(index)
+                    && temp.getMaker().contains(make) && temp.getModel().contains(model)){
                 filter.add(bikes.get(i));
+            }
         }
         request.setAttribute("bikes", filter);
         request.setAttribute("page", "0");
@@ -142,9 +187,11 @@ public class BikeInfoServlet extends HttpServlet {
                 request.setAttribute("nextDisplay", "none");
             }
             for(int i = page; i < limit ; i++){
-                if(bikes.get(i).getPrice()>=minPrice && bikes.get(i).getPrice()<=maxPrice){
-                        bikeList.add(bikes.get(i));
-                }
+            Bike temp = bikes.get(i);
+            if(temp.getPrice()>=minPrice && temp.getPrice()<=maxPrice && temp.getBikeIndex().contains(index)
+                    && temp.getMaker().contains(make) && temp.getModel().contains(model)){
+                bikeList.add(bikes.get(i));
+            }
                     page++;
                 }
             request.setAttribute("bikes", bikeList);
@@ -165,9 +212,11 @@ public class BikeInfoServlet extends HttpServlet {
                 page = page - 7;
             }
             for(int i = page; i < limit; i++){
-                if(bikes.get(i).getPrice()>=minPrice && bikes.get(i).getPrice()<=maxPrice){
-                        bikeList.add(bikes.get(i));
-                }
+            Bike temp = bikes.get(i);
+            if(temp.getPrice()>=minPrice && temp.getPrice()<=maxPrice && temp.getBikeIndex().contains(index)
+                    && temp.getMaker().contains(make) && temp.getModel().contains(model)){
+                bikeList.add(bikes.get(i));
+            }
                 } 
             request.setAttribute("bikes", bikeList);
             request.setAttribute("page", page);
