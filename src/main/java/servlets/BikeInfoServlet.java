@@ -39,19 +39,17 @@ public class BikeInfoServlet extends HttpServlet {
         BikeService bikeService = BikeService.getInstance();
         List<Bike> bikes=bikeService.getAll();
         int limit;
+        
         // Price filter
         double minPrice=0;
         double maxPrice=99999;
-        try{
-                if(request.getParameter("minPrice") != null && request.getParameter("minPrice").length() > 0){
+        if(request.getParameter("minPrice") != null && request.getParameter("minPrice").length() > 0){
                 minPrice=Double.parseDouble(request.getParameter("minPrice"));
                 }
-                if(request.getParameter("maxPrice") != null  && request.getParameter("maxPrice").length() > 0){
+        if(request.getParameter("maxPrice") != null  && request.getParameter("maxPrice").length() > 0){
                 maxPrice=Double.parseDouble(request.getParameter("maxPrice"));
                 }
-        } catch(Exception e){
-                
-        }
+
         //Index filter
         String index= "";
         if(request.getParameter("filterIndex")!= null  && request.getParameter("filterIndex").length() > 0){
@@ -67,7 +65,7 @@ public class BikeInfoServlet extends HttpServlet {
         //Model filter
         String model = "";
         if(request.getParameter("filterModel")!= null  && request.getParameter("filterModel").length() > 0){
-            index = request.getParameter("filterModel");
+            model = request.getParameter("filterModel");
         }
         
        //Create a filtered array
@@ -76,7 +74,7 @@ public class BikeInfoServlet extends HttpServlet {
                 Bike temp = bikes.get(i);
                 if(temp.getPrice()>=minPrice && temp.getPrice()<=maxPrice && temp.getBikeIndex().contains(index)
                         && temp.getMaker().contains(make) && temp.getModel().contains(model)){
-                            filtered.add(bikes.get(i));
+                            filtered.add(temp);
                 }
             }
         
@@ -146,7 +144,7 @@ public class BikeInfoServlet extends HttpServlet {
         //Model filter
         String model = "";
         if(request.getParameter("filterModel")!= null  && request.getParameter("filterModel").length() > 0){
-            index = request.getParameter("filterModel");
+            model = request.getParameter("filterModel");
         }
         
         //Create a filtered array
@@ -155,7 +153,7 @@ public class BikeInfoServlet extends HttpServlet {
                 Bike temp = bikes.get(i);
                 if(temp.getPrice()>=minPrice && temp.getPrice()<=maxPrice && temp.getBikeIndex().contains(index)
                         && temp.getMaker().contains(make) && temp.getModel().contains(model)){
-                            filtered.add(bikes.get(i));
+                            filtered.add(temp);
                 }
             }
             
