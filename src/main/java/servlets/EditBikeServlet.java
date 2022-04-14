@@ -35,14 +35,13 @@ public class EditBikeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         BikeService bikeService = BikeService.getInstance();
-        if(request.getParameterMap().containsKey("action") &&request.getParameter("action").equals("delete") ){
-        int id=Integer.parseInt(request.getParameter("id"));
-        Bike bike=bikeService.getBike(id);
-        bikeService.deleteBike(bike);
-        request.setAttribute("Message","the bike id:"+id+" has been deleted");
+        if (request.getParameterMap().containsKey("action") && request.getParameter("action").equals("delete")) {
+            int id = Integer.parseInt(request.getParameter("id"));
+            Bike bike = bikeService.getBike(id);
+            bikeService.deleteBike(bike);
+            request.setAttribute("Message", "the bike id:" + id + " has been deleted");
         }
-        
-        
+
         request.setAttribute("bikes", bikeService.getAll());
 
         getServletContext().getRequestDispatcher("/WEB-INF/editBikeInventoryPage.jsp").forward(request, response);
@@ -79,30 +78,37 @@ public class EditBikeServlet extends HttpServlet {
             User user = accountService.getAdmin();
             bike.setUserId(user);
             bikeService.addBike(bike);
-            request.setAttribute("Message","the bike has been added");
+            request.setAttribute("Message", "the bike has been added");
 
         } else if (action.equals("edit")) {
             id = request.getParameter("bikeId_edit");
             Bike bike = bikeService.getBike(Integer.parseInt(id));
+            if (bike == null) {
+            request.setAttribute("Message", "The bike id is invalid");
+
+                request.setAttribute("bikes", bikeService.getAll());
+                getServletContext().getRequestDispatcher("/WEB-INF/editBikeInventoryPage.jsp").forward(request, response);
+                return;
+            }
             make = request.getParameter("bikeMake_edit");
-            if(make != null && make.length() >0){
+            if (make != null && make.length() > 0) {
                 bike.setMaker(make);
             }
             bikeIndex = request.getParameter("bikeIndex_edit");
-            if(bikeIndex != null && bikeIndex.length() >0){
+            if (bikeIndex != null && bikeIndex.length() > 0) {
                 bike.setBikeIndex(bikeIndex);
             }
             model = request.getParameter("bikeModel_edit");
-            if(model != null && model.length() > 0){
+            if (model != null && model.length() > 0) {
                 bike.setModel(model);
             }
             price = request.getParameter("bikePrice_edit");
-            if(price != null && price.length() > 0){
+            if (price != null && price.length() > 0) {
                 double priceD = Double.parseDouble(price);
                 bike.setPrice(priceD);
             }
-        bikeService.updateBike(bike);
-        request.setAttribute("Message","The bike infromation has been updated!");
+            bikeService.updateBike(bike);
+            request.setAttribute("Message", "The bike infromation has been updated!");
         }
         request.setAttribute("bikes", bikeService.getAll());
         getServletContext().getRequestDispatcher("/WEB-INF/editBikeInventoryPage.jsp").forward(request, response);
