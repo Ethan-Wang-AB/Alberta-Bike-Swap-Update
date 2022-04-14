@@ -78,6 +78,7 @@
                                 <th>1st Choice</th>
                                 <th>2nd Choice</th>
                                 <th>Final Role</th>
+                                <th>Event ID</th>
                                 <th>Submit</th>
                                 </tbody>
                                 <c:forEach var="user" items="${users}">
@@ -88,23 +89,36 @@
                                         <td align="center">${user.cellNumber}</td>
                                         <td align="center">${user.email}</td>
                                         <td align="center">${user.shirtSize}</td>
-                                        <td align="center">${user.roleId.roleName}</td>
+                                        <td align="center">
+                                            <c:if test="${user.roleId!=null && user.eventDateUserList.size()>0}">
+                                           ${user.eventDateUserList.get(user.eventDateUserList.size()-1).eventDateId.eventDateId}, ${user.roleId.roleName}, </c:if>
+                                        </td>
                                         <td align="center">${user.roleIdFirst.roleName}</td>
                                         <td align="center">${user.roleIdSecond.roleName}</td>
+                                    <form action="EditProfile" method="get">
                                         <td align="center">
-                                            <form action="EditProfile" method="get">
-                                                <input type="hidden" name="userEmail" value="${user.email}">
-                                                <input list="finalshift" name="finalshift">
-                                                <datalist id="finalshift" >
-                                                    <c:forEach var="role" items="${roles}">
 
-                                                        <option value="${role.roleId}">${role.roleName},${role.roleDescription}</option>
-                                                    </c:forEach>                 
-                                                </datalist></td>
+                                            <input type="hidden" name="userEmail" value="${user.email}">
+                                            <input list="finalshift" name="finalshift">
+                                            <datalist id="finalshift" >
+                                                <c:forEach var="role" items="${roles}">
+
+                                                    <option value="${role.roleId}">${role.roleName},${role.roleDescription}</option>
+                                                </c:forEach>                 
+                                            </datalist></td>
+                                        <td>
+                                            <input list="eventId" name="eventId">
+                                            <datalist id="eventId" >
+                                                <c:forEach var="eventId" items="${eventIds}">
+
+                                                    <option value="${eventId.eventDateId}">${eventId.eventDateId},${eventId.startDate}</option>
+                                                </c:forEach>                 
+                                            </datalist>  
+                                        </td>
                                         <td>
                                             <input class="btn btn-primary" type="submit">
                                         </td>
-                                        </form>
+                                    </form>
                                     </tr>
                                 </c:forEach>
                             </table>
