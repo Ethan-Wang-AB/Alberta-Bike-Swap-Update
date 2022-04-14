@@ -20,7 +20,7 @@ import models.User;
  */
 public class EventDateUserDB extends CommonDB<EventDateUser> {
 
-    private final EventDateUserDB eventDateUserDB = new EventDateUserDB();
+    private final static EventDateUserDB eventDateUserDB = new EventDateUserDB();
 
     private EventDateUserDB() {
         super();
@@ -89,7 +89,7 @@ public class EventDateUserDB extends CommonDB<EventDateUser> {
         }
     }
 
-    public EventDateUserDB getInstance() {
+    public static EventDateUserDB getInstance() {
 
         return eventDateUserDB;
     }
