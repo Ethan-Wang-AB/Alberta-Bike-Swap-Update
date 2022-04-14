@@ -48,6 +48,7 @@
                                 <button class="btn btn-success" type="submit">Filter</button>
                             </form>
                         </div>
+                        <p class="pro-title text-center">${message}</p>
                     </section>
                 </div>
                 
@@ -79,7 +80,7 @@
                                                 Bike Information
                                             <p>
                                         </h4>
-                                        <p class="bikeInfo">Bike ID: ${bike.getBikeIndex()}</p>
+                                        <p class="bikeInfo">Bike Index: ${bike.getBikeIndex()}</p>
                                         <p class="bikeInfo">Bike Make: ${bike.getMaker()}</p>
                                         <p class="bikeInfo">Bike Model: ${bike.getModel()}</p>
                                         <p class="price">Price: $${bike.getPrice()}</p>
@@ -97,15 +98,15 @@
                                                 <div>
                                                     <img src="${bike.getPhotoPath()}"  class="img-rounded img-responsive" alt="" />
                                                 </div>
-                                                <p class="bikeInfo">Bike ID: ${bike.getBikeIndex()}</p>
+                                                <p class="bikeInfo">Bike Index: ${bike.getBikeIndex()}</p>
                                                 <p class="bikeInfo">Bike Make: ${bike.getMaker()}</p>
                                                 <p class="bikeInfo">Bike Model: ${bike.getModel()}</p>
                                                 <p class="price">Price: $${bike.getPrice()}</p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">Close</button>
-                                                <form>
-                                                <input type="hidden" id="action" value="Buy${bike.getBikeIndex()}">
+                                                <form method="POST" action="">
+                                                <input type="hidden" name="action" value="Buy${bike.getBikeId()}">
                                                 <input type="submit" class="btn btn-primary btn-lg" value="Buy!">
                                                 </form>
                                             </div>

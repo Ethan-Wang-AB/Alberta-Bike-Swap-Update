@@ -6,7 +6,6 @@
 package servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -38,6 +37,18 @@ public class BikeInfoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         BikeService bikeService = BikeService.getInstance();
+        List<Bike> bikes=bikeService.getAll();
+        int limit;
+        if(bikes.size() < 6){
+            limit = bikes.size();
+             request.setAttribute("nextDisplay", "none");
+        }
+        else{
+            limit = 6;
+        }
+        if(bikes.size() == 6){
+             request.setAttribute("nextDisplay", "none");
+        }
         double minPrice=0;
         double maxPrice=99999;
         try{
@@ -51,9 +62,8 @@ public class BikeInfoServlet extends HttpServlet {
                 
         }
         
-        List<Bike> bikes=bikeService.getAll();
         ArrayList<Bike> filter=new ArrayList<>();
-        for(int i = 0 ; i < 6; i++){
+        for(int i = 0 ; i < limit; i++){
             if(bikes.get(i).getPrice()>=minPrice && bikes.get(i).getPrice()<=maxPrice)
                 filter.add(bikes.get(i));
         }
@@ -88,6 +98,35 @@ public class BikeInfoServlet extends HttpServlet {
         } catch(Exception e){
                 
         }
+        //someone bought a bike
+        if(action != null && action.contains("Buy")){
+            String bikeId = action.substring(3);
+            bikeService.deleteBike(bikeService.getBike(Integer.parseInt(bikeId)));
+            request.setAttribute("message","Purchase complete!");
+            //load page with bikes after purchase
+            List<Bike> bikes=bikeService.getAll();  
+            int limit;
+            if(bikes.size() < 6){
+                limit = bikes.size();
+                request.setAttribute("nextDisplay", "none");
+            }
+            else{
+                limit = 6;
+            }
+             if(bikes.size() == 6){
+             request.setAttribute("nextDisplay", "none");
+        }
+            ArrayList<Bike> filter=new ArrayList<>();
+            for(int i = 0 ; i < limit; i++){
+            if(bikes.get(i).getPrice()>=minPrice && bikes.get(i).getPrice()<=maxPrice)
+                filter.add(bikes.get(i));
+        }
+        request.setAttribute("bikes", filter);
+        request.setAttribute("page", "0");
+        request.setAttribute("prevDisplay", "none");
+        getServletContext().getRequestDispatcher("/WEB-INF/BikeInfoPage.jsp").forward(request, response);
+        }
+        //otherwise, we are moving to another page.
         List<Bike> bikes=bikeService.getAll();
         int limit;
         //see if we're moving to the next/previous page
@@ -119,7 +158,7 @@ public class BikeInfoServlet extends HttpServlet {
             limit = page - 1;
             if(page - 7 <= 0){
                 page = 0;
-                request.setAttribute("listMessage","You have reached the end of our selection!");
+                //request.setAttribute("listMessage","You have reached the end of our selection!");
                 request.setAttribute("prevDisplay", "none");
             }
             else{
