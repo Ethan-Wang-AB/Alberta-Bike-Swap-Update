@@ -12,9 +12,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.EventDate;
+import models.EventDateUser;
 import models.Role;
 import models.User;
 import services.AccountService;
+import services.EventService;
 
 /**
  *
@@ -36,6 +39,7 @@ public class EditProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
                         AccountService accountService=AccountService.getInstance();
+                        EventService eventService=new EventService();
 
               if(request.getParameterMap().containsKey("userEmail")){
                String shift=request.getParameter("finalshift");
@@ -44,12 +48,30 @@ public class EditProfileServlet extends HttpServlet {
                 Role role=accountService.getRole(Integer.parseInt(shift));
                 u.setRoleId(role);
                 accountService.update(u);
+                EventDateUser eventDateUser=new EventDateUser();
+                String eventid=request.getParameter("eventId");
+                int id=0;
+                try{
+                 id=Integer.parseInt(eventid);
+                }catch(Exception idp){
+                  request.setAttribute("eventIds", eventService.getAllEventDates());
+                request.setAttribute("users",accountService.getAllUserExceptAdmin());
+                request.setAttribute("roles",accountService.getRolesExceptAdmin());
+                
+                    getServletContext().getRequestDispatcher("/WEB-INF/EditProfilePage.jsp").forward(request, response);
+                     return;
+                 }
+                EventDate eventDateId=eventService.getEventDate(id);
+                eventDateUser.setEventDateId(eventDateId);
+                eventDateUser.setUserId(u);
+                if(!u.getEventDateUserList().contains(eventDateId))
+                    eventService.addEventDateUser(eventDateUser);
                
               }
                List<User> users=accountService.getAllUserExceptAdmin();
-
+                request.setAttribute("eventIds", eventService.getAllEventDates());
                 request.setAttribute("users",users);
-                request.setAttribute("roles",accountService.getRoles());
+                request.setAttribute("roles",accountService.getRolesExceptAdmin());
                 
                     getServletContext().getRequestDispatcher("/WEB-INF/EditProfilePage.jsp").forward(request, response);
     }
