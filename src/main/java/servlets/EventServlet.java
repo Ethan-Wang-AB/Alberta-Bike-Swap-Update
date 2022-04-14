@@ -99,7 +99,17 @@ public class EventServlet extends HttpServlet {
         }
         else if(action!=null && action.equals("edit")){
          String id=request.getParameter("eventid");
+         
          EventDate e=eventService.getEventDate(Integer.parseInt(id));
+         
+        if(e==null){
+          request.setAttribute("eventdata", eventService.getAllEventDates());
+        request.setAttribute("message","the event id is invalid");
+        getServletContext().getRequestDispatcher("/WEB-INF/EditEventPage.jsp").forward(request, response);
+        return;
+        }
+         
+         
          String location=request.getParameter("location_edit");
          String date=request.getParameter("trip-start_edit");
                  System.out.println("date get from frontend: "+date);
@@ -135,6 +145,7 @@ calS.set(Integer.parseInt(day[0]), Integer.parseInt(day[1])-1, Integer.parseInt(
         getServletContext().getRequestDispatcher("/WEB-INF/EditEventPage.jsp").forward(request, response);
  
         
+       
         }
         
 
