@@ -17,6 +17,7 @@ import models.Address;
 import models.City;
 import models.Event;
 import models.EventDate;
+import scheduler.AddScheduler;
 import services.EventService;
 
 /**
@@ -93,6 +94,8 @@ public class EventServlet extends HttpServlet {
         event.setScheduleDay2(schedule2);
         //addressId.getEventDateList().add(event);
         eventService.addEvent(event);
+        AddScheduler scheduler=new AddScheduler();
+        scheduler.addScheduler(event);
         request.setAttribute("eventdata", eventService.getAllEventDates());
         
         getServletContext().getRequestDispatcher("/WEB-INF/EditEventPage.jsp").forward(request, response);
