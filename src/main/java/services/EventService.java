@@ -8,6 +8,7 @@ package services;
 import dataaccess.CityDB;
 import dataaccess.EventDB;
 import dataaccess.EventDateDB;
+import dataaccess.EventDateUserDB;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -23,6 +24,7 @@ import models.Event;
 import models.EventDate;
 import javax.json.Json;
 import javax.json.JsonReader;
+import models.EventDateUser;
 
 /**
  *
@@ -33,6 +35,7 @@ public class EventService {
     private EventDB eventDB = EventDB.getInstance();
     private EventDateDB eventDateDB = EventDateDB.getInstance();
     private CityDB cityDB=new CityDB();
+    private EventDateUserDB eventDateUserDB=EventDateUserDB.getInstance();
 
     public final Event getEvent(int id) {
         Event event = eventDB.getEvent(id);
@@ -201,6 +204,10 @@ public class EventService {
     public final void addEvent(EventDate e){
     
     eventDateDB.add(e);
+    }
+
+    public void addEventDateUser(EventDateUser eventDateUser) {
+        eventDateUserDB.add(eventDateUser);
     }
   
 }
