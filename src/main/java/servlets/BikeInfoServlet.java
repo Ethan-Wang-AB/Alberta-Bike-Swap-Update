@@ -169,35 +169,7 @@ public class BikeInfoServlet extends HttpServlet {
             bikeService.deleteBike(bikeService.getBike(Integer.parseInt(bikeId)));
             request.setAttribute("message","Purchase complete!");
             //load page with bikes after purchase
-            
-            int limit;
-            if(filtered.size() < 6){
-                limit = filtered.size();
-                request.setAttribute("prevDisplay", "none");
-            }
-            else{
-                limit = 6;
-            }
-             if(filtered.size() == 6){
-             request.setAttribute("nextDisplay", "none");
-        }
-             //need to create a filtered array
-            ArrayList<Bike> result = new ArrayList<>();
-            for(int i = 0 ; i < limit; i++){
-            Bike temp = bikes.get(i);
-            if(temp.getPrice()>=minPrice && temp.getPrice()<=maxPrice && temp.getBikeIndex().contains(index)
-                    && temp.getMaker().contains(make) && temp.getModel().contains(model)){
-                result.add(bikes.get(i));
-            }
-        }
-            
-        if(result.size() <= 6){
-            request.setAttribute("nextDisplay", "none");
-        }
-        request.setAttribute("bikes", result);
-        request.setAttribute("page", "0");
-        request.setAttribute("prevDisplay", "none");
-        getServletContext().getRequestDispatcher("/WEB-INF/BikeInfoPage.jsp").forward(request, response);
+            doGet(request, response);
         }
         //otherwise, we are moving to another page.
         int limit;
