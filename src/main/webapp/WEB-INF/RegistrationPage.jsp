@@ -57,13 +57,13 @@
                                     <div class="row row-space">
                                         <div class="col-2">
                                             <div class="input-group-desc">
-                                                <input class="input--style-5" type="text" name="first_name" pattern="[A-Za-z] required>
+                                                <input class="input--style-5" type="text" name="first_name" pattern="[A-Za-z0-9]+" required>
                                                 <label class="label--desc">first name</label>
                                             </div>
                                         </div>
                                         <div class="col-2">
                                             <div class="input-group-desc">
-                                                <input class="input--style-5" type="text" name="last_name" pattern="[A-Za-z] required>
+                                                <input class="input--style-5" type="text" name="last_name"pattern="[A-Za-z0-9]+" required>
                                                 <label class="label--desc">last name</label>
                                             </div>
                                         </div>
