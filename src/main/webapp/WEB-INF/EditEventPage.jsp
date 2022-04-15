@@ -61,13 +61,13 @@
                                 <br/>
                                 <label for="day1time">Input Day 1 Start Time to End Time:</label>
                                 <input type="text" id="day1time" name="day1time"
-                                       placeholder="8:00-17:00" required><br/>
+                                       placeholder="08:00-17:00" pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}[-][0-2]{1}[0-9]{1}:[0-5]{1}[0-9]" required><br/>
                                 <label for="day1time">Input Day 2 Start Time to End Time:</label>
                                 <input type="text" id="day2time" name="day2time"
-                                       placeholder="8:00-17:00" required><br/>
+                                       placeholder="08:00-17:00" pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}[-][0-2]{1}[0-9]{1}:[0-5]{1}[0-9]" required><br/>
                                 <label for="address">Address</label>
                                 <input type="text" id="address" name="address" 
-                                       placeholder="Calgary SunnySides" required>
+                                       placeholder="Calgary SunnySides" pattern="[A-Za-z]" required>
                                 <input type="submit"  class="btn btn-primary"  value="Add new event">       
 
 
@@ -99,13 +99,13 @@
                                 <br/>
                                 <label for="day1time">Input Day 1 Start Time to End Time:</label>
                                 <input type="text" id="day1time" name="day1time_edit"
-                                       placeholder="8:00-17:00" required><br/>
+                                       placeholder="08:00-17:00" pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}[-][0-2]{1}[0-9]{1}:[0-5]{1}[0-9]" required><br/>
                                 <label for="day1time">Input Day 2 Start Time to End Time:</label>
                                 <input type="text" id="day2time" name="day2time_edit"
-                                       placeholder="8:00-17:00" required><br/>
+                                       placeholder="08:00-17:00" pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}[-][0-2]{1}[0-9]{1}:[0-5]{1}[0-9]" required><br/>
                                 <label for="address">Address</label>
                                 <input type="text" id="address" name="address_edit" 
-                                       placeholder="Calgary SunnySides" required>
+                                       placeholder="Calgary SunnySides" pattern="[A-Za-z]" required>
                                 <input type="submit" value="Edit event"> 
                             </fieldset>
                         </form>
