@@ -28,7 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.quartz.Scheduler;
 import org.quartz.impl.StdSchedulerFactory;
 
-/**
+/*
  * <p>
  * A Servlet that can be used to initialize Quartz, if configured as a
  * load-on-startup servlet in a web application.
@@ -138,9 +138,6 @@ import org.quartz.impl.StdSchedulerFactory;
  */
 public class QuartzInitializerServlet extends HttpServlet {
 
-    /**
-     * 
-     */
     private static final long serialVersionUID = 1L;
 
     public static final String QUARTZ_FACTORY_KEY = "org.quartz.impl.StdSchedulerFactory.KEY";

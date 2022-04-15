@@ -139,7 +139,7 @@ public class EventService {
      * Formats a list of city attributes into JSON format
      *
      * @param city The city to get the attributes from
-     * @return a JSON formatted list of city attributes
+     * @return String a JSON formatted list of city attributes
      */
     private String getEventJson(Event event) {
         return Json.createObjectBuilder().add("cityId", event.getEventId())
@@ -190,11 +190,6 @@ public class EventService {
         return json;
     }
 
-    /**
-     * Need to fixed someday. very complex
-     *
-     * @param event
-     */
     public City getCity(int id){
         return cityDB.getCity(id);
     }

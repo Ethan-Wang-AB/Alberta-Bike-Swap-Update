@@ -27,8 +27,6 @@ public class WelcomeServlet extends HttpServlet {
         if(request.getParameterMap().containsKey("logout")){
            session.invalidate();
            }
-        
-        
              getServletContext().getRequestDispatcher("/WEB-INF/welcomepage.jsp").forward(request, response);
 
     }

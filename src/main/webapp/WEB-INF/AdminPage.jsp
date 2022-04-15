@@ -69,7 +69,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Bike Management Page</h5>
-                                        <p class="card-text">EDIT Bike Inventory Information</p>
+                                        <p class="card-text">EDIT Bike Inventory Information</p><br>
                                         <a href="/EditBike" class="btn btn-dark">Edit Bike</a>
                                     </div>
                                 </div>
@@ -90,7 +90,7 @@
                                         <p class="card-text"> Click the "BACKUP" button to backup the database information</p>
 
                                         <form  method="POST" action="TESTINGBackup">
-                                            <input type="submit" class="bg-danger" value="BACKUP">
+                                            <input type="submit" class="btn bg-info" value="BACKUP">
                                         </form>
                                         <p>
                                             ${backupMessage}
@@ -104,10 +104,10 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Restore Section</h5>
-                                        <p class="card-text">Click the "RESTORE" button to backup the database information</p>
+                                        <p class="card-text">Click the "RESTORE" button to recover the database information using a backup</p>
 
                                         <form  method="GET" action="TestRestore" >
-                                            <input type="submit" class="bg-danger" value="RESTORE">
+                                            <input type="submit" class="btn bg-danger" value="RESTORE">
                                         </form>
                                         <p>
                                             ${restoreMessage}

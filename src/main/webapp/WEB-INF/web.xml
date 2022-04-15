@@ -8,8 +8,6 @@
         <filter-name>VolunteerFilter</filter-name>
         <filter-class>filters.VolunteerFilter</filter-class>
     </filter>
-    
-    
     <!--    <filter>
         <filter-name>SellerFilter</filter-name>
         <filter-class>filters.SellerFilter</filter-class>
@@ -54,7 +52,6 @@
         <filter-name>AdminFilter</filter-name>
         <servlet-name>EditBikeServlet</servlet-name>
     </filter-mapping>
-   
     <servlet>
         <servlet-name>WelcomeServlet</servlet-name>
         <servlet-class>servlets.WelcomeServlet</servlet-class>
@@ -106,10 +103,6 @@
     <servlet>
         <servlet-name>SafetyServlet</servlet-name>
         <servlet-class>servlets.SafetyServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>PaymentServlet</servlet-name>
-        <servlet-class>servlets.PaymentServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ResetPasswordServlet</servlet-name>
@@ -251,10 +244,6 @@
     <servlet-mapping>
         <servlet-name>SafetyServlet</servlet-name>
         <url-pattern>/Safety</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>PaymentServlet</servlet-name>
-        <url-pattern>/Payment</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ResetPasswordServlet</servlet-name>

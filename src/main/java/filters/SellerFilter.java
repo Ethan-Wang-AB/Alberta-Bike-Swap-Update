@@ -131,7 +131,7 @@ public class SellerFilter implements Filter {
     }
 
     /**
-     * Return the filter configuration object for this filter.
+     * @return the filter configuration object for this filter.
      */
     public FilterConfig getFilterConfig() {
         return (this.filterConfig);

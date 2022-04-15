@@ -107,11 +107,8 @@ public class SystemDB {
     }
 
     /**
-     * Trying to setup a scheduler / kind of trigger in MySql to see if it works Trade_table and event_date table would be archived every five year. If user and bike also need to be archived, a last_login attribute and a up-to-date deal time would be as attributes DROP EVENT IF EXISTS `archiveEvent`; delimiter $$ CREATE EVENT `archiveEvent` ON SCHEDULE EVERY 5 YEAR STARTS '2022-03-02 00:00:00' ON COMPLETION PRESERVE ENABLE DO
-     *
-     * BEGIN INSERT INTO archivetable ( id, cs_start_time, cs_time_length ) SELECT MT.id, MT.cs_start_time, MT.cs_time_length FROM maintable MT WHERE MT.cs_start_time + INTERVAL MT.cs_time_length SECOND < NOW() ; * DELETE FROM maintable WHERE cs_start_time + INTERVAL cs_time_length SECOND < NOW() ; END$$
-     *
-     * delimiter ; @return
+     * Sets up a scheduler / trigger in MySql to see if it works Trade_table and event_date table would be archived every five year. If user and bike also need to be archived, a last_login attribute and a up-to-date deal time would be as attributes DROP EVENT IF EXISTS `archiveEvent`; delimiter $$ CREATE EVENT `archiveEvent` ON SCHEDULE EVERY 5 YEAR STARTS '2022-03-02 00:00:00' ON COMPLETION PRESERVE ENABLE DO
+     * @return boolean
      */
     public final boolean archiveData() {
 

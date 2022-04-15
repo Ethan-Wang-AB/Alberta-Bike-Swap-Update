@@ -132,11 +132,11 @@
                     </div>
                         <form method="POST" action="">
                             <input type="hidden" name="action" value="Prev${page}" />
-                            <input type="submit" value="Previous Page" style="display:${prevDisplay}"/>
+                            <input type="submit" class="btn btn-success btn-lg" value="Previous Page" style="display:${prevDisplay}"/>
                         </form>
                         <form method="POST" action="" >
                             <input type="hidden" name="action" value="Next${page}"/>
-                            <input type="submit" value="Next Page" style="display:${nextDisplay}"/>
+                            <input type="submit" class="btn btn-success btn-lg" value="Next Page" style="display:${nextDisplay}"/>
                         </form>
                             <p>${listMessage}</p>
                 </div>
