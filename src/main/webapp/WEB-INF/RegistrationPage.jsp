@@ -57,13 +57,13 @@
                                     <div class="row row-space">
                                         <div class="col-2">
                                             <div class="input-group-desc">
-                                                <input class="input--style-5" type="text" name="first_name">
+                                                <input class="input--style-5" type="text" name="first_name" pattern="[A-Za-z] required>
                                                 <label class="label--desc">first name</label>
                                             </div>
                                         </div>
                                         <div class="col-2">
                                             <div class="input-group-desc">
-                                                <input class="input--style-5" type="text" name="last_name">
+                                                <input class="input--style-5" type="text" name="last_name" pattern="[A-Za-z] required>
                                                 <label class="label--desc">last name</label>
                                             </div>
                                         </div>
@@ -74,7 +74,7 @@
                                 <div class="name">Email</div>
                                 <div class="value">
                                     <div class="input-group">
-                                        <input class="input--style-5" type="email" name="email">
+                                        <input class="input--style-5" type="email" name="email" required>
                                     </div>
                                 </div>
                             </div>
@@ -92,13 +92,13 @@
                                     <div class="row row-refine">
                                         <div class="col-3">
                                             <div class="input-group-desc">
-                                                <input class="input--style-5" type="number" name="area_code">
+                                                <input class="input--style-5" type="number" name="area_code" required>
                                                 <label class="label--desc">Area Code</label>
                                             </div>
                                         </div>
                                         <div class="col-9">
                                             <div class="input-group-desc">
-                                                <input class="input--style-5" type="phone" name="phone">
+                                                <input class="input--style-5" type="phone" name="phone" required>
                                                 <label class="label--desc">Phone Number</label>
                                             </div>
                                         </div>
@@ -111,7 +111,7 @@
                                     <div class="input-group">
                                         <div class="rs-select2 js-select-simple select--no-search">
                                             <select name="location">
-                                                <option disabled="disabled" selected="selected">Choose your location</option>
+                                                <option disabled="disabled" selected="selected" required>Choose your location</option>
                                                 <option value="1">Calgary</option>
                                                 <option value="2">Lethbridge</option>
                                                 <option value="3">Edmonton</option>
@@ -125,7 +125,7 @@
                                 <div class="name">Address</div>
                                 <div class="value">
                                     <div class="input-group">
-                                        <input class="input--style-5" type="text" name="address">
+                                        <input class="input--style-5" type="text" name="address" required>
                                     </div>
                                 </div>
                             </div>
